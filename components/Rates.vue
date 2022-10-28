@@ -219,7 +219,7 @@ export default {
 }
 .amount{
     font-style: normal;
-    font-weight: 700;
+    font-weight: 710;
     font-size: 32px;
     line-height: 38px;
     color: #0C64E6;
@@ -228,6 +228,7 @@ export default {
     position: relative;
     top: -70px;
     left: -80px;
+
 }
 .calculation-head{
     padding: 4rem;
