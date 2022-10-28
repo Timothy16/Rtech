@@ -157,7 +157,7 @@ export default {
     margin-top: 5.6rem;
 }
 .img-arrow{
-    float: none;
+    float: 0;
 }
 }
 @media only screen and (min-width : 768px) and (max-width : 1024px){
