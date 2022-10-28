@@ -4,7 +4,7 @@
     <OurService />
     <HowItWorks />
     <Numbers/>
-    <!-- <WeBuy /> -->
+    <WeBuy />
     <Testimonial />
     <Footer />
   </div>

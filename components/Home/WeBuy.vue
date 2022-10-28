@@ -63,7 +63,7 @@ export default {
     color: #000000;
 }
 .section-service{
-    padding: 1rem 7rem 3rem 7rem;
+    padding: 3rem 7rem 3rem 7rem;
 }
 .section-flex{
     display: flex;
@@ -129,6 +129,31 @@ export default {
     }
     .mobile{
         display: block;
+    }
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px){
+    .section-flex-2{
+        display: none;
+    }
+    .section-flex{
+        display: none;
+    }
+    .mobile{
+        display: block;
+    }
+     .card-left{
+         margin-left: 0;
+         margin-top: .5rem;
+         width: 150px;
+         /* height: 100px; */
+    }
+    .card-left-1{
+        margin-left: 0;
+        margin-top: .5rem;
+        width: 150px;
+    }
+     .section-service{
+        padding: 1rem;
     }
 }
 </style>
