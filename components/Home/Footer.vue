@@ -69,6 +69,7 @@ export default {
 <style scoped>
 .container-width{
     padding: 2rem 7rem;
+    margin-top: 1.5rem;
 }
 .bg-footer{
     background: #000000;
@@ -149,7 +150,7 @@ export default {
 .footer-links{
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 23px;
     color: #FFFFFF;
     list-style-type: none;

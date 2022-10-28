@@ -7,24 +7,24 @@
                 <div data-aos="zoom-in" data-aos-delay="500"><img src="/images/phone_guy.png" class="img-fluid" alt="" srcset=""></div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-7">
-                <!-- <div class="text-call-section">
-                    <div class="sec-down-1" data-aos="fade-left" data-aos-delay="500">
+                <div class="text-call-section">
+                    <div class="sec-down-1" data-aos="fade-down" data-aos-delay="500">
                         <div class="header-how-it">Create Account</div>
                         <div class="text-how-it">Create an account with your valid details and add your bank account / mobile money.</div>
                     </div>
-                    <div class="sec-down" data-aos="fade-left" data-aos-delay="600">
+                    <div class="sec-down" data-aos="fade-down" data-aos-delay="600">
                         <div class="header-how-it">Begin Trade</div>
                         <div class="text-how-it">Start a trade by simply clicking on Sell Gift Card on the home page, select the gift card you want and upload it.</div>
                     </div>
-                    <div class="sec-down" data-aos="fade-left" data-aos-delay="700">
+                    <div class="sec-down" data-aos="fade-down" data-aos-delay="700">
                         <div class="header-how-it">Wait for Confirmation</div>
                         <div class="text-how-it">Wait for your transaction to be processed, this usually takes less than 5 minutes. Once your card has been redeemed, your wallet will be credited immediately.</div>
                     </div>
-                    <div class="sec-down" data-aos="fade-left" data-aos-delay="800">
+                    <div class="sec-down" data-aos="fade-down" data-aos-delay="800">
                         <div class="header-how-it">Withdraw Funds</div>
                         <div class="text-how-it">You can withdraw your funds at anytime you want no hassle. Pretty easy right? Now sign up and begin trading like a boss 😎</div>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </div>

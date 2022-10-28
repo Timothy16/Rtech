@@ -3,7 +3,7 @@
     <div class="big-bg-bg"> <div class="header-service">Reviews & Testimonials</div></div>
     <div class="section-service">
         <div class="card-section">
-            <div class="row" data-aos="zoom-in" data-aos-delay="500">
+            <div class="row">
                 <div class="col-sm-12 col-lg-4 col-md-12">
                     <div class="col-style">
                         <div class="card-header-1">“One of the best bitcoin buyers out there, in my opinion. 

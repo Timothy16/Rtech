@@ -17,7 +17,7 @@
                     <div class="card-text-1">Every customer is treated like a King. We boast of 1200 + reviews from our loyal customers.</div>
                 </div>
             </div>
-            <div class="col-sm-12 col-lg-4 col-md-12" data-aos="fade-down-left" data-aos-delay="700">
+            <div class="col-sm-12 col-lg-4 col-md-12" data-aos="fade-up-right" data-aos-delay="700">
                 <div class="col-style last-card">
                     <div><img src="/images/bitcoin_convert.png" class="img-fluid" alt=""></div>
                     <div class="card-header-1">World Class Customer Experience</div>
