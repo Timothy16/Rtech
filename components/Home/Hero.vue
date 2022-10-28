@@ -13,7 +13,7 @@
         </div>
         <div class="col-sm-12 col-lg-6 col-md-12">
             <div class="hero-text-section" data-aos="fade-up" data-aos-duration="3000">
-                <div class="img-arrow"><img src="/images/hero_arrow_1.png" alt=""  srcset=""></div>
+                <div class="img-arrow"><img src="/images/hero_arrow_1.png" alt="" width="300px" srcset=""></div>
                 <div class="inner-header">Got <br> CryptoCurrency <br> & GiftCards ?</div>
                 <p class="inner-text" data-aos="fade-up" data-aos-duration="3000">Trading your giftcards & bitcoin for cash has never been easy? 
                         Rtech has got you covered!Trade securely with no worries or delay Receive alert of your trades in less than 2 mins.
@@ -157,7 +157,7 @@ export default {
     margin-top: 5.6rem;
 }
 .img-arrow{
-    float: 0;
+    float: none;
 }
 }
 @media only screen and (min-width : 768px) and (max-width : 1024px){

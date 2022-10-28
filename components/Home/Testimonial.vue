@@ -59,13 +59,13 @@ export default {
     box-shadow: 2.5px 5px 10px rgba(12, 100, 230, 0.25);
     border-radius: 30px;
     /* width: 480px; */
-    height: 375px;
+    /* height: 375px; */
     padding: 2rem;
 }
 .card-header-1{
     font-style: normal;
     /* font-weight: 00; */
-    font-size: 20px;
+    font-size: 16px;
     line-height: 23px;
     color: #FFFFFF;
     margin-top: 1rem;
@@ -94,6 +94,7 @@ export default {
     .header-service{
         font-size: 20px;
         line-height: 0;
+        margin-top: 2rem;
     }
     .big-bg-bg{
         background: url("/images/reviews_bg.png");
