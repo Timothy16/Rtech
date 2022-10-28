@@ -219,7 +219,7 @@ export default {
 }
 .amount{
     font-style: normal;
-    font-weight: 710;
+    font-weight: 700;
     font-size: 32px;
     line-height: 38px;
     color: #0C64E6;
