@@ -2,7 +2,7 @@
   <div class=" fixed-top">
     <nav class="navbar navbar-expand-lg bg-white container-width container-fluid">
       <div class="container-fluid ">
-        <a class="navbar-brand" href="#"><img src="/images/logo_one.png" alt="" srcset=""></a>
+        <nuxt-link class="navbar-brand" to="/" style="border-bottom : none"><img src="/images/logo_one.png" alt="" srcset=""></nuxt-link>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

@@ -4,10 +4,10 @@
     <div class="card-section">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-5">
-                <div data-aos="zoom-in" data-aos-delay="500"><img src="/images/phone_guy.png" class="img-fluid" alt="" srcset=""></div>
+                <div class="card-img-c" data-aos="zoom-in" data-aos-delay="500"><img src="/images/phone_guy.png" class="img-fluid" alt="" srcset=""></div>
             </div>
             <div class="col-sm-12 col-md-12 col-lg-7">
-                <div class="text-call-section">
+                <div class="text-call-section card-img-c">
                     <div class="sec-down-1" data-aos="fade-down" data-aos-delay="500">
                         <div class="header-how-it">Create Account</div>
                         <div class="text-how-it">Create an account with your valid details and add your bank account / mobile money.</div>
@@ -151,6 +151,15 @@ export default {
 @media only screen and (min-width : 768px) and (max-width : 1024px){
      .card-section{
         padding: 1rem;
+    }
+    .section-service{
+        padding: 1rem;
+    }
+    .card-img-c{
+        text-align: center;
+    }
+    .text-how-it{
+        text-align: center;
     }
 }
 </style>

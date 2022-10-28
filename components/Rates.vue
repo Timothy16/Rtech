@@ -28,7 +28,7 @@
 
                             <input class="form-control form-control-lg mt-5" type="text" placeholder="Card Amount" aria-label=".form-control-lg example">
 
-                            <button class="btn-trade-now">Trade Now</button>
+                            <button class="btn-trade-now">Check Rate</button>
 
                         </form>
                     </div>
@@ -44,7 +44,7 @@
 
                             <input class="form-control form-control-lg mt-5" type="text" placeholder="usd" aria-label=".form-control-lg example">
 
-                            <button class="btn-trade-now">Trade Now</button>
+                            <button class="btn-trade-now">Check Rate</button>
 
                         </form>
                     </div>
@@ -166,7 +166,7 @@ export default {
     border-radius: 5px;
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    /* font-size: 24px; */
     line-height: 28px;
     color: #FFFFFF !important;
 }
@@ -181,7 +181,7 @@ export default {
     border-radius: 5px;
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    /* font-size: 24px; */
     line-height: 28px;
     color: #0C64E6;
 }
@@ -236,14 +236,28 @@ export default {
 }
 @media screen and (max-width : 578px){
  .container-width{
-    padding: 1rem;
+    padding: .1rem;
     margin-top: 7rem;
+}
+.form-data{
+    padding: 1rem .5rem;
+}
+.calculation-head{
+    padding: 1rem 4rem;
+    margin-top: .1rem;
 }
 }
 @media only screen and (min-width : 768px) and (max-width : 1024px){
     .container-width{
     padding: 1rem;
     margin-top: 7rem;
+}
+.form-data{
+    padding: 1rem .5rem;
+}
+.calculation-head{
+    padding: 1rem 4rem;
+    margin-top: .1rem;
 }
 
 }

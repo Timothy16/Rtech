@@ -21,7 +21,7 @@
                 <p><img src="/images/clock.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; Sunday - 10:00 am to 5:00 pm</p>
             </div>
         </div>
-        <div class="text-right mt-1"><img src="/images/about-frame.png" class="img-fluid" alt="" srcset=""></div>
+        <div class="text-right mt-1 mb-3"><img src="/images/about-frame.png" class="img-fluid" alt="" srcset=""></div>
     </div>
   </div>
 </template>
@@ -67,7 +67,7 @@ export default {
 @media screen and (max-width : 578px){
     .container-width{
         padding: 1rem;
-        margin-top: 4rem;
+        margin-top: 7rem;
     }
 .about-us-logo{
     font-style: normal;
@@ -75,12 +75,15 @@ export default {
     font-size: 14px;
     /* line-height: 47px; */
     color: #000000;
-    padding: 1.7rem 1rem;
+    padding: 3rem 2rem;
+    /* margin: 10px; */
+    display: flex;
+    align-items: center;
 }
 .round-box{
     background: #85B1F3;
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
 }
 .text-container{
