@@ -12,10 +12,10 @@
             </div>
         </div>
         <div class="col-sm-12 col-lg-6 col-md-12">
-            <div class="hero-text-section">
+            <div class="hero-text-section" data-aos="fade-up" data-aos-duration="3000">
                 <div class="img-arrow"><img src="/images/hero_arrow_1.png" alt=""  srcset=""></div>
                 <div class="inner-header">Got <br> CryptoCurrency <br> & GiftCards ?</div>
-                <p class="inner-text">Trading your giftcards & bitcoin for cash has never been easy? 
+                <p class="inner-text" data-aos="fade-up" data-aos-duration="3000">Trading your giftcards & bitcoin for cash has never been easy? 
                         Rtech has got you covered!Trade securely with no worries or delay Receive alert of your trades in less than 2 mins.
                 </p>
                 <div class="d-flex justify-content-center">
@@ -61,9 +61,9 @@ export default {
 }
 .inner-text{
     font-style: normal;
-    font-weight: 500;
+    /* font-weight: 400; */
     font-size: 24px;
-    line-height: 25px;
+    /* line-height: 30px; */
     /* width: 90%; */
     color: #000;
     margin-top: 1.8rem;
@@ -86,7 +86,7 @@ export default {
     margin-top: 2rem;
 }
 .mini-box{
-    width: 60%;
+    width: 50%;
     margin: auto;
     padding: 1rem;
     background: #FFFFFF;
@@ -95,7 +95,7 @@ export default {
     text-align: center;
     position: relative;
     top: -50px;
-    left: 50px;
+    /* left: 50px; */
 }
 .num-text-1{
     font-style: normal;

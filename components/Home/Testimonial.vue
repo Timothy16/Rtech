@@ -3,7 +3,7 @@
     <div class="big-bg-bg"> <div class="header-service">Reviews & Testimonials</div></div>
     <div class="section-service">
         <div class="card-section">
-            <div class="row">
+            <div class="row" data-aos="zoom-in" data-aos-delay="500">
                 <div class="col-sm-12 col-lg-4 col-md-12">
                     <div class="col-style">
                         <div class="card-header-1">“One of the best bitcoin buyers out there, in my opinion. 
@@ -64,7 +64,7 @@ export default {
 }
 .card-header-1{
     font-style: normal;
-    font-weight: 600;
+    /* font-weight: 00; */
     font-size: 20px;
     line-height: 23px;
     color: #FFFFFF;
@@ -88,7 +88,7 @@ export default {
 .big-bg-bg{
     background: url("/images/reviews_bg.png");
     height: 110px;
-    margin-top: 7rem;
+    margin-top: 4rem;
 }
 @media screen and (max-width : 578px){
     .header-service{

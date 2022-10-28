@@ -1,7 +1,7 @@
 <template>
   <div class="bg-footer container-fluid">
         <footer class="">
-            <div class="news-letter bg-footer-1">
+            <div class="news-letter container bg-footer-1">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-4">
                         <div class="letter-new">Subscribe Newsletter</div>
@@ -79,7 +79,7 @@ export default {
     background: #0C64E6;
     border-radius: 30px;
     padding: 3rem 2rem;
-    margin: 3rem 15rem;
+    /* margin: 3rem 15rem; */
 }
 .letter-new{
     font-style: normal;
@@ -162,7 +162,7 @@ ul li{
 @media screen and (max-width : 578px){
     .news-letter{
         padding: 1rem;
-        margin: 1rem;
+        /* margin: 1rem; */
     }
     .btn-subscribe{ 
         width: 100%;

@@ -108,7 +108,7 @@ a.nav-link:hover{
   border-bottom: 3px solid #F9DF4C;
 }
 a.nuxt-link-active {
-  color: red;
+  /* color: red; */
 }
 a.nuxt-link-exact-active {
   color: #0C64E6;

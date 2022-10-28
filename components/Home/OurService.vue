@@ -1,23 +1,23 @@
 <template>
   <div class="section-service container-fluid">
-    <div class="header-service">Our Service</div>
+    <div class="header-service" data-aos="fade-up">Our Service</div>
     <div class="card-section">
         <div class="row">
             <div class="col-sm-12 col-lg-4 col-md-12">
-                <div class="col-style">
+                <div class="col-style" data-aos="fade-up-right" data-aos-delay="500">
                     <div><img src="/images/security_user.png" class="img-fluid" alt=""></div>
                     <div class="card-header-1">Safe & secured transactions guaranteed</div>
                     <div class="card-text-1">Trusted by thousands nationwide for its secured platform, we are confident to say that your assets are in the right hands.</div>
                 </div>
-            </div>
+            </div> 
             <div class="col-sm-12 col-lg-4 col-md-12">
-                <div class="col-style middle-card">
+                <div class="col-style middle-card" data-aos="fade-down-right" data-aos-delay="600">
                     <div><img src="/images/trade.png" class="img-fluid" alt=""></div>
                     <div class="card-header-1">Trade, Relax and get paid instantly.</div>
                     <div class="card-text-1">Every customer is treated like a King. We boast of 1200 + reviews from our loyal customers.</div>
                 </div>
             </div>
-            <div class="col-sm-12 col-lg-4 col-md-12">
+            <div class="col-sm-12 col-lg-4 col-md-12" data-aos="fade-down-left" data-aos-delay="700">
                 <div class="col-style last-card">
                     <div><img src="/images/bitcoin_convert.png" class="img-fluid" alt=""></div>
                     <div class="card-header-1">World Class Customer Experience</div>

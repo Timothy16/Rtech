@@ -1,6 +1,6 @@
 <template>
   <div class="section-service container-fluid">
-    <div class="section-flex text-desktop">
+    <!-- <div class="section-flex text-desktop">
         <div>
             <div class="text-center"><span class="number-text-1">165 +</span> <br> <span class="number-text-2">Support Given</span></div>
         </div>
@@ -13,18 +13,18 @@
         <div>
             <div class="text-center"><span class="number-text-1">4.7</span> <br> <span class="number-text-2">Average Rating</span></div>
         </div>
-    </div>
-    <div class="row text-mobile">
-        <div class="col-6 mb-2">
+    </div> -->
+    <div class="row ">
+        <div class="col-6 col-lg-3 mb-2">
             <div class="text-center"><span class="number-text-1">165 +</span> <br> <span class="number-text-2">Support Given</span></div>
         </div>
-        <div class="col-6 mb-2">
+        <div class="col-6 col-lg-3 mb-2">
             <div class="text-center"><span class="number-text-1">254 +</span> <br> <span class="number-text-2">Happy Client</span></div>
         </div>
-        <div class="col-6">
+        <div class="col-6 col-lg-3">
             <div class="text-center"><span class="number-text-1">2000 +</span> <br> <span class="number-text-2">Successful Deals</span></div>
         </div>
-        <div class="col-6">
+        <div class="col-6 col-lg-3">
             <div class="text-center"><span class="number-text-1">4.7</span> <br> <span class="number-text-2">Average Rating</span></div>
         </div>
     </div>
@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .section-service{
-    padding: 1rem 6rem;
+    /* padding: 1rem 6rem; */
 }
 .section-flex{
     display: flex;
@@ -48,7 +48,7 @@ export default {
 }
 .number-text-1{
     font-style: normal;
-    font-weight: 800;
+    font-weight: 600;
     font-size: 28px;
     line-height: 33px;
     text-align: center;
@@ -56,7 +56,7 @@ export default {
 }
 .number-text-2{
     font-style: normal;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 14px;
     line-height: 33px;
     text-align: center;
