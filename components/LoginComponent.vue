@@ -46,7 +46,7 @@
                             
                         </div>
                         
-                        <button class="btn-login">LOG IN</button>
+                        <button class="btn-login" @click="loginIn">LOG IN</button>
                     </div>
 
                     <p class="text-center new-account">Don’t have an account? <nuxt-link to="/signin"><span class="new-acc">Create an account</span></nuxt-link> </p>
@@ -61,7 +61,11 @@
 
 <script>
 export default {
-  
+     methods : {
+        loginIn(){
+            this.$router.push("/dashboard")
+        },
+  }
 }
 </script>
 <style scoped>

@@ -1,0 +1,64 @@
+<template>
+    <div class="container-fluid mb-5">
+       <div class="form-card shadow">
+            <form action="">
+                <select class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
+                    <option selected>Select Your Card</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                            
+
+                <input class="form-control form-control-lg mb-4" type="text" placeholder="Card Amount" aria-label=".form-control-lg example">
+
+                <input class="form-control form-control-lg mb-4" type="text" placeholder="Note! If you are trading an ecode, please enter the code here. " aria-label=".form-control-lg example">
+
+                <input class="form-control form-control-lg mb-4" type="text" placeholder="Choose Photo(s) to upload " aria-label=".form-control-lg example">
+
+                <!-- <button class="btn-trade-now">Check Rate</button> -->
+                <h6><strong>Rate</strong> : 420</h6>
+
+                <h5><strong>Total Payout</strong>: N 400, 000</h5>
+
+                <div class="btn-sellgiftcards btn">Sell Giftcard</div>
+
+            </form>
+       </div>
+  </div>
+</template>
+
+<script>
+export default {
+    layout : "dashboard-layout",
+}
+</script>
+
+<style scoped>
+.form-control{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px;
+    background: rgba(12, 100, 230, 0.06);
+    border: 1px solid rgba(12, 100, 230, 0.7);
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+.form-card{
+    padding: 1.5rem;
+    width: 80%;
+    /* margin: auto; */
+     border-radius: 30px;
+}
+.btn-sellgiftcards{
+    background: #0C64E6;
+    border-radius: 5px;
+    color: #fff;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+}
+</style>
