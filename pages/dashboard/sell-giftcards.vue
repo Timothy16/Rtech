@@ -1,8 +1,8 @@
 <template>
     <div class="container-fluid mb-5">
        <div class="form-card shadow">
-        <!-- <h5>Sell Giftcards</h5> -->
-            <form action="">
+        <div class="header-info">Sell Giftcard</div>
+            <form action="" class="">
                 <select class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
                     <option selected>Select Your Card</option>
                     <option value="1">One</option>
@@ -55,6 +55,14 @@ export default {
 </script>
 
 <style scoped>
+.header-info{
+    font-style: normal;
+    font-weight: 550;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    margin-bottom: 2rem;
+}
 .form-control{
     box-sizing: border-box;
     width: 100%;
@@ -80,5 +88,22 @@ export default {
     padding: 1rem;
     font-size: 20px;
     font-weight: 600;
+}
+
+@media screen and (max-width : 578px){
+    .form-card{
+        width: 100%;
+    }
+    .form-control{
+        height: 60px;
+    }
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px){
+    .form-card{
+        width: 100%;
+    }
+    .form-control{
+        height: 60px;
+    }
 }
 </style>

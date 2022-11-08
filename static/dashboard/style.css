@@ -15,6 +15,7 @@
   box-shadow: 1px 0px 0px rgba(12, 100, 230, 0.1);
   transition: all 0.5s ease;
   padding: .1rem 1rem;
+  z-index: 9001;
 }
 .sidebar.active{
   width: 60px;
@@ -27,7 +28,8 @@
 .sidebar .logo-details i{
   font-size: 28px;
   font-weight: 500;
-  color: #fff;
+  /* color: #fff; */
+  color: rgba(0, 0, 0, 0.4);
   min-width: 60px;
   text-align: center
 }
@@ -281,7 +283,8 @@ nav .profile-details i{
 
 /* left box */
 .home-content .sales-boxes .recent-sales{
-  width: 65%;
+  /* width: 65%; */
+  width: 100%;
   background: #fff;
   padding: 20px 30px;
   margin: 0 20px;
@@ -368,7 +371,7 @@ nav .profile-details i{
 /* Responsive Media Query */
 @media (max-width: 1240px) {
   .sidebar{
-    width: 60px;
+    /* width: 60px; */
   }
   .sidebar.active{
     width: 220px;
@@ -435,7 +438,7 @@ nav .profile-details i{
 }
 @media (max-width: 400px) {
   .sidebar{
-    width: 0;
+    /* width: 0; */
   }
   .sidebar.active{
     width: 60px;

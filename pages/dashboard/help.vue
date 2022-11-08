@@ -77,6 +77,21 @@ h5{
     font-size: 40px;
     line-height: 47px;
     color: #000000;
-
+}
+@media screen and (max-width : 578px){
+    .form-card{
+        width: 100%;
+    }
+    .form-control{
+        height: 60px;
+    }
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px){
+    .form-card{
+        width: 100%;
+    }
+    .form-control{
+        height: 60px;
+    }
 }
 </style>

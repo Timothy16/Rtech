@@ -1,48 +1,48 @@
 <template>
-  <div class="">
+  <div class="" v-if="isOpen">
     <div class="sidebar">
     <div class="logo-details">
       <span class="logo_name"><img src="/images/logo_one.png" alt="" srcset=""></span>
-       <!-- <i class='bx bx-window-close display-v'></i> -->
+       <i class='bx bx-window-close display-v' @click="closeTab"></i>
     </div>
       <ul class="nav-links">
-        <li>
-          <nuxt-link to="/dashboard" class="" :class="{'active-h' : checkUrl == '/dashboard'}">
+        <li @click="closeTab">
+          <nuxt-link to="/dashboard" class=""  :class="{'active-h' : checkUrl == '/dashboard'}">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Overview</span>
           </nuxt-link>
         </li>
-        <li>
+        <li @click="closeTab">
           <nuxt-link to="/dashboard/sell-giftcards" :class="{'active-h' : checkUrl == '/dashboard/sell-giftcards'}">
             <i class='bx bx-box' ></i>
             <span class="links_name">Sell Giftcards</span>
           </nuxt-link>
         </li>
-        <li>
+        <li @click="closeTab">
            <nuxt-link to="/dashboard/sell-crypto" :class="{'active-h' : checkUrl == '/dashboard/sell-crypto'}">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Sell Crypto</span>
            </nuxt-link>
         </li>
-        <li>
+        <li @click="closeTab">
           <nuxt-link to="/dashboard/bank-details" :class="{'active-h' : checkUrl == '/dashboard/bank-details'}">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">Bank Details</span>
           </nuxt-link>
         </li>
-        <li>
+        <li @click="closeTab">
            <nuxt-link to="/dashboard/transaction-history" :class="{'active-h' : checkUrl == '/dashboard/transaction-history'}">
             <i class='bx bx-coin-stack' ></i>
             <span class="links_name">Transactions</span>
            </nuxt-link>
         </li>
-        <li>
+        <li @click="closeTab">
           <nuxt-link to="/dashboard/profile" :class="{'active-h' : checkUrl == '/dashboard/profile'}">
             <i class='bx bx-user' ></i>
             <span class="links_name">Profile</span>
           </nuxt-link>
         </li>
-        <li>
+        <li @click="closeTab">
           <nuxt-link to="/dashboard/help" :class="{'active-h' : checkUrl == '/dashboard/help'}">
             <i class='bx bx-book-alt' ></i>
             <span class="links_name">Help</span>
@@ -84,6 +84,22 @@ export default {
       return this.$route.path
     }
   },
+  data(){
+        return{
+            isOpen : false
+        }
+    },
+
+    methods : {
+        closeTab(){
+            this.isOpen = false
+        }
+    },
+    mounted(){
+        this.$root.$on("command", () => {
+            this.isOpen = true  
+        })
+     }
 }
 </script>
 
@@ -100,7 +116,7 @@ a.nuxt-link-exact-active {
 ul{
   padding-left: 0;
 }
-.display-v{
+/* .display-v{
     display: none;
   }
 @media screen and (max-width : 578px){
@@ -108,9 +124,9 @@ ul{
     display: block;
   }
 }
-@media only screen and (min-width : 768px) and (max-width : 1240px){
+@media only screen and (min-width : 768px) and (max-width : 1024px){
   .display-v{
     display: block;
   }
-}
+} */
 </style>

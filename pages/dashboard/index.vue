@@ -2,26 +2,30 @@
   <div>
     <div class="container-fluid mb-5">
        <div class="row">
-        <div class="col-lg-3 col-sm-12 col-md-6">
-          <div class="box-giftcard">
-            <img src="/images/moneys.png" class="img-fluid" alt="" srcset="">
-            <div class="text-giftcard">Sell Giftcard</div>
-          </div>
+        <div class="col-lg-3 col-sm-12 col-md-6 mb-3">
+          <nuxt-link to="/dashboard/sell-giftcards">
+            <div class="box-giftcard">
+                <img src="/images/moneys.png" class="img-fluid" alt="" srcset="">
+                <div class="text-giftcard">Sell Giftcard</div>
+            </div>
+          </nuxt-link>
         </div>
-        <div class="col-lg-3 col-sm-12 col-md-6">
+        <div class="col-lg-3 col-sm-12 col-md-6 mb-3">
+          <nuxt-link to="/dashboard/sell-crypto">
             <div class="box-giftcard-1">
               <img src="/images/dollar-circle.png" class="img-fluid" alt="" srcset="">
               <div class="text-giftcard-1">Sell Cryptocurrency</div>
             </div>
+            </nuxt-link>
         </div>
-        <div class="col-lg-6 col-sm-12 col-md-12">
-
+        <div class="col-lg-6 col-sm-12 col-md-12 mb-3">
+          <DashboardRate />
         </div>
        </div>
       </div>
 
       <div class="sales-boxes mb-4">
-        <div class="recent-sales box">
+        <div class="recent-sales shadow mb-3">
           <div class="title">Recent Transaction</div>
           <table class="table  text-center table-responsive-lg table-lg">
             <thead>
@@ -58,11 +62,11 @@
               
             </tbody>
           </table>
-          <div class="button">
+          <div class="btn btn-primary">
             <nuxt-link to="/dashboard/transaction-history">See All</nuxt-link>
           </div>
         </div>
-        <div class="top-sales box">
+        <!-- <div class="top-sales shadow">
           <div class="title">Top Seling Giftcards</div>
           <ul class="top-sales-details">
             <li>
@@ -101,7 +105,7 @@
             <span class="price">$1456</span>
           </li>
           </ul>
-        </div>
+        </div> -->
       </div>
   </div>
 </template>
@@ -139,6 +143,10 @@ export default {
   border-radius: 10px;
   padding: 1rem;
 }
+a{
+  color: #fff;
+  text-decoration: none;
+}
 .text-giftcard{
   font-style: normal;
   font-weight: 600;
@@ -163,4 +171,37 @@ export default {
  color: #FFA346;
   padding-top: 20rem;
 }
+
+@media screen and (max-width : 578px){
+.recent-sales{
+  width: auto !important;
+}
+.top-sales{
+  width: auto !important;
+  margin: 0 20px !important;
+}
+.text-giftcard{
+  padding-top: 2rem;
+}
+.box-giftcard-1{
+  /* width: 290px; */
+  height: 200px;
+}
+.text-giftcard-1{
+  padding-top: 2rem;
+}
+.box-giftcard{
+  /* width: 290px; */
+  height: 200px;
+}
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px){
+  .recent-sales{
+  width: auto !important;
+}
+.top-sales{
+  width: auto !important;
+  margin: 0 20px !important;
+}
+} 
 </style>

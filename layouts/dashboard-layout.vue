@@ -1,6 +1,7 @@
 <template>
     <div>
-        <SideMenu/>
+        <SideMenu class="desktop-v"/>
+        <SideMenuMobile class="mobile-v"/>
         <section class="home-section">
             <TopMenuDash />
             <div class="home-content">
@@ -15,6 +16,7 @@
 <script >
 
 import SideMenu from "./partials/SideMenu.vue";
+import SideMenuMobile from "./partials/SideMenuMobile.vue";
 import TopMenuDash from "./partials/TopMenuDash.vue";
 export default {
     head() {
@@ -43,8 +45,9 @@ export default {
         };
     },
     components: {
-        SideMenu, TopMenuDash
+        SideMenu, TopMenuDash, SideMenuMobile
     },
+    
 
 };
 </script>

@@ -35,6 +35,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: 'plugins/aos.js', ssr: false },
+    { src: 'plugins/maz.js', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,5 +53,13 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: {
+      compact: true,
+      plugins: [
+        [
+          'component', { libraryName: 'maz-ui', styleLibraryName: 'css', },
+        ],
+      ]
+    }
   }
 }

@@ -1,8 +1,9 @@
 <template>
     <div class="container-fluid mb-5">
        <div class="form-card shadow">
+        <div class="header-info">Bank Details</div>
         <div class="row">
-            <div class="col-sm-12 col-lg-6 col-md-12">
+            <div class="col-sm-12 col-lg-6 col-md-12 mb-2">
                 <div class="div-add-bank">
                     <div class="plus"><i class="fa fa-plus"></i></div>
                     <div class="class-add mt-1">Add New Account Number</div>
@@ -49,6 +50,14 @@ export default {
 </script>
 
 <style scoped>
+.header-info{
+    font-style: normal;
+    font-weight: 550;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    margin-bottom: 2rem;
+}
 .spac-action{
     padding: 1rem;
     margin-top: 2rem;
@@ -120,5 +129,49 @@ export default {
 }
 .text-d-c{
     padding-top: 12rem;
+}
+@media screen and (max-width : 578px){
+    .form-card{
+        width: 100%;
+    }
+    .form-control{
+        height: 60px;
+    }
+    .card-style{
+        width: auto;
+        height: 230px;
+    }
+    .account-number{
+        letter-spacing: 1px;
+        font-size: 14px;
+    }
+    .text-d-c{
+        padding-top: 2rem;
+    }
+    .account-name{
+        font-size: 20px;
+    }
+    .spac-action{
+        padding: 1rem;
+        margin-top: .2rem;
+    }
+    .div-add-bank{
+        padding: 2rem;
+    }
+}
+@media only screen and (min-width : 768px) and (max-width : 1024px){
+    .form-card{
+        width: 100%;
+    }
+    .form-control{
+        height: 60px;
+    }
+    .card-style{
+        width: 100%;   
+    }
+     .text-d-c{
+        padding-top: 7rem;
+    }
+    
 }
 </style>

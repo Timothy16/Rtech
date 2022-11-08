@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid mb-5">
        <div class="form-card shadow">
-        <h5>Transaction History</h5>
+        <div class="header-info">Transaction History</div>
             <table class="table  text-center table-responsive-lg table-lg">
             <thead>
               <tr>
@@ -109,6 +109,14 @@ export default {
 </script>
 
 <style scoped>
+.header-info{
+    font-style: normal;
+    font-weight: 550;
+    font-size: 24px;
+    line-height: 28px;
+    color: #000000;
+    margin-bottom: 2rem;
+}
 .form-control{
     box-sizing: border-box;
     width: 100%;
