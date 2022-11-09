@@ -12,6 +12,11 @@ export default {
   components: { ContactUs, Footer },
   name: 'IndexPage',
   layout : "landing-page",
+  head() {
+        return {
+            title: "Contact Us / Rtechbiz",
+        };
+    },
 }
 </script>
 <style scoped>

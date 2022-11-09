@@ -22,6 +22,11 @@ export default {
   components: { Hero, OurService, HowItWorks, Numbers, WeBuy, Testimonial, Footer },
   name: 'IndexPage',
   layout : "landing-page",
+  head() {
+        return {
+            title: "Home / Rtechbiz",
+        };
+    },
 }
 </script>
 <style scoped>

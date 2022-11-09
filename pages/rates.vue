@@ -12,6 +12,11 @@ export default {
   components: { Rates, Footer },
   name: 'IndexPage',
   layout : "landing-page",
+  head() {
+        return {
+            title: "Rate / Rtechbiz",
+        };
+    },
 }
 </script>
 <style scoped>

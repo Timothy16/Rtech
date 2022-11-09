@@ -13,7 +13,7 @@
 
                 <input class="form-control form-control-lg mb-4" type="text" placeholder="Card Amount" aria-label=".form-control-lg example">
 
-                <input class="form-control form-control-lg mb-4" type="text" placeholder="Note! If you are trading an ecode, please enter the code here. " aria-label=".form-control-lg example">
+                <input class="form-control form-control-lg mb-4" type="text" placeholder="Rtech Cryto wallet address goes here" aria-label=".form-control-lg example">
 
                 <input class="form-control form-control-lg mb-4" type="text" placeholder="Choose Photo(s) to upload " aria-label=".form-control-lg example">
 
@@ -22,7 +22,7 @@
 
                 <h5><strong>Total Payout</strong>: N 400, 000</h5>
 
-                <div class="btn-sellgiftcards btn">Sell Giftcard</div>
+                <!-- <div class="btn-sellgiftcards btn">Sell Giftcard</div> -->
 
             </form>
        </div>
@@ -32,6 +32,11 @@
 <script>
 export default {
     layout : "dashboard-layout",
+    head() {
+        return {
+            title: "Sell Crypto / Rtechbiz",
+        };
+    },
 }
 </script>
 
@@ -76,7 +81,9 @@ export default {
     }
     .form-control{
         height: 60px;
+         font-size: 10px;
     }
+   
 }
 @media only screen and (min-width : 768px) and (max-width : 1024px){
     .form-card{

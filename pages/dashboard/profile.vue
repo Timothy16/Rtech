@@ -46,6 +46,11 @@
 <script>
 export default {
     layout : "dashboard-layout",
+    head() {
+        return {
+            title: "Profile / Rtechbiz",
+        };
+    },
 }
 </script>
 

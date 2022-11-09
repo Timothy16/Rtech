@@ -46,6 +46,11 @@
 <script>
 export default {
     layout : "dashboard-layout",
+    head() {
+        return {
+            title: "Bank Details / Rtechbiz",
+        };
+    },
 }
 </script>
 
@@ -136,6 +141,7 @@ export default {
     }
     .form-control{
         height: 60px;
+        font-size: 10px;
     }
     .card-style{
         width: auto;

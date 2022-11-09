@@ -60,7 +60,7 @@
             <span class="links_name">Favrorites</span>
           </a>
         </li> -->
-        <li>
+        <li @click="closeTab">
           <nuxt-link to="/dashboard/setting" :class="{'active-h' : checkUrl == '/dashboard/setting'}">
             <i class='bx bx-cog' ></i>
             <span class="links_name">Setting</span>
@@ -105,13 +105,13 @@ export default {
 
 <style  scoped>
 a.nuxt-link-exact-active {
-  color: #fff !important;
+  /* color: #fff !important; */
 }
 .active-h{
   /* background: #081D45; */
-  background: #0C64E6;
+  background: #fff;
   border-radius: 10px;
-  color: #fff !important;
+  color: #0C64E6 !important;
 }
 ul{
   padding-left: 0;

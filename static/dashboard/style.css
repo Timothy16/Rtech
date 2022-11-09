@@ -10,8 +10,8 @@
   position: fixed;
   height: 100%;
   width: 240px;
-  /* background: #0A2558; */
-  background: #FFFFFF;
+  background: #0C64E6;
+  /* background: #FFFFFF; */
   box-shadow: 1px 0px 0px rgba(12, 100, 230, 0.1);
   transition: all 0.5s ease;
   padding: .1rem 1rem;
@@ -28,8 +28,8 @@
 .sidebar .logo-details i{
   font-size: 28px;
   font-weight: 500;
-  /* color: #fff; */
-  color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  /* color: rgba(0, 0, 0, 0.4); */
   min-width: 60px;
   text-align: center
 }
@@ -62,9 +62,9 @@
 }
 .sidebar .nav-links li a:hover{
   /* background: #081D45; */
-  background: #0C64E6;
-  color: #fff !important;
-  border-radius: 10px;
+  background: #fff;
+  color: #0C64E6 !important;
+  border-radius: 5px;
 }
 .sidebar .nav-links li i{
   min-width: 60px;
@@ -81,8 +81,8 @@
   white-space: nowrap;
 }
 .sidebar .nav-links li a{
-  /* color: #fff; */
-  color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  /* color: rgba(0, 0, 0, 0.4); */
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;

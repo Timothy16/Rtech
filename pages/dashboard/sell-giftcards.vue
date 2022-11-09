@@ -51,6 +51,11 @@
 <script>
 export default {
     layout : "dashboard-layout",
+    head() {
+        return {
+            title: "Sell Giftcards / Rtechbiz",
+        };
+    },
 }
 </script>
 
@@ -96,6 +101,7 @@ export default {
     }
     .form-control{
         height: 60px;
+        font-size: 10px;
     }
 }
 @media only screen and (min-width : 768px) and (max-width : 1024px){
