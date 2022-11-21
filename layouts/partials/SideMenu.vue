@@ -2,7 +2,7 @@
   <div class="">
     <div class="sidebar">
     <div class="logo-details">
-      <span class="logo_name"><img src="/images/logo_one.png" alt="" srcset=""></span>
+      <span class="logo_name"><img src="/images/logo_admin.png" alt="" srcset=""></span>
        <!-- <i class='bx bx-window-close display-v'></i> -->
     </div>
       <ul class="nav-links">

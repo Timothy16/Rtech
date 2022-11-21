@@ -19,7 +19,9 @@
                         Rtech has got you covered!Trade securely with no worries or delay Receive alert of your trades in less than 2 mins.
                 </p>
                 <div class="d-flex justify-content-center">
-                    <div class="btn-check-rates">Check Rates</div>
+                    <nuxt-link to="/rates">
+                        <div class="btn-check-rates">Check Rates</div>
+                     </nuxt-link>
                 </div>
                 <div class="img-arrow-1"><img src="/images/hero_arrow_2.png" width="300px" alt="" srcset=""></div>
             </div>
@@ -58,6 +60,9 @@ export default {
     line-height: 80px;
     color: #000;
     padding-top: 4rem;
+}
+a{
+    text-decoration: none;
 }
 .inner-text{
     font-style: normal;

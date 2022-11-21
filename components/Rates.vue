@@ -28,7 +28,7 @@
 
                             <input class="form-control form-control-lg mt-5" type="text" placeholder="Card Amount" aria-label=".form-control-lg example">
 
-                            <button class="btn-trade-now">Check Rate</button>
+                            <!-- <button class="btn-trade-now">Check Rate</button> -->
 
                         </form>
                     </div>
@@ -44,7 +44,7 @@
 
                             <input class="form-control form-control-lg mt-5" type="text" placeholder="usd" aria-label=".form-control-lg example">
 
-                            <button class="btn-trade-now">Check Rate</button>
+                            <!-- <button class="btn-trade-now">Check Rate</button> -->
 
                         </form>
                     </div>
@@ -88,7 +88,7 @@ export default {
 
 <style scoped>
 .container-width{
-    padding: 1rem 6rem;
+    padding: 4rem 6rem;
     margin-top: 7rem;
 }
 .btn-trade-now{
@@ -199,7 +199,7 @@ export default {
     text-align: center;
 }
 .form-bg{
-    padding: 24px 0px 0px;
+    padding: 24px 0px 24px 0px;
     background: #FFFFFF;
     box-shadow: 0px 2px 8px rgba(12, 100, 230, 0.25);
 }
