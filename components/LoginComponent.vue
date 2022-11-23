@@ -50,7 +50,9 @@
                     </div>
 
                     <p class="text-center new-account">Don’t have an account? <nuxt-link to="/signin"><span class="new-acc">Create an account</span></nuxt-link> </p>
-                    <p class="text-center new-account mt-3">Forgot password? </p>
+                    <p class="text-center new-account mt-3">
+                        <nuxt-link to="/forgot-password"> Forgot password? </nuxt-link>
+                    </p>
                 </div>
             </div>
            
