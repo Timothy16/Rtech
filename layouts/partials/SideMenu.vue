@@ -66,7 +66,7 @@
             <span class="links_name">Setting</span>
           </nuxt-link>
         </li>
-        <li class="log_out">
+        <li class="log_out bg-log-out">
           <a href="#">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
@@ -88,6 +88,12 @@ export default {
 </script>
 
 <style  scoped>
+.bg-log-out a{
+  background: #FEE4E4;
+  border-radius: 5px;
+  width: 80% !important;
+  color: #F56161 !important;
+}
 a.nuxt-link-exact-active {
   /* color: #fff !important; */
 }
