@@ -145,17 +145,20 @@ export default {
   background: rgba(16, 124, 16, 0.2);
   border-radius: 40px;
   padding: .5rem .7rem;
+  font-size: 14px;
 }
 .pending{
   background: rgba(255, 165, 0, 0.2);
   border-radius: 40px;
   color: #FFA346;
   padding: .5rem .7rem;
+  font-size: 14px;
 }
 .rejected{
   color: #FF0000;
   padding: .5rem .7rem;
   background: rgba(255, 0, 0, 0.2);
   border-radius: 40px;
+  font-size: 14px;
 }
 </style>

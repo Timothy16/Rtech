@@ -1,15 +1,8 @@
 <template>
-    <div class="container-fluid mb-5">
+    <div class="container-fluid mb-5 bg-white pt-3">
        <div class="form-card shadow">
         <div class="header-info">Sell Giftcard</div>
-            <form action="" class="">
-                <select class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
-                    <option selected>Select Your Card</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-                
+            <form action="" class="">                
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <select class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
@@ -29,18 +22,20 @@
                     </div>
                 </div>
                
-
                 <input class="form-control form-control-lg mb-4" type="text" placeholder="Card Amount" aria-label=".form-control-lg example">
 
-                <input class="form-control form-control-lg mb-4" type="text" placeholder="Note! If you are trading an ecode, please enter the code here. " aria-label=".form-control-lg example">
+                <div class="text-center value mt-5"><strong>Cash Value</strong></div>
+                <div class="text-center cash-v mb-5">N 0</div>
 
-                <input class="form-control form-control-lg mb-4" type="text" placeholder="Choose Photo(s) to upload " aria-label=".form-control-lg example">
+                <input class="form-control form-control-lg mb-4" type="text" placeholder="Type ecode here or if card is not clear enough" aria-label=".form-control-lg example">
 
-                <!-- <button class="btn-trade-now">Check Rate</button> -->
-                <h6><strong>Rate</strong> : 420</h6>
-
-                <h5><strong>Total Payout</strong>: N 400, 000</h5>
-
+                 <div class="form-group mt-3">
+                    <div class="trigger-layer">
+                        <span><i class='fa fa-file-upload ml-5'></i> <br> Upload Image!</span>
+                        <input type="file"  accept="video/*">
+                    </div>
+                </div>
+            
                 <div class="btn-sellgiftcards btn">Sell Giftcard</div>
 
             </form>
@@ -60,6 +55,50 @@ export default {
 </script>
 
 <style scoped>
+.trigger-layer {
+        position: relative;
+        /* width: 50%; */
+        font-weight: 600;
+        height: 100px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        margin: 10px;
+        padding-top: 8px;
+        padding-right: 16px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        background: #fff;
+        border: 1px solid rgba(12, 100, 230, 0.7);
+        border-radius: 10px;
+        color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        line-height: 1.2;
+        cursor : pointer
+}
+input[type="file"] {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        cursor: pointer;
+}
+.cash-v{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 75px;
+    color: #0C64E6;
+}
+.value{
+    color: #0C64E6;
+}
 .header-info{
     font-style: normal;
     font-weight: 550;
@@ -72,7 +111,7 @@ export default {
     box-sizing: border-box;
     width: 100%;
     height: 100px;
-    background: rgba(12, 100, 230, 0.06);
+    /* background: rgba(12, 100, 230, 0.06); */
     border: 1px solid rgba(12, 100, 230, 0.7);
     border-radius: 10px;
     font-weight: 600;

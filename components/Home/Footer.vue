@@ -26,24 +26,24 @@
                         <div class="footer-text">Rtech Business Services has created a one-of-a-kind platform for exchanging BitCoins and gift cards</div>
                     </div>
                     <div class="col-sm-6 col-lg-3 col-md-6">
-                        <div class="footer-header-link">Home</div>
+                        <div class="footer-header-link">Resource</div>
                         <ul class="footer-links">
-                            <li>Rate</li>
-                            <li>Contact Us</li>
-                            <li>About Us</li>
-                            <li>Blog</li>
+                            <li><nuxt-link to="/rates">Rate</nuxt-link></li>
+                            <li><nuxt-link to="/contact-us">Contact Us</nuxt-link></li>
+                            <li><nuxt-link to="/about-us">About Us</nuxt-link></li>
+                            
                         </ul>
                     </div>
                     <div class="col-sm-6 col-lg-3 col-md-6">
-                        <div class="footer-header-link">Resource</div>
+                        <div class="footer-header-link">Company</div>
                         <ul class="footer-links">
-                            <li>Blog</li>
+                            <li><nuxt-link to="/faq">FAQ</nuxt-link></li>
                             <li>Terms of service</li>
                             <li>Privacy and policy</li>
                         </ul>
                     </div>
                     <div class="col-sm-6 col-lg-3 col-md-6">
-                        <div class="footer-header-link">Contact</div>
+                        <div class="footer-header-link">Socials</div>
                         <ul class="footer-links">
                             <li><img src="/images/sms-tracking-white.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; info@rtechbiz.com</li>
                             <li><img src="/images/call.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; +2347061032844</li>
@@ -159,6 +159,11 @@ export default {
 }
 ul li{
     padding-top: 1rem;
+}
+a{
+    color: #FFFFFF;
+    /* text-decoration: none; */
+    font-size: 14px;
 }
 @media screen and (max-width : 578px){
     .news-letter{

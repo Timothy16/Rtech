@@ -1,34 +1,23 @@
 <template>
-    <div class="container-fluid mb-5">
+    <div class="container-fluid bg-white mb-5">
        <div class="form-card shadow">
-            <div class="header-info">Sell Crypto</div>
-            <form action="">
-                <select class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
-                    <option selected>Select Your Card</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
-                </select>
-                            
+            <div class="header-info">My complaint</div>
+            <form action="">                            
 
-                <input class="form-control form-control-lg mb-4" type="text" placeholder="Card Amount" aria-label=".form-control-lg example">
-
-                <input class="form-control form-control-lg mb-4" type="text" placeholder="Rtech Cryto wallet address goes here" aria-label=".form-control-lg example">
+                <div class="form-group">
+                    <label for="">Write a complait</label>
+                    <textarea name="" class="form-control" id=""></textarea>
+                </div>
 
                 <div class="form-group mt-3">
-                    <label for="" class="ml-2">Upload Image(Upload the screenshot confirming your transaction)</label>
+                    <label for="" class="ml-2">Upload Image(optional)</label>
                     <div class="trigger-layer">
                         <span><i class='fa fa-file-upload ml-5'></i> <br> Upload Image!</span>
                         <input type="file"  accept="video/*">
                     </div>
                 </div>
 
-                <!-- <button class="btn-trade-now">Check Rate</button> -->
-                <h6><strong>Rate</strong> : 420</h6>
-
-                <h5><strong>Total Payout</strong>: N 400, 000</h5>
-
-                <div class="btn-sellgiftcards btn">Sell Giftcard</div>
+                <div class="btn-sellgiftcards btn">Submit</div>
 
             </form>
        </div>

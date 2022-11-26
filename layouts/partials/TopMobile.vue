@@ -8,7 +8,7 @@
                     </span>
                 </div>
                 <div class="bottom-nav-item">
-                    <span class="bottom-nav-link-1">
+                    <span class="bottom-nav-link-1 bars-edit-1">
                         <i class="fa fa-bars bars-edit" @click="openTab()"></i>
                     </span>
                 </div>
@@ -125,9 +125,12 @@ export default {
 </script>
 <style  scoped>
 .bars-edit{
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 1rem;
+    background: #e9ecef;
+    border-radius: 50%;
 }
+
 .class-open{
     width: 100%;
 }

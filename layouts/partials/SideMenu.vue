@@ -13,15 +13,15 @@
           </nuxt-link>
         </li>
         <li class="mb-1">
-          <nuxt-link to="/dashboard/sell-giftcards" :class="{'active-h' : checkUrl == '/dashboard/sell-giftcards'}">
+          <nuxt-link to="/dashboard/giftcards" :class="{'active-h' : checkUrl == '/dashboard/giftcards'}">
             <i class='bx bx-box' ></i>
-            <span class="links_name">Sell Giftcards</span>
+            <span class="links_name">Giftcards</span>
           </nuxt-link>
         </li>
         <li class="mb-1">
            <nuxt-link to="/dashboard/sell-crypto" :class="{'active-h' : checkUrl == '/dashboard/sell-crypto'}">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Sell Crypto</span>
+            <span class="links_name">Crypto</span>
            </nuxt-link>
         </li>
         <li class="mb-1">
@@ -43,9 +43,9 @@
           </nuxt-link>
         </li>
         <li class="mb-1">
-          <nuxt-link to="/dashboard/help" :class="{'active-h' : checkUrl == '/dashboard/help'}">
+          <nuxt-link to="/dashboard/report" :class="{'active-h' : checkUrl == '/dashboard/report'}">
             <i class='bx bx-book-alt' ></i>
-            <span class="links_name">Help</span>
+            <span class="links_name">Report</span>
           </nuxt-link>
         </li>
         <!-- <li>

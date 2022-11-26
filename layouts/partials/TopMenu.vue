@@ -1,5 +1,5 @@
 <template>
-  <div class=" fixed-top">
+  <div class="fixed-top" ref="navbar">
     <nav class="navbar navbar-expand-lg bg-white container-width container-fluid">
       <div class="container-fluid ">
         <nuxt-link class="navbar-brand" to="/" style="border-bottom : none"><img src="/images/logo_one.png" alt="" srcset=""></nuxt-link>
@@ -41,11 +41,18 @@ export default {
      goToSignUp(){
       this.$router.push("/signin")
     }
+  },
+  mounted(){
+  
   }
 }
 </script>
 
 <style scoped>
+.menu-edit-1{
+    box-shadow: 0 0 10px #f2f2f2;
+    background: #fff;
+}
 .container-width{
     padding: 1rem 5rem;
 }
