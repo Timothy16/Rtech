@@ -38,7 +38,7 @@
                 <div class="border-edit shadow">
                      <img src="/images/american_express.png" class="img-fluid" alt="">
                      <div class="text-h">
-                        Amazon
+                        American Express
                      </div>
                 </div>
             </div>
