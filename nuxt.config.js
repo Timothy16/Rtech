@@ -3,6 +3,7 @@ export default {
   publicRuntimeConfig: {
     baseURL: process.env.BASE_URL,
   },
+  target: 'static',
   head: {
     // title: 'Rtechbiz',
     htmlAttrs: {
