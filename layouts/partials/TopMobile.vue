@@ -7,8 +7,13 @@
                         <nuxt-link to="/"><img src="/images/logo_one.png"  alt="" srcset=""></nuxt-link>
                     </span>
                 </div>
-                <div class="bottom-nav-item">
+                <div class="bottom-nav-item pt-2">
                     <span class="bottom-nav-link-1 bars-edit-1">
+                        <nuxt-link to="/dashboard/profile"  @click="closeTab" class="">
+                            <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
+                            <img v-else src="/images/avarter.jpg" class="img-head" alt="">
+                                              
+                        </nuxt-link>
                         <i class="fa fa-bars bars-edit" @click="openTab()"></i>
                     </span>
                 </div>
@@ -53,14 +58,21 @@
                                                 <span>Terms</span> <span class="text-right"><i class="fa fa-angle-right"></i></span> 
                                             </nuxt-link>
                                         </li>
-                                        <li>
+                                         <li v-if="authenticated" class="pt-3">
+                                            <nuxt-link to="/dashboard/profile"  @click="closeTab" class="">
+                                                <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
+                                                <img v-else src="/images/avarter.jpg" class="img-head" alt="">
+                                                <span class="username">{{username}}</span>
+                                            </nuxt-link>
+                                        </li>
+                                        <li v-if="!authenticated">
                                             <nuxt-link to="/login"  @click="closeTab" class="d-flex justify-content-between">
                                                 <!-- <i class="fas fa-utensils m-2"></i> -->
                                                 <!-- <img src="/img/icons/liveCam.png" width="35px" height="35px" alt="" srcset=""> -->
                                                 <span>Log In</span> <span class="text-right"><i class="fa fa-angle-right"></i></span> 
                                             </nuxt-link>
                                         </li>
-                                        <li>
+                                        <li v-if="!authenticated">
                                             <nuxt-link to="/signin"  @click="closeTab" class="d-flex justify-content-between">
                                                 <!-- <i class="fas fa-utensils m-2"></i> -->
                                                 <!-- <img src="/img/icons/liveCam.png" width="35px" height="35px" alt="" srcset=""> -->
@@ -93,6 +105,14 @@ export default {
             }
     },
     computed : {
+        
+        username(){
+            return this.user ? this.user.username : ""
+        },
+        profileImg(){
+            return this.user ? this.user.picture : ''
+        },
+            
         fullWidth(){
             return {
                 styleObject: {
@@ -124,15 +144,26 @@ export default {
 };
 </script>
 <style  scoped>
+.bottom-navbar-nav{
+    padding: .7rem;
+}
 .bars-edit{
-    font-size: 1.5rem;
-    padding: 1rem;
+    /* font-size: 1.5rem; */
+    padding: .8rem;
     background: #e9ecef;
     border-radius: 50%;
 }
-
+.username{
+  color: #fff;
+  font-weight: 500;
+}
 .class-open{
     width: 100%;
+}
+.img-head{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
 }
 .class-close{
     width: 0px;
@@ -230,6 +261,7 @@ a.nuxt-link-exact-active{
 
 a{
     color: #fff;
+    text-decoration: none;
 }
 .home-link{
     color: #000 !important;
@@ -247,7 +279,7 @@ a{
     font-size: 20px;
     font-weight: 600;
     overflow: hidden;
-    padding: 16px 6px 12px 6px;
+    /* padding: 16px 6px 12px 6px; */
     text-align: center;
     vertical-align: bottom;
     text-overflow: ellipsis;

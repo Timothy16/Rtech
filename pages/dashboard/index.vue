@@ -113,6 +113,7 @@
 <script>
 export default {
     layout : "dashboard-layout",
+    middleware: 'auth',
     head() {
         return {
             title: "Dashboard / Rtechbiz",

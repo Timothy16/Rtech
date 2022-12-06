@@ -18,7 +18,7 @@
             <span class="links_name">Giftcards</span>
           </nuxt-link>
         </li>
-        <li class="mb-1">
+        <li class="mb-1">     
            <nuxt-link to="/dashboard/sell-crypto" :class="{'active-h' : checkUrl == '/dashboard/sell-crypto'}">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Crypto</span>
@@ -67,7 +67,7 @@
           </nuxt-link>
         </li>
         <li class="log_out bg-log-out">
-          <a href="#">
+           <a :href="'/login?redirect=' + redirectUrl" v-on:click="logout()">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
           </a>
@@ -82,8 +82,16 @@ export default {
   computed : {
     checkUrl(){
       return this.$route.path
-    }
+    },
+    redirectUrl(){
+            return this.$route.fullPath
+    },
   },
+   methods : {
+        logout() {
+            this.$auth.logout();
+        },
+    },
 }
 </script>
 

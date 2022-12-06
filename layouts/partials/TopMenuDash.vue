@@ -3,7 +3,7 @@
      <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn display-v' @click="openTab"></i>
-        <span class="dashboard">Hi, Stephen</span>
+        <span class="dashboard">Hi, {{username}}</span>
       </div>
       <!-- <div class="search-box">
         <input type="text" placeholder="Search...">
@@ -11,7 +11,8 @@
       </div> -->
       <div class="">
         <nuxt-link to="/dashboard/profile">
-          <img src="/images/thiago.jpg" class="img-head" alt="">
+          <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
+          <img v-else src="/images/avarter.jpg" class="img-head" alt="">
         </nuxt-link>
       </div>
     </nav>
@@ -20,6 +21,15 @@
 
 <script>
 export default {
+  computed : {
+    username(){
+      return this.user ? this.user.name : ""
+    },
+    profileImg(){
+      return this.user ? this.user.picture : ''
+    }
+    
+  },
   methods : {
     openTab(){
        this.$root.$emit("command")
@@ -30,8 +40,8 @@ export default {
 
 <style scoped>
 .img-head{
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
 }
 .display-v{

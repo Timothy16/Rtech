@@ -45,6 +45,7 @@
 
 <script>
 export default {
+    middleware: 'auth',
     layout : "dashboard-layout",
     head() {
         return {

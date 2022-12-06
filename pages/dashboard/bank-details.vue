@@ -4,20 +4,22 @@
         <div class="header-info">Bank Details</div>
         <div class="row">
             <div class="col-sm-12 col-lg-6 col-md-12 mb-2">
-                <div class="div-add-bank">
+                <!-- <div class="div-add-bank">
                     <div class="plus"><i class="fa fa-plus"></i></div>
                     <div class="class-add mt-1">Add New Account Number</div>
-                </div>
-                <form action="">                            
+                </div> -->
+                <form action="" @submit.prevent>                            
 
-                    <input class="form-control form-control-lg mb-4" type="text" placeholder="Bank Name" aria-label=".form-control-lg example">
+                    <input v-model="bankName" class="form-control form-control-lg mb-4" type="text" placeholder="Bank Name (Please type in full bank name)" aria-label=".form-control-lg example">
+                    <p  v-if="field_errors.bank_name" class="text-danger"> {{ field_errors.bank_name[0]}}</p>
+                    
+                    <input v-model="accountName" class="form-control form-control-lg mb-4" type="text" placeholder="Account Name" aria-label=".form-control-lg example">
+                    <p  v-if="field_errors.account_name" class="text-danger"> {{ field_errors.account_name[0]}}</p>
+                    
+                    <input v-model="accountNumber" class="form-control form-control-lg mb-4" type="text" placeholder="Account Number" aria-label=".form-control-lg example">
+                    <p  v-if="field_errors.account_number" class="text-danger"> {{ field_errors.account_number[0]}}</p>
 
-                    <input class="form-control form-control-lg mb-4" type="text" placeholder="Account Name" aria-label=".form-control-lg example">
-
-                    <input class="form-control form-control-lg mb-4" type="text" placeholder="Account Number" aria-label=".form-control-lg example">
-
-
-                    <div class="btn-sellgiftcards btn w-100">Add Bank Details</div>
+                    <button type="submit" @click="bankDetails" class="btn-sellgiftcards btn w-100">{{loading ? "Please wait..." : 'Add Bank Details'}}</button>
 
                 </form>
             </div>
@@ -44,13 +46,57 @@
 </template>
 
 <script>
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
     layout : "dashboard-layout",
+    middleware: 'auth',
     head() {
         return {
             title: "Bank Details / Rtechbiz",
         };
     },
+    data(){
+        return{
+            bankName : "",
+            accountName : "",
+            accountNumber : "",
+        }
+    },
+    computed : {
+        ...mapGetters({
+            loading : "loading",
+            bankInfo : "bankInfo"
+        }),
+    },
+    methods : {
+        ...mapActions({
+            addBankDetials: "addBankDetials",
+            getBankDetials: "getBankDetials"
+        }),
+        ...mapMutations({
+            SET_LOADING: "SET_LOADING",
+        }),
+        async bankDetails(){
+            
+            try {
+                let parameter = {
+                    bank_name : this.bankName,
+                    account_name : this.accountName,
+                    account_number : this.accountNumber
+                }
+
+                await this.addBankDetials(parameter)
+                this.bankName = ""
+                this.accountName = ""
+                this.accountNumber = ""
+            } catch (error) {
+                this.SET_LOADING(false)
+            }
+        },
+    },
+    mounted(){
+        this.getBankDetials()
+    }
 }
 </script>
 

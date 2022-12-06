@@ -25,61 +25,135 @@
                         <div class="header-title">Create new account</div>
                     </div>
                     
-
-                    <div class="form-edit">
-                         <div class="mb-4">
-                            <label class="form-label">Full Name </label>
-                            <div class="d-flex form-control-1">
-                                <div class="icon-pad">
-                                    <img src="/images/profile.png" alt="" srcset="">
+                    <form action="" @submit.prevent>
+                        <div class="form-edit">
+                            <div class="mb-4">
+                                <label class="form-label">Full Name </label>
+                                <div class="d-flex form-control-1">
+                                    <div class="icon-pad">
+                                        <img src="/images/profile.png" alt="" srcset="">
+                                    </div>
+                                    <input v-model="name" type="text" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter full name">
                                 </div>
-                                <input type="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter full name">
+                                <p  v-if="field_errors.name" class="text-danger"> {{ field_errors.name[0]}}</p>
                             </div>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label">Email </label>
-                            <div class="d-flex form-control-1">
-                                <div class="icon-pad">
-                                    <img src="/images/sms.png" alt="" srcset="">
+                             <div class="mb-4">
+                                <label class="form-label">Username </label>
+                                <div class="d-flex form-control-1">
+                                    <div class="icon-pad">
+                                        <img src="/images/profile.png" alt="" srcset="">
+                                    </div>
+                                    <input v-model="username" type="text" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter username">
                                 </div>
-                                <input type="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter email adddress">
+                                <p  v-if="field_errors.username" class="text-danger"> {{ field_errors.username[0]}}</p>
                             </div>
-                        </div>
-                         <div class="mb-4">
-                            <label class="form-label">Phone </label>
-                            <div class="d-flex form-control-1">
-                                <div class="icon-pad">
-                                    <img src="/images/phone.png" alt="" srcset="">
+                            <div class="mb-4">
+                                <label class="form-label">Email </label>
+                                <div class="d-flex form-control-1">
+                                    <div class="icon-pad">
+                                        <img src="/images/sms.png" alt="" srcset="">
+                                    </div>
+                                    <input v-model="email" type="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter email adddress">
                                 </div>
-                                <input type="number" class="form-control form-control-plaintext w-100 mr-3" placeholder="Phone number">
+                                <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p>
                             </div>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label">Password </label>
-                            <div class="d-flex form-control-1">
-                                <div class="icon-pad">
-                                    <img src="/images/key.png" alt="" srcset="">
+                            <div class="mb-4">
+                                <label class="form-label">Phone </label>
+                                <div class="d-flex form-control-1">
+                                    <div class="icon-pad">
+                                        <img src="/images/phone.png" alt="" srcset="">
+                                    </div>
+                                    <MazPhoneNumberInput v-model="phone" :fetchCountry='true' size="lg" class="w-100" />
+                                    <!-- <input  type="number" class="form-control form-control-plaintext w-100 mr-3" placeholder="Phone number"> -->
                                 </div>
-                                <input type="password" class="form-control form-control-plaintext w-100 mr-3" placeholder="Password">
+                                <p  v-if="field_errors.phone" class="text-danger"> {{ field_errors.phone[0]}}</p>
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Password </label>
+                                <div class="d-flex form-control-1">
+                                    <div class="icon-pad">
+                                        <img src="/images/key.png" alt="" srcset="">
+                                    </div>
+                                    <input v-model="password" type="password" class="form-control form-control-plaintext w-100 mr-3" placeholder="Password">
+                                </div>
+                                <p  v-if="field_errors.password" class="text-danger"> {{ field_errors.password[0]}}</p>
                             </div>
                             
+                            <button type="submit" @click="registerUserData()" class="btn-login">{{registering ? 'Registering...' :'CREATE ACCOUNT'}}</button>
                         </div>
-                        
-                        <button class="btn-login">CREATE ACCOUNT</button>
-                    </div>
+                    </form>
 
                     <p class="text-center new-account">Have an account already? <nuxt-link to="/login"> <span class="new-acc">Log In</span> </nuxt-link> </p>
                 </div>
             </div>
         </div>
     </div>
+    <notifications position="top right" group="all" />
   </div>
 </template>
 
+
+
 <script>
+import { mapActions, mapMutations, mapGetters } from "vuex";
 export default {
-  
-}
+    layout: "password",
+    // middleware: 'guest',
+    data() {
+        return {
+            name: null,
+            username: null,
+            email: null,
+            password: null,
+            phone : ""
+        };
+    },
+   
+    computed: {
+        ...mapGetters({
+            registering: "registering",
+        }),
+    },
+    methods: {
+        ...mapActions({
+            register: "register",
+        }),
+
+        ...mapMutations({
+            SET_REGISTERING: "SET_REGISTERING",
+        }),
+
+        async registerUserData() {
+            try {
+                let parameter = {
+                    email: this.email,
+                    password: this.password,
+                    name: this.name,
+                    username: this.username,
+                    phone : this.phone
+                };
+                await this.register(parameter);
+
+                const data = {
+                    email: this.email,
+                    password: this.password,
+                };
+
+                await this.$auth.login({ data });
+
+                
+                let redirect = "/dashboard?dom=thank-you-for-registering";
+            
+
+                this.$router.push(redirect);
+
+                this.SET_REGISTERING(false);
+            } catch (error) {
+                this.SET_REGISTERING(false);
+            }
+        },
+    },
+};
 </script>
 <style scoped>
 *{
@@ -100,7 +174,7 @@ a{
 .card-image-s{
     background: url("/images/sign_bg.png");
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     padding: 10rem;
     /* background: #000000; */
 }
@@ -124,7 +198,7 @@ a{
     height: 80px;
 } */
 .form-edit{
-    padding: 2rem 5rem;
+    padding: .2rem 5rem;
 }
 label{
     font-style: normal;
@@ -141,7 +215,7 @@ label{
     border: none;
     font-size: 1.2rem;
     padding: .3rem;
-    color: rgba(12, 100, 230, 0.5);
+    color: #000;
 }
 .icon-pad{
     padding: .8rem;

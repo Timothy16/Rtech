@@ -23,31 +23,34 @@
                         <div class="header-title">Login to your account</div>
                     </div>
                     
-
-                    <div class="form-edit">
-                        <div class="mb-4">
-                            <label class="form-label">Email </label>
-                            <div class="d-flex form-control-1">
-                                <div class="icon-pad">
-                                    <img src="/images/sms.png" alt="" srcset="">
+                    <form action="" @submit.prevent>
+                        <div class="form-edit">
+                            <div class="mb-4">
+                                <label class="form-label">Email </label>
+                                <div class="d-flex form-control-1">
+                                    <div class="icon-pad">
+                                        <img src="/images/sms.png" alt="" srcset="">
+                                    </div>
+                                    <input v-model="email" type="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter email adddress">
                                 </div>
-                                <input type="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter email adddress">
+                                <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p>
+                                
+                            </div>
+                            <div class="mb-4">
+                                <label class="form-label">Password </label>
+                                <div class="d-flex form-control-1">
+                                    <div class="icon-pad">
+                                        <img src="/images/key.png" alt="" srcset="">
+                                    </div>
+                                    <input v-model="password" type="password" class="form-control form-control-plaintext w-100 mr-3" placeholder="Password">
+                                </div>
+                                <p  v-if="field_errors.password" class="text-danger"> {{ field_errors.password[0]}}</p>
+                                
                             </div>
                             
+                            <button type="submit" class="btn-login" @click="loginUser">{{logining ? 'Logining...' : 'LOG IN'}}</button>
                         </div>
-                        <div class="mb-4">
-                            <label class="form-label">Password </label>
-                            <div class="d-flex form-control-1">
-                                <div class="icon-pad">
-                                    <img src="/images/key.png" alt="" srcset="">
-                                </div>
-                                <input type="password" class="form-control form-control-plaintext w-100 mr-3" placeholder="Password">
-                            </div>
-                            
-                        </div>
-                        
-                        <button class="btn-login" @click="loginIn">LOG IN</button>
-                    </div>
+                    </form>
 
                     <p class="text-center new-account">Don’t have an account? <nuxt-link to="/signin"><span class="new-acc">Create an account</span></nuxt-link> </p>
                     <p class="text-center new-account mt-3">
@@ -58,16 +61,83 @@
            
         </div>
     </div>
+    <notifications position="top right" group="all" />
   </div>
 </template>
 
 <script>
+import {mapActions, mapMutations , mapGetters} from 'vuex'
+
 export default {
-     methods : {
-        loginIn(){
-            this.$router.push("/dashboard")
+    
+   data(){
+    return{
+      email: null,
+      password: null,
+      errors : null
+    }
+  },
+  computed:{
+    ...mapGetters({
+        logining: "logining",
+    }),
+  },
+  methods:{
+      ...mapMutations({
+            SET_LOGGING_IN: "SET_LOGGING_IN",
+        }),
+
+      async loginUser() {
+            this.SET_LOGGING_IN(true);
+           
+            const data = {
+                email: this.email,
+                password: this.password,
+            };
+            // console.log("data-v", data)
+            await this.$auth
+                .loginWith('local', {data})
+                .then((response) => {
+                    this.SET_LOGGING_IN(false);
+
+                    let redirect = this.$route.query.redirect ? this.$route.query.redirect : "/dashboard";
+                   
+                   this.$router.push(redirect);
+                   
+                })
+                .catch(({ response }) => {
+                    this.SET_LOGGING_IN(false);
+                    this.errors = response.data.message;
+                    // console.log("error", this.errors)
+                    let vthis = this
+                  if (response.status === 400) {
+                     vthis.$notify({
+                        group: "all",
+                        title: "Message",
+                        text: response.data.message,
+                        //  text: "Sorry! We are not operating in your location yet",
+                        type: "error",
+                        duration: 10000,
+                    });  
+                }
+                });
         },
-  }
+  },
+   mounted(){
+        let redirect = this.$route.query.redirect ? this.$route.query.redirect : "/";
+        if (this.$auth.loggedIn) {
+
+        if (this.$auth.$storage.getUniversal('redirect')) {
+          this.$router.replace(this.$auth.$storage.getUniversal('redirect'))
+          this.$auth.$storage.removeUniversal('redirect')
+          return;
+        }
+
+        this.$router.replace(redirect)
+        return
+      }
+    }
+   
 }
 </script>
 <style scoped>
@@ -128,7 +198,7 @@ label{
     border: none;
     font-size: 1.2rem;
     padding: .3rem;
-    color: rgba(12, 100, 230, 0.5);
+    color: #000000;
 }
 .icon-pad{
     padding: .8rem;

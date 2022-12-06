@@ -1,5 +1,8 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL,
+  },
   head: {
     // title: 'Rtechbiz',
     htmlAttrs: {
@@ -36,19 +39,70 @@ export default {
   plugins: [
     { src: 'plugins/aos.js', ssr: false },
     { src: 'plugins/maz.js', ssr: false },
+    './plugins/axios',
+    './plugins/message',
+    './plugins/user',
+    './plugins/validation',
+    {src: 'plugins/table.js', ssr: false},
+    { src: "plugins/clipboard.js", ssr: false },
+    {src: 'plugins/notification.js', ssr: false},
   ],
+  axios: {
+    credentials: true,
+    proxy: true,
+  },
+
+  proxy: {
+    '/api/': { target: process.env.BASE_URL, pathRewrite: {'^/api/': ''} },
+  },
+ 
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url:  process.env.BASE_URL+'login', method: 'post', propertyName: 'data.token' },
+          logout: { url:  process.env.BASE_URL+'logout', method: 'post' },
+          user: { url:   process.env.BASE_URL+'user/profile', method: 'get', propertyName: 'data'}
+        },
+        user : {
+          property: 'data',
+        }
+      }, 
+    },
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      home: '/',
+      callback: '/login',
+    },
+    plugins: [
+      './plugins/auth.js',
+    ]
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    '@nuxtjs/moment',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth',
+    ['vue-currency-filter/nuxt', {
+      symbol: '',
+      thousandsSeparator: ',',
+      fractionCount: 2,
+      fractionSeparator: '.',
+      symbolPosition: 'front',
+      symbolSpacing: false,
+      avoidEmptyDecimals: undefined,
+    }],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

@@ -45,6 +45,7 @@
 
 <script>
 export default {
+    middleware: 'auth',
     layout : "dashboard-layout",
     head() {
         return {
@@ -141,6 +142,13 @@ input[type="file"] {
     .form-control{
         height: 60px;
         font-size: 10px;
+    }
+    .cash-v{
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 75px;
+        color: #0C64E6;
     }
 }
 @media only screen and (min-width : 768px) and (max-width : 1024px){

@@ -21,11 +21,20 @@
               <nuxt-link to="/about-us" class="nav-link" >About Us</nuxt-link>
             </li>
           </ul>
-          <form class="d-flex ml-auto" role="search">
+          <div v-if="authenticated" class="ml-auto">
+              <nuxt-link to="/dashboard/profile">
+                <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
+                <img v-else src="/images/avarter.jpg" class="img-head" alt="">
+                <span class="username">{{username}}</span>
+              </nuxt-link>
+              
+          </div>
+          <form v-else class="d-flex ml-auto" role="search">
            <div class="btn-login-nav" @click="goToLogin">Log in</div>
            <div class="btn-signing-nav" @click="goToSignUp">Create Account</div>
             <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
           </form>
+          
         </div>
       </div>
     </nav>
@@ -34,6 +43,15 @@
 
 <script>
 export default {
+   computed : {
+    username(){
+      return this.user ? this.user.username : ""
+    },
+    profileImg(){
+      return this.user ? this.user.picture : ''
+    }
+    
+  },
   methods : {
     goToLogin(){
       this.$router.push("/login")
@@ -43,12 +61,24 @@ export default {
     }
   },
   mounted(){
-  
+    // console.log("auth", this.authenticated)
   }
 }
 </script>
 
 <style scoped>
+.username{
+  color: #000;
+  font-weight: 500;
+}
+a{
+  text-decoration: none;
+}
+.img-head{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
 .menu-edit-1{
     box-shadow: 0 0 10px #f2f2f2;
     background: #fff;
