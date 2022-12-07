@@ -7,7 +7,8 @@ export const state = () => ({
     user:   false,
     strategy:   'local',
     bankInfo : null,
-    saving : null
+    saving : null,
+    faqs : []
   })
   
   export const getters = {
@@ -18,6 +19,7 @@ export const state = () => ({
     loading : state => state.loading,
     bankInfo : state => state.bankInfo,
     saving : state => state.saving,
+    faqs : state => state.faqs
   }
 
 export const mutations = {
@@ -32,6 +34,9 @@ export const mutations = {
   },
   SET_BANK (state, bankInfo)   {
     state.bankInfo = bankInfo
+  },
+  SET_FAQ (state, faqs)   {
+    state.faqs = faqs
   },
   SET_SAVING (state, saving)   {
     state.saving = saving
@@ -56,7 +61,7 @@ export const actions = {
   async addBankDetials ({commit}, queryParam) {
     commit('SET_LOADING', true)
     const { data } = await  this.$axios.$post(this.$config.baseURL + 'user/bank-details/store', queryParam)
-    // commit('ADD_GIFTCARD', data)
+    commit('SET_BANK', data)
     commit('SET_LOADING', false)
   },
   async getBankDetials ({commit}, queryParam) {
@@ -65,6 +70,14 @@ export const actions = {
     commit('SET_BANK', data)
     commit('SET_SAVING', false)
   },
+
+  async getAllFaq ({commit}, queryParam) {
+    commit('SET_SAVING', true)
+    const { data } = await  this.$axios.$get(this.$config.baseURL + 'user/faq', queryParam)
+    commit('SET_FAQ', data)
+    commit('SET_SAVING', false)
+  },
+
 
  
 }

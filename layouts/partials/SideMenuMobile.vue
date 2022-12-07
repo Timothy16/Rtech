@@ -45,7 +45,7 @@
         <li @click="closeTab">
           <nuxt-link to="/dashboard/report" :class="{'active-h' : checkUrl == '/dashboard/report'}">
             <i class='bx bx-book-alt' ></i>
-            <span class="links_name">Report</span>
+            <span class="links_name">Complaints</span>
           </nuxt-link>
         </li>
         <!-- <li>

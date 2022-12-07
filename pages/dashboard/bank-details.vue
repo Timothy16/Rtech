@@ -10,16 +10,16 @@
                 </div> -->
                 <form action="" @submit.prevent>                            
 
-                    <input v-model="bankName" class="form-control form-control-lg mb-4" type="text" placeholder="Bank Name (Please type in full bank name)" aria-label=".form-control-lg example">
+                    <input v-model="bankName" class="form-control form-control-lg mb-4" type="text" placeholder="Bank Name (Please enter full bank name)" aria-label=".form-control-lg example">
                     <p  v-if="field_errors.bank_name" class="text-danger"> {{ field_errors.bank_name[0]}}</p>
                     
                     <input v-model="accountName" class="form-control form-control-lg mb-4" type="text" placeholder="Account Name" aria-label=".form-control-lg example">
                     <p  v-if="field_errors.account_name" class="text-danger"> {{ field_errors.account_name[0]}}</p>
                     
-                    <input v-model="accountNumber" class="form-control form-control-lg mb-4" type="text" placeholder="Account Number" aria-label=".form-control-lg example">
+                    <input v-model="accountNumber" class="form-control form-control-lg mb-4" type="number" placeholder="Account Number" aria-label=".form-control-lg example">
                     <p  v-if="field_errors.account_number" class="text-danger"> {{ field_errors.account_number[0]}}</p>
 
-                    <button type="submit" @click="bankDetails" class="btn-sellgiftcards btn w-100">{{loading ? "Please wait..." : 'Add Bank Details'}}</button>
+                    <button type="submit" @click="bankDetails" class="btn-sellgiftcards btn w-100" :disabled="loading">{{loading ? "Please wait..." : 'Add Bank Details'}}</button>
 
                 </form>
             </div>
@@ -31,13 +31,14 @@
                             <img src="/images/arrow.png" alt="" srcset="">
                         </div>
                         <div class="w-100 ml-3">
-                            <div class="account-number">123456678</div>
-                            <div class="account-name">Bobby Jane</div>
+                            <div class="account-number">{{bankInfo.account_number}}</div>
+                            <div class="account-name">{{bankInfo.account_name}}</div>
+                             <div class="account-name">{{bankInfo.bank_name}}</div>
                         </div>
                     </div>
-                    <div class="spac-action">
+                    <!-- <div class="spac-action">
                         <div class=""><span class="delete-card">Delete <i class="fa fa-trash ml-1"></i></span></div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -111,7 +112,7 @@ export default {
 }
 .spac-action{
     padding: 1rem;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
 }
 .delete-card{
     background: #F8E2E2;
@@ -166,16 +167,16 @@ export default {
 .account-number{
     font-style: normal;
     font-weight: 400;
-    font-size: 27.5145px;
+    font-size: 27px;
     line-height: 31px;
-    letter-spacing: 1em;
+    letter-spacing: .5em;
     color: #FFFFFF;
 }
 .account-name{
     font-style: normal;
-    font-weight: 600;
-    font-size: 27.5145px;
-    line-height: 32px;
+    /* font-weight: 600; */
+    font-size: 20px;
+    /* line-height: 32px; */
     color: #FFFFFF;
 }
 .text-d-c{
@@ -184,6 +185,7 @@ export default {
 @media screen and (max-width : 578px){
     .form-card{
         width: 100%;
+        margin-bottom: 1rem;
     }
     .form-control{
         height: 60px;
@@ -201,10 +203,10 @@ export default {
         padding-top: 2rem;
     }
     .account-name{
-        font-size: 20px;
+        font-size: 16px;
     }
     .spac-action{
-        padding: 1rem;
+        /* padding: 1rem; */
         margin-top: .2rem;
     }
     .div-add-bank{

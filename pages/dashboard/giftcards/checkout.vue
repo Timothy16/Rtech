@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
     middleware: 'auth',
     layout : "dashboard-layout",
@@ -52,6 +53,21 @@ export default {
             title: "Sell Giftcards / Rtechbiz",
         };
     },
+    computed : {
+        ...mapGetters({
+            loading : "giftcard/loading",
+            giftcardRates : "giftcard/giftcardRates"
+        }),
+    },
+    methods : {
+        ...mapActions({
+            getGiftcardRates: "giftcard/getGiftcardRates",
+        }),
+    },
+    mounted(){
+        let giftcard_id = this.$route.query.giftcardId
+        this.getGiftcardRates(giftcard_id)
+    }
 }
 </script>
 

@@ -6,10 +6,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <MazInput
-                            
-                            
+                            v-model="search"
                             left-icon-name="search"
-                            
                             :clearable='true'
                             type="text"
                             placeholder="Enter Giftcard Name"
@@ -22,90 +20,69 @@
                 </div> -->
             </form>
         </div>
-    <div class="mt-4">
-        <div class="row">
-            <div class="col-lg-3 col-md-3 mb-2">
-                <div class="border-edit shadow">
-                    <nuxt-link to="/dashboard/giftcards/checkout">
-                        <img src="/images/amazon.png" class="img-fluid" alt="">
-                        <div class="text-h">
-                            Amazon
-                        </div>
-                    </nuxt-link>
+        <div class="mt-4">
+            <div class="row" v-if="giftcards.length > 1 && !loading">
+                <div class="col-lg-3 col-md-3 mb-3" v-for="(giftcard, index) in filterAll" :key="index">
+                    <div class="border-edit shadow">
+                        <nuxt-link :to="'/dashboard/giftcards/checkout?giftcardId=' + giftcard.id + '&giftcardName=' +  giftcard.giftcard_name">
+                            <img src="/images/amazon.png" class="img-fluid" alt="">
+                            <!-- <img :src="giftcard.giftcard_picture" class="img-fluid" alt=""> -->
+                            <div class="text-h">
+                                {{giftcard.giftcard_name}}
+                            </div>
+                        </nuxt-link>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 mb-2">
-                <div class="border-edit shadow">
-                     <img src="/images/american_express.png" class="img-fluid" alt="">
-                     <div class="text-h">
-                        American Express
-                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 mb-2">
-                <div class="border-edit shadow">
-                     <img src="/images/mays.png" class="img-fluid card-left" alt="">
-                     <div class="text-h">
-                        Amazon
-                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 mb-2">
-                <div class="border-edit shadow">
-                     <img src="/images/eth.png" class="img-fluid card-left" alt="">
-                     <div class="text-h">
-                        Amazon
-                     </div>
-                </div>
-            </div>
+            <div v-else-if="giftcards.length = 0">
+            <h1 class="text-center">No giftcard added</h1>
         </div>
-        <div class="row mt-5">
-            <div class="col-lg-3 col-md-3 mb-2">
-                <div class="border-edit shadow">
-                     <img src="/images/amazon.png" class="img-fluid" alt="">
-                     <div class="text-h">
-                        Amazon
-                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 mb-2">
-                <div class="border-edit shadow">
-                     <img src="/images/american_express.png" class="img-fluid" alt="">
-                     <div class="text-h">
-                        Amazon
-                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 mb-2">
-                <div class="border-edit shadow">
-                     <img src="/images/mays.png" class="img-fluid card-left" alt="">
-                     <div class="text-h">
-                        Amazon
-                     </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 mb-2 ">
-                <div class="border-edit shadow">
-                     <img src="/images/eth.png" class="img-fluid card-left" alt="">
-                     <div class="text-h">
-                        Amazon
-                     </div>
-                </div>
-            </div>
+        <Loader v-else/>
         </div>
     </div>
-  </div>
 </template>
 
 <script>
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
     middleware: 'auth',
     layout : "dashboard-layout",
     head() {
         return {
-            title: "Giftcard / Rtechbiz",
+            title: "Giftcards / Rtechbiz",
         };
     },
+    data(){
+        return {
+            search : ""
+        }
+    },
+    computed : {
+        ...mapGetters({
+            loading : "giftcard/loading",
+            giftcards : "giftcard/giftcards"
+        }),
+        filterAll(){
+            try{
+                return this.giftcards.filter((giftcard) => {
+                if(giftcard){
+                    return giftcard.giftcard_name.toLowerCase().includes(this.search.toLowerCase() || this.search.toUpperCase())
+                    }
+                })
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }, 
+    },
+    methods : {
+        ...mapActions({
+            getGiftcards: "giftcard/getGiftcards",
+        }),
+    },
+    mounted(){
+        this.getGiftcards()
+    }
 }
 </script>
 

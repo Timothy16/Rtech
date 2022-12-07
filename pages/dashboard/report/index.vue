@@ -34,7 +34,7 @@
                 </div>
 
 
-                <button type="submit" @click="sendData()" class="btn-sellgiftcards btn">{{saving ? 'Please wait...' :'Submit'}}</button>
+                <button type="submit" @click="sendData()" class="btn-sellgiftcards btn" :disabled="loading">{{saving ? 'Please wait...' :'Submit'}}</button>
 
             </form>
        </div>
@@ -64,7 +64,7 @@ export default {
             saving : "report/saving",
         }),
     },
-     methods : {
+    methods : {
         ...mapActions({
             sendReport : "report/sendReport"
         }),
@@ -188,8 +188,8 @@ input[type="file"] {
     border-radius: 5px;
     color: #fff;
     padding: 1rem;
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 16px;
+    /* font-weight: 600; */
 }
 @media screen and (max-width : 578px){
     .form-card{
