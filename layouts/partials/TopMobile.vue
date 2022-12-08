@@ -1,4 +1,5 @@
 <template>
+<client-only>
     <div class="menu-edit" ref="navbar">
         <nav>
             <div class="bottom-navbar-nav shadow menu-spacing d-flex justify-content-between">
@@ -89,8 +90,8 @@
                 </div>
             </div>
         </div>
-  
     </div>
+</client-only>
 </template>
 
 <script>

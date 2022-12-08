@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div class="fixed-top" ref="navbar">
     <nav class="navbar navbar-expand-lg bg-white container-width container-fluid">
       <div class="container-fluid ">
@@ -27,7 +28,6 @@
                 <img v-else src="/images/avarter.jpg" class="img-head" alt="">
                 <span class="username">{{username}}</span>
               </nuxt-link>
-              
           </div>
           <form v-else class="d-flex ml-auto" role="search">
            <div class="btn-login-nav" @click="goToLogin">Log in</div>
@@ -39,6 +39,7 @@
       </div>
     </nav>
   </div>
+</client-only>
 </template>
 
 <script>
@@ -72,7 +73,7 @@ export default {
   font-weight: 500;
 }
 a{
-  text-decoration: none;
+  text-decoration: none ;
 }
 .img-head{
   height: 40px;

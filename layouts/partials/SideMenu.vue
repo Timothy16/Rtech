@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div class="">
     <div class="sidebar">
     <div class="logo-details">
@@ -75,6 +76,7 @@
       </ul>
   </div>
   </div>
+  </client-only>
 </template>
 
 <script>

@@ -1,4 +1,5 @@
 <template>
+<client-only>
   <div>
      <nav>
       <div class="sidebar-button">
@@ -17,6 +18,7 @@
       </div>
     </nav>
   </div>
+  </client-only>
 </template>
 
 <script>
