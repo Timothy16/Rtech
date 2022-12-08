@@ -245,7 +245,7 @@ export default {
     height: 500px;
     background: #fff;
     border: solid 1px #EEE;
-    /* width: 100%; */
+    width: 100%;
 }
 .p-cur{
     cursor: not-allowed;
