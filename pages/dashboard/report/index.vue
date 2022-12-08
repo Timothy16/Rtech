@@ -2,7 +2,7 @@
     <div class="container-fluid  mb-5">
        <div class="form-card bg-white shadow">
             <nuxt-link to="/dashboard/report/my-reports">
-                <div class="float-right btn-sm btn-outline-secondary btn">View Reports</div>
+                <div class="float-right btn-sm btn-outline-secondary btn">View Complaits</div>
             </nuxt-link>
             <div class="header-info">My complaint</div>
             <form action="" @submit.prevent>                            
@@ -34,7 +34,7 @@
                 </div>
 
 
-                <button type="submit" @click="sendData()" class="btn-sellgiftcards btn" :disabled="loading">{{saving ? 'Please wait...' :'Submit'}}</button>
+                <button type="submit" @click="sendData()" class="btn-sellgiftcards btn" :disabled="saving">{{saving ? 'Please wait...' :'Submit'}}</button>
 
             </form>
        </div>

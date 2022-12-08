@@ -9,7 +9,7 @@
                 </div>
                 <div class="bottom-nav-item pt-2">
                     <span class="bottom-nav-link-1 bars-edit-1">
-                        <nuxt-link to="/dashboard/profile"  @click="closeTab" class="">
+                        <nuxt-link to="/dashboard/profile"  @click="closeTab" class="" v-if="authenticated">
                             <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
                             <img v-else src="/images/avarter.jpg" class="img-head" alt="">
                                               

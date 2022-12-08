@@ -1,8 +1,8 @@
 <template>
     <div class="container-fluid mb-5">
        <div class="form-card bg-white shadow">
-            <div class="header-info">Sell Crypto</div>
-            <form action="">
+            <div class="header-info">Trade Crypto</div>
+            <form action="" @submit.prevent>
                 <select @change="selectCryto(cryptoInfo)" v-model="cryptoInfo" class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
                     <option value="" selected disabled>Select crypto</option>
                     <option :value="crypto" v-for="(crypto, index) in cryptos" :key="index">{{crypto.crypto_name}}</option>
@@ -10,7 +10,7 @@
                 <p  v-if="field_errors.crypto_id" class="text-danger"> {{ field_errors.crypto_id[0]}}</p>
                             
 
-                <input v-model="amount" :class="{'p-not' : !selectedInfo}" :disabled="!selectedInfo" class="form-control form-control-lg mb-4" type="number" placeholder="Card Amount (N)" aria-label=".form-control-lg example">
+                <input v-model="amount" :class="{'p-not' : !selectedInfo}" :disabled="!selectedInfo" class="form-control form-control-lg mb-4" type="number" placeholder="Amount" aria-label=".form-control-lg example">
                 <p  v-if="field_errors.amount" class="text-danger"> {{ field_errors.amount[0]}}</p>
 
                 <div class="text-center value mt-5"><strong>Cash Value</strong></div>
@@ -57,7 +57,7 @@
 
                 <h5><strong>Total Payout</strong>: {{amountTotal ? amountTotal : ""}}</h5> -->
 
-                <button class="btn-sellgiftcards btn w-100 mt-3" @click="sendData()" :disabled="saving">{{saving ? 'Please wait...' :'Send'}}</button>
+                <button type="submit" class="btn-sellgiftcards btn w-100 mt-3" @click="sendData()" :disabled="saving">{{saving ? 'Please wait...' :'Send'}}</button>
 
             </form>
        </div>
@@ -93,9 +93,9 @@ export default {
         amountTotal(){
             if(this.selectedInfo){
                 let value = this.amount * this.selectedInfo.crypto_amount
-                return "N "+value+".00"
+                return value
             }
-            return "N 0.00"
+            return ""
         },
         getFullUrlLink(){
             return this.selectedInfo ? this.selectedInfo.crypto_wallet : ""

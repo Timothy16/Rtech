@@ -3,7 +3,7 @@
     <div class="container-fluid mb-5">
        <div class="row">
         <div class="col-lg-3 col-sm-12 col-md-6 mb-3">
-          <nuxt-link to="/dashboard/sell-giftcards">
+          <nuxt-link to="/dashboard/giftcards">
             <div class="box-giftcard">
                 <img src="/images/moneys.png" class="img-fluid" alt="" srcset="">
                 <div class="text-giftcard">Sell Giftcard</div>
@@ -116,7 +116,7 @@ export default {
     middleware: 'auth',
     head() {
         return {
-            title: "Dashboard / Rtechbiz",
+          title: "Dashboard / Rtechbiz",
         };
     },
 }

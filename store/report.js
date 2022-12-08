@@ -43,7 +43,7 @@ export const actions = {
   },
   async getAllReports ({commit}, queryParam) {
     commit('SET_LOADING', true)
-    const { data } = await  this.$axios.$get(this.$config.baseURL + 'user/report', queryParam)
+    const { data } = await  this.$axios.$get(this.$config.baseURL + 'user/report/user', queryParam)
     commit('SET_REPORTS', data)
     commit('SET_LOADING', false)
   },

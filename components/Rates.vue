@@ -12,21 +12,18 @@
 
                     <div class="form-data" v-if="isGift">
                         <form action="">
-                            <select class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>Card Name</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select @change="selectCard(cardName)" v-model="cardName" class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option value="" selected disabled>Select giftcard category</option>
+                                <option :value="giftcard" v-for="(giftcard, index) in giftcards" :key="index">{{giftcard.name}}</option>
                             </select>
 
                             <select class="form-select form-control mt-5 form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>Card Type</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                                <option selected disabled>Card Type</option>
+                                <option value="Physical">Physical</option>
+                                <option value="Virtual">Virtual</option>
                             </select>
 
-                            <input class="form-control form-control-lg mt-5" type="text" placeholder="Card Amount" aria-label=".form-control-lg example">
+                            <input v-model="amountCard" class="form-control form-control-lg mt-5" type="text" placeholder="Amount" aria-label=".form-control-lg example">
 
                             <!-- <button class="btn-trade-now">Check Rate</button> -->
 
@@ -35,14 +32,12 @@
 
                     <div class="form-data" v-if="isCrypto">
                         <form action="">
-                            <select class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected>Cryptocurrency</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <select @change="selectCoin(coinName)" v-model="coinName" class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option value="" selected disabled>Select Cryptocurrency</option>
+                                <option :value="crypto" v-for="(crypto, index) in cryptos" :key="index">{{crypto.name}}</option>
                             </select>
 
-                            <input class="form-control form-control-lg mt-5" type="text" placeholder="usd" aria-label=".form-control-lg example">
+                            <input v-model="amountCoin" class="form-control form-control-lg mt-5" type="text" placeholder="Amount" aria-label=".form-control-lg example">
 
                             <!-- <button class="btn-trade-now">Check Rate</button> -->
 
@@ -50,12 +45,22 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="col-sm-12 col-md-6 col-lg-4" v-if="isGift">
                 <div class="calculation-head">
-                    <div class="rate-fee">Rate: #450</div>
+                    <div class="rate-fee" v-if="cardInfo">Rate: NGN {{cardInfo.amount | currency}}</div>
                     <div class="pay-out mt-5">
                         <div class="total">Total Payout</div>
-                        <div class="amount">NGN 250,000</div>
+                        <div class="amount">NGN {{giftcardTotal | currency}}</div>
+                    </div>
+                    <img src="/images/rate-arrow.png" class="img-fluid img-edit" alt="" srcset="">
+                </div>
+            </div>
+             <div class="col-sm-12 col-md-6 col-lg-4" v-if="isCrypto">
+                <div class="calculation-head">
+                    <div class="rate-fee" v-if="coinInfo">Rate: NGN {{coinInfo.amount | currency}}</div>
+                    <div class="pay-out mt-5">
+                        <div class="total">Total Payout</div>
+                        <div class="amount">NGN {{cryptoTotal | currency}}</div>
                     </div>
                     <img src="/images/rate-arrow.png" class="img-fluid img-edit" alt="" srcset="">
                 </div>
@@ -66,14 +71,43 @@
 </template>
 
 <script>
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
     data(){
         return {
             isGift : true,
-            isCrypto : false
+            isCrypto : false,
+            cardName : "",
+            cardInfo : null,
+            amountCard : "",
+            amountCoin : "",
+            coinName : "",
+            coinInfo : ''
+        }
+    },
+     computed : {
+        ...mapGetters({
+            giftcards : "giftcards",
+            cryptos : "cryptos"
+        }),
+        giftcardTotal(){
+            if(this.cardInfo){
+                return this.cardInfo.amount * this.amountCard
+            }
+            return ""
+        },
+        cryptoTotal(){
+            if(this.coinInfo){
+                return this.coinInfo.amount * this.amountCoin
+            }
+            return ""
         }
     },
     methods : {
+        ...mapActions({
+            getGiftcardRate : "getGiftcardRate",
+            getCryptoRate : "getCryptoRate"
+        }),
         tradeGiftCard(){
             this.isGift = true
             this.isCrypto = false
@@ -81,7 +115,17 @@ export default {
         tradeCrypto(){
             this.isGift = false
             this.isCrypto = true
+        },
+        selectCard(values){
+            this.cardInfo = values
+        },
+        selectCoin(values){
+            this.coinInfo = values
         }
+    },
+    mounted(){
+        this.getGiftcardRate()
+        this.getCryptoRate()
     }
 }
 </script>

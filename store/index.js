@@ -8,7 +8,10 @@ export const state = () => ({
     strategy:   'local',
     bankInfo : null,
     saving : null,
-    faqs : []
+    faqs : [],
+    giftcards : [],
+    cryptos : [],
+    profileInfo : null
   })
   
   export const getters = {
@@ -19,7 +22,10 @@ export const state = () => ({
     loading : state => state.loading,
     bankInfo : state => state.bankInfo,
     saving : state => state.saving,
-    faqs : state => state.faqs
+    faqs : state => state.faqs,
+    giftcards : state => state.giftcards,
+    cryptos : state => state.cryptos,
+    profileInfo : state => state.profileInfo
   }
 
 export const mutations = {
@@ -41,6 +47,21 @@ export const mutations = {
   SET_SAVING (state, saving)   {
     state.saving = saving
   },
+  SET_GIFTCARD_RATE (state, giftcards)   {
+    state.giftcards = giftcards
+  },
+  SET_CRYPTO_RATE(state, cryptos)   {
+    state.cryptos = cryptos
+  },
+  SET_PROFILE (state, profileInfo)   {
+    state.profileInfo = profileInfo
+  },
+  SET_PROFILE_DATA(state, { item, value }) {
+    if(!state.profileInfo){
+      state.profileInfo ={}
+    }
+    Vue.set(state.profileInfo, item, value);
+},
 
 }
 
@@ -70,14 +91,35 @@ export const actions = {
     commit('SET_BANK', data)
     commit('SET_SAVING', false)
   },
-
   async getAllFaq ({commit}, queryParam) {
     commit('SET_SAVING', true)
     const { data } = await  this.$axios.$get(this.$config.baseURL + 'user/faq', queryParam)
     commit('SET_FAQ', data)
     commit('SET_SAVING', false)
   },
-
-
+  async getGiftcardRate ({commit}, queryParam) {
+    commit('SET_SAVING', true)
+    const { data } = await  this.$axios.$get(this.$config.baseURL + 'rate/giftcard', queryParam)
+    commit('SET_GIFTCARD_RATE', data)
+    commit('SET_SAVING', false)
+  },
+  async getCryptoRate ({commit}, queryParam) {
+    commit('SET_SAVING', true)
+    const { data } = await  this.$axios.$get(this.$config.baseURL + 'rate/crypto', queryParam)
+    commit('SET_CRYPTO_RATE', data)
+    commit('SET_SAVING', false)
+  },
+  async getProfileInfo ({commit}, queryParam) {
+    commit('SET_LOADING', true)
+    const { data } = await  this.$axios.$get(this.$config.baseURL + 'user/profile', queryParam)
+    commit('SET_PROFILE', data)
+    commit('SET_LOADING', false)
+  },
+  async updateProfileData ({commit}, queryParam) {
+    commit('SET_SAVING', true)
+    const { data } = await  this.$axios.$post(this.$config.baseURL + 'user/profile/update?_method=patch', queryParam)
+    // commit('SET_GIFTCARD_RATE', data)
+    commit('SET_SAVING', false)
+  },
  
 }

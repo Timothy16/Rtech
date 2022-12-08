@@ -30,7 +30,7 @@
                         <div>
                             <img src="/images/arrow.png" alt="" srcset="">
                         </div>
-                        <div class="w-100 ml-3">
+                        <div class="w-100 ml-3" v-if="bankInfo">
                             <div class="account-number">{{bankInfo.account_number}}</div>
                             <div class="account-name">{{bankInfo.account_name}}</div>
                              <div class="account-name">{{bankInfo.bank_name}}</div>

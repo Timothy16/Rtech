@@ -42,8 +42,15 @@ export const actions = {
         
         commit('SET_LOADING', true)
         const { data } = await  this.$axios.$get(this.$config.baseURL + `user/giftcard-rate/${parameter}`)
-        commit('SET_GIFTCARD_RATE', data)
+        commit('SET_GIFTCARDS_RATE', data)
         commit('SET_LOADING', false)
+    },
+    async createGiftcardOrder ({commit}, parameter) {
+        
+        commit('SET_SAVING', true)
+        const { data } = await  this.$axios.$post(this.$config.baseURL + `user/order/giftcard`, parameter)
+        // commit('SET_GIFTCARD_RATE', data)
+        commit('SET_SAVING', false)
     },
   
    
