@@ -28,7 +28,7 @@
                     <!-- <input type="checkbox" class="">Show Password -->
                    
                 </div>                            
-                <button type="submit" @click="updatePassword" class="btn-sellgiftcards btn w-100 mt-2">{{loading ? 'Updating...' : 'Update Password'}}</button>
+                <button type="submit" @click="updatePassword" class="btn-sellgiftcards btn w-100 mt-2" :disabled="loading">{{loading ? 'Updating...' : 'Update Password'}}</button>
 
             </form>
        </div>

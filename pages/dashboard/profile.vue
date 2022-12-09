@@ -32,7 +32,7 @@
                      <MazPhoneNumberInput v-model="phone" :fetchCountry='true' size="lg" />
                 </div>
 
-                <button type="submit" @click="sendData()" :disabled="saving" class="btn-sellgiftcards btn w-100">{{saving ? "Updating" :'Update Profile'}}</button>
+                <button type="submit" @click="sendData()" :disabled="saving" class="btn-sellgiftcards btn w-100">{{saving ? "Updating..." :'Update Profile'}}</button>
 
         </form>
        </div>
