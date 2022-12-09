@@ -6,7 +6,7 @@
           <nuxt-link to="/dashboard/giftcards">
             <div class="box-giftcard">
                 <img src="/images/moneys.png" class="img-fluid" alt="" srcset="">
-                <div class="text-giftcard">Sell Giftcard</div>
+                <div class="text-giftcard">Trade Giftcard</div>
             </div>
           </nuxt-link>
         </div>
@@ -14,7 +14,7 @@
           <nuxt-link to="/dashboard/sell-crypto">
             <div class="box-giftcard-1">
               <img src="/images/dollar-circle.png" class="img-fluid" alt="" srcset="">
-              <div class="text-giftcard-1">Sell Cryptocurrency</div>
+              <div class="text-giftcard-1">Trade Cryptocurrency</div>
             </div>
             </nuxt-link>
         </div>

@@ -68,10 +68,10 @@
           </nuxt-link>
         </li>
         <li class="log_out bg-log-out">
-          <a :href="'/login?redirect=' + redirectUrl" v-on:click="logout()">
+          <span  v-on:click="logout()">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
-          </a>
+          </span>
         </li>
       </ul>
   </div>
@@ -91,7 +91,8 @@ export default {
   },
   data(){
         return{
-            isOpen : false
+            isOpen : false,
+            loading :  false
         }
     },
 
@@ -100,6 +101,7 @@ export default {
             this.isOpen = false
         },
          logout() {
+          this.loading = true
             this.$auth.logout();
         },
     },
@@ -112,6 +114,21 @@ export default {
 </script>
 
 <style  scoped>
+.sidebar .nav-links li span{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+}
+.bg-log-out span{
+  background: #FEE4E4;
+  border-radius: 5px;
+  width: 80% !important;
+  color: #F56161 !important;
+  cursor: pointer;
+}
 a.nuxt-link-exact-active {
   /* color: #fff !important; */
 }

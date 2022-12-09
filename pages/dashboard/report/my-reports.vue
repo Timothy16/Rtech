@@ -6,13 +6,13 @@
          <vuetable ref="vuetable"
             :fields="options"
             :api-mode="false"
-            :data="reports" class="bg-white mt-5">
+            :data="reports" class="bg-white table-responsive-lg w-100 mt-5 ">
             <div slot="action" slot-scope="props">
                 
-                <nuxt-link :to="'/dashboard/report/single-report?reportId='+ props.rowData.id" class="btn btn-secondary">
+                <nuxt-link :to="'/dashboard/report/single-report?reportId='+ props.rowData.id" class="btn btn-sm btn-secondary mb-2">
                     View    
                 </nuxt-link>
-                <div class="btn btn-danger" @click="openDelete(props.rowData.id)">
+                <div class="btn btn-sm btn-danger mb-2" @click="openDelete(props.rowData.id)">
                     Delete 
                 </div>
             </div>
