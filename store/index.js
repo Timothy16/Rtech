@@ -121,5 +121,17 @@ export const actions = {
     // commit('SET_GIFTCARD_RATE', data)
     commit('SET_SAVING', false)
   },
+  async subscribeNewsletter ({commit}, queryParam) {
+    commit('SET_SAVING', true)
+    const { data } = await  this.$axios.$post(this.$config.baseURL + 'newsletter', queryParam)
+    // commit('SET_GIFTCARD_RATE', data)
+    commit('SET_SAVING', false)
+  },
+  async userContactUs ({commit}, queryParam) {
+    commit('SET_LOADING', true)
+    const { data } = await  this.$axios.$post(this.$config.baseURL + 'contact', queryParam)
+    // commit('SET_GIFTCARD_RATE', data)
+    commit('SET_LOADING', false)
+  },
  
 }

@@ -10,20 +10,24 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="form-bg">
-                        <form action="">
+                        <form action="" @submit.prevent>
                             <div class="mb-3">
-                                <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="Name">
+                                <input v-model="name" type="text" class="form-control"  id="exampleFormControlInput1" placeholder="Name">
+                                <p  v-if="field_errors.name" class="text-danger"> {{ field_errors.name[0]}}</p>
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control"  id="exampleFormControlInput1" placeholder="Email">
+                                <input v-model="email" type="email" class="form-control"  id="exampleFormControlInput1" placeholder="Email">
+                                <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p>
                             </div>
                             <div class="mb-3">
-                                <input type="number" class="form-control"  id="exampleFormControlInput1" placeholder="Telephone">
+                                <input v-model="phone" type="number" class="form-control"  id="exampleFormControlInput1" placeholder="Telephone">
+                                <p  v-if="field_errors.telephone" class="text-danger"> {{ field_errors.telephone[0]}}</p>
                             </div>
                             <div class="mb-3">
-                                <textarea class="form-control form-control-1 " placeholder="Message" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea v-model="message" class="form-control form-control-1 " placeholder="Message" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <p  v-if="field_errors.message" class="text-danger"> {{ field_errors.message[0]}}</p>
                             </div>
-                            <div class="btn-send">Send Message</div>
+                            <button :class="{'p-cursor' : loading}" :disabled="loading" type="submit" @click="sendMessage" class="btn-send w-100">{{loading ? 'Please wait...' : 'Send Message'}}</button>
                         </form>
                     </div>
                 </div>
@@ -34,12 +38,54 @@
 </template>
 
 <script>
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
-
+    data(){
+        return {
+            email : "",
+            phone : "",
+            message : "",
+            name : ""
+        }
+    },
+     computed : {
+        ...mapGetters({
+            loading : "loading"
+        }),
+    },
+    methods : {
+        ...mapActions({
+            userContactUs : "userContactUs"
+        }),
+         ...mapMutations({
+            SET_LOADING: "SET_LOADING",
+        }),
+         async sendMessage(){
+            
+            try {
+                let parameter = {
+                    email : this.email,
+                    telephone :  this.phone,
+                    name : this.name,
+                    message : this.message
+                }
+                await this.userContactUs(parameter)
+                this.email = ""
+                this.name = ""
+                this.phone = ''
+                this.message = ""
+            } catch (error) {
+                this.SET_LOADING(false)
+            }
+        },
+    },
 }
 </script>
 
 <style scoped>
+.p-cursor {
+    cursor: not-allowed;
+}
 .container-width{
     padding: 1rem 6rem;
     margin-top: 7rem;
@@ -50,7 +96,7 @@ export default {
     border-radius: 20px;
     padding: 1rem;
     width: 500px;
-    height: 521px;
+    /* height: 521px; */
     position: relative;
     top: -80px;
 }
@@ -102,10 +148,12 @@ export default {
     background: #F9DF4C;
     border-radius: 10px;
     font-style: normal;
-    font-weight: 600;
+    /* font-weight: 600; */
     font-size: 20px;
     line-height: 23px;
     color: #000000;
+    border: none;
+    outline: none;
 }
 @media screen and (max-width : 578px){
  .container-width{
@@ -152,7 +200,7 @@ export default {
     .container-width{
     padding: 1rem;
     margin-top: 7rem;
-}
+}   
 .form-bg{
     background: #FFFFFF;
     box-shadow: 1px 2px 8px -2px rgba(12, 100, 230, 0.25);

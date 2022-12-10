@@ -11,11 +11,12 @@
                             <div class="icon-pad">
                                 <img src="/images/sms-tracking-f.png" width="30px" height="30px" alt="" srcset="">
                             </div>
-                            <input type="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Email">
+                            <input type="email" v-model="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Email">
                         </div>
+                        <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p>
                     </div>
                     <div class="col-sm-12 col-md-5 col-lg-2">
-                        <div class="btn btn-subscribe">Subscribe</div>
+                        <button :disabled="saving" class="btn btn-subscribe" @click.prevent="userSubscribeNewsletter">{{saving ? 'Saving...' : 'Subscribe'}}</button>
                     </div>
                 </div>
             </div>
@@ -61,8 +62,38 @@
 </template>
 
 <script>
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
-
+    data(){
+        return {
+            email : "",
+        }
+    },
+     computed : {
+        ...mapGetters({
+            saving : "saving"
+        }),
+    },
+    methods : {
+        ...mapActions({
+            subscribeNewsletter : "subscribeNewsletter"
+        }),
+         ...mapMutations({
+            SET_SAVING: "SET_SAVING",
+        }),
+         async userSubscribeNewsletter(){
+            
+            try {
+                let parameter = {
+                    email : this.email,
+                }
+                await this.subscribeNewsletter(parameter)
+                this.email = ""
+            } catch (error) {
+                this.SET_SAVING(false)
+            }
+        },
+    },
 }
 </script>
 
@@ -97,7 +128,7 @@ export default {
     border: none;
     font-size: 1.2rem;
     padding: .3rem;
-    color: #0C64E6;
+    /* color: #0C64E6; */
 }
 .icon-pad{
     padding: .8rem;
@@ -126,10 +157,11 @@ export default {
     background: #F9DF4C;
     border-radius: 10px;
     font-style: normal;
-    font-weight: 600;
+    /* font-weight: 600; */
     font-size: 20px; 
     line-height: 23px;
     color: #000000;
+    /* word-break: break-all; */
 }
 .footer-text{
     font-style: normal;
