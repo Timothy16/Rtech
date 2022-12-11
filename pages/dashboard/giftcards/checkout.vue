@@ -9,7 +9,7 @@
                             <option value="" selected disabled>Select Card Category</option>
                             <option :value="rate" v-for="(rate, index) in giftcardRates" :key="index">{{rate.giftcard_name}}</option>
                         </select>
-                         <p  v-if="field_errors.giftcard_id" class="text-danger"> {{ field_errors.giftcard_id[0]}}</p>
+                        <p  v-if="field_errors.giftcard_id" class="text-danger"> {{ field_errors.giftcard_id[0]}}</p>
                     </div>
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <select v-model="cardType" class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
@@ -46,7 +46,7 @@
                             :images="preview_list"
                         />
                     </div>
-                   
+                     <p  v-if="field_errors.images" class="text-danger"> {{ field_errors.images[0]}}</p>
                 </div>
                <button type="submit" class="btn-sellgiftcards btn w-100 mt-3" @click="sendData()" :disabled="saving">{{saving ? 'Please wait...' :'Send'}}</button>
 

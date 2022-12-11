@@ -9,7 +9,6 @@
                 </select>
                 <p  v-if="field_errors.crypto_id" class="text-danger"> {{ field_errors.crypto_id[0]}}</p>
                             
-
                 <input v-model="amount" :class="{'p-not' : !selectedInfo}" :disabled="!selectedInfo" class="form-control form-control-lg mb-4" type="number" placeholder="Amount" aria-label=".form-control-lg example">
                 <p  v-if="field_errors.amount" class="text-danger"> {{ field_errors.amount[0]}}</p>
 
@@ -48,6 +47,8 @@
                             </div>                        
                         </div> -->
                     </div>
+                    <p  v-if="field_errors.images" class="text-danger"> {{ field_errors.images[0]}}</p>
+
                    
                 </div>
                 
