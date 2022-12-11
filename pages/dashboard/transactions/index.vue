@@ -1,6 +1,7 @@
 <template>
     <div class="container-fluid mb-5">
        <div class="form-card shadow">
+        <header-transaction />
         <div class="header-info">Transaction History</div>
             <table class="table  text-center table-responsive-lg table-lg">
             <thead>
@@ -103,14 +104,32 @@
 </template>
 
 <script>
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
-  middleware: 'auth',
+    middleware: 'auth',
     layout : "dashboard-layout",
     head() {
         return {
             title: "Transaction History / Rtechbiz",
         };
     },
+        computed : {
+        ...mapGetters({
+            // loading : "loading",
+            // bankInfo : "bankInfo"
+        }),
+    },
+    methods : {
+        ...mapActions({
+            getAllTransactions: "transaction/getAllTransactions"
+        }),
+        ...mapMutations({
+            SET_LOADING: "transaction/SET_LOADING",
+        }),
+    },
+    mounted(){
+        this.getAllTransactions()
+    }
 }
 </script>
 

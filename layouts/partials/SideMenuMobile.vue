@@ -1,7 +1,6 @@
 <template>
-<client-only>
-  <div class="" v-if="isOpen">
-    <div class="sidebar">
+<!-- <client-only> -->
+    <div v-if="isOpen" class="sidebar">
     <div class="logo-details">
       <span class="logo_name"><img src="/images/logo_admin.png" alt="" srcset=""></span>
        <i class='bx bx-window-close display-v' @click="closeTab"></i>
@@ -32,7 +31,7 @@
           </nuxt-link>
         </li>
         <li @click="closeTab">
-           <nuxt-link to="/dashboard/transaction-history" :class="{'active-h' : checkUrl == '/dashboard/transaction-history'}">
+           <nuxt-link to="/dashboard/transactions" :class="{'active-h' : checkUrl == '/dashboard/transactions'}">
             <i class='bx bx-coin-stack' ></i>
             <span class="links_name">Transactions</span>
            </nuxt-link>
@@ -75,8 +74,7 @@
         </li>
       </ul>
   </div>
-  </div>
-  </client-only>
+  <!-- </client-only> -->
 </template>
 
 <script>

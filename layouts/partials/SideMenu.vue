@@ -32,7 +32,7 @@
           </nuxt-link>
         </li>
         <li class="mb-1">
-           <nuxt-link to="/dashboard/transaction-history" :class="{'active-h' : checkUrl == '/dashboard/transaction-history'}">
+           <nuxt-link to="/dashboard/transactions" :class="{'active-h' : checkUrl == '/dashboard/transactions'}">
             <i class='bx bx-coin-stack' ></i>
             <span class="links_name">Transactions</span>
            </nuxt-link>

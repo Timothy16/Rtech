@@ -33,8 +33,9 @@
                         <span><i class='fa fa-file-upload ml-5'></i> <br> Upload Image!</span>
                         <input type="file" accept="image/*" multiple @change="onFileChange($event)">
                     </div>
+                     <p  v-if="field_errors.images" class="text-danger"> {{ field_errors.images[0]}}</p>
                 </div>
-
+                
                 <div class="prevew-edit mb-3" v-if="preview_list.length >=1">
                     <div>
                         <label for="">{{preview_list.length}} image(s) selected  <span class="btn btn-danger btn-sm" @click="removeImages()">remove images</span></label>
@@ -46,10 +47,7 @@
                                 <img v-if="image" :src="image" class="img-fluid d- img-thumbnail mb-1" />
                             </div>                        
                         </div> -->
-                    </div>
-                    <p  v-if="field_errors.images" class="text-danger"> {{ field_errors.images[0]}}</p>
-
-                   
+                    </div>                   
                 </div>
                 
 

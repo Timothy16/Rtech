@@ -14,8 +14,8 @@
                     <div class="col-lg-6 col-sm-12 col-md-6">
                         <select v-model="cardType" class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
                             <option value="" selected disabled>Select Your Card Type</option>
-                            <option value="Physical">Physical Cad</option>
-                            <option value="Virtual">Virtual Card</option>
+                            <option value="Physical Card">Physical Card</option>
+                            <option value="Virtual Card">Virtual Card</option>
                         </select>
                     </div>
                 </div>
@@ -37,6 +37,7 @@
                         <span><i class='fa fa-file-upload ml-5'></i> <br> Upload Image!</span>
                         <input type="file" accept="image/*" multiple @change="onFileChange($event)">
                     </div>
+                    <p  v-if="field_errors.images" class="text-danger"> {{ field_errors.images[0]}}</p>
                 </div>
 
                 <div class="prevew-edit mb-3" v-if="preview_list.length >=1">
@@ -46,7 +47,6 @@
                             :images="preview_list"
                         />
                     </div>
-                     <p  v-if="field_errors.images" class="text-danger"> {{ field_errors.images[0]}}</p>
                 </div>
                <button type="submit" class="btn-sellgiftcards btn w-100 mt-3" @click="sendData()" :disabled="saving">{{saving ? 'Please wait...' :'Send'}}</button>
 
