@@ -11,13 +11,17 @@
             <hr>
             <div class="personal-info">Crypto Details </div>
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="headers">Crypto Category Name</div>
                     <div class="text-h">{{order.crypto_rate ? order.crypto_rate.crypto_name : ""}}</div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-2">
                     <div class="headers">Amount</div>
                     <div class="text-h">{{order ? order.amount : ""}}</div>
+                </div>
+                 <div class="col-lg-6">
+                    <div class="headers">Crypto wallet </div>
+                    <div class="text-h" style="word-break : break-all">{{order.crypto_rate ? order.crypto_rate.crypto_wallet : ""}}</div>
                 </div>
             </div>
 

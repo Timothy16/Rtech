@@ -12,22 +12,22 @@
             <div class="form-group">
                 <label>Email</label>
                 <input type="email" v-model="email" class="form-control" placeholder="Enter email address">
-                <!-- <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p> -->
+                <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p>
             </div>
 
             <div class="mt-4">
                 <div class="row">
                   <div class="col-12">
-                      <button type="submit" class="btn btn-primary btn-block btn-lg"  v-on:click="forgotPasswordUser()">Submit </button>
+                      <button :disabled="loading" type="submit" class="btn btn-primary btn-block btn-lg"  v-on:click="forgotPasswordUser()">{{loading ? 'Please wait...' : 'Submit'}} </button>
                   </div>
                 </div>
             </div>
           </form>
-          <!-- <div class="text-center mt-5">
+          <div class="text-center mt-5">
             <p class="light-gray">Already have an account? <nuxt-link to="/login">Sign In</nuxt-link></p>
-          </div> -->
+          </div>
       </div>
-      <!-- <notifications position="bottom left" group="all" /> -->
+      <notifications position="top right" group="all" />
     </div>
 </client-only>
 </template>
@@ -41,31 +41,39 @@ export default {
   head () {
       return {
         title: "Forgot password / RtechBiz" ,
-
       }
   },
    data(){
     return{
       email: null,
-      password: null,
     }
   },
-  computed:{
+ computed:{
     ...mapGetters({
-        
+        'loading':    'loading',
     }),
   },
   methods:{
       ...mapMutations({
-       
+        'SET_LOADING':    'SET_LOADING',
       }),
 
       ...mapActions({
-       
+        'forgotPassword' : 'forgotPassword'
       }),
 
       async forgotPasswordUser(){
-        
+          try {
+            let data= {
+              email: this.email
+            }
+            await this.forgotPassword(data)
+            this.email = null
+          } catch (error) {
+            this.SET_LOADING(false)
+
+          }
+
       }
   }
    

@@ -1,104 +1,58 @@
 <template>
-    <div class="container-fluid mb-5">
+    <div class="container-fluid bg-white mb-5">
        <div class="form-card shadow">
         <header-transaction />
         <div class="header-info">Transaction History</div>
-            <table class="table  text-center table-responsive-lg table-lg">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Card Name</th>
-                <th scope="col">Date</th>
-                <th scope="col">Amount</th>
-                <th scope="col">Status</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="completed">Completed</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-             <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="rejected">Rejected</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="pending">Pending</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-               <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="pending">Pending</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="completed">Completed</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-               <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="pending">Pending</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="rejected">Rejected</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="rejected">Rejected</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="rejected">Rejected</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
-              <tr>
-                <th scope="row">1</th>
-                <td>Bitcoin</td>
-                <td>7th Nov</td>
-                <td>$1,400</td>
-                <td><span class="rejected">Rejected</span></td>
-                <td><span class="btn btn-primary btn-sm">view</span></td>
-              </tr>
+        <div v-if="!loading">
+        <vuetable ref="vuetable"
+                :fields="options"
+                :api-mode="false"
+                :data="transactions" class="p-3 table-responsive-lg bg-white mt-3 table-lg">
+                
+                <div slot="action" slot-scope="props">
+                    <nuxt-link :to="'/transactions/get-giftcard-transaction?orderId='+ props.rowData.id" class="btn btn-secondary" v-if="props.rowData.product_type === 'Giftcard'">
+                        View    
+                    </nuxt-link>
+                    <nuxt-link :to="'/transactions/get-crypto-transaction?orderId='+ props.rowData.id" class="btn btn-secondary" v-if="props.rowData.product_type === 'Crypto'">
+                        View    
+                    </nuxt-link>
+                </div>
 
-              
-            </tbody>
-          </table>
+                <div slot="sn" slot-scope="props">
+                    <span>{{ props.rowIndex + 1}}</span>
+                </div>
+
+                <!-- <div slot="name" slot-scope="props">
+                    <span>{{ props.rowData.users ? props.rowData.users.name : "" }}</span>
+                </div> -->
+
+                <div slot="status" slot-scope="props">
+                    <span v-if="props.rowData.status === null" class="pending">{{ props.rowData.status === null ? 'Pending' : ''}}</span>
+                    <span v-if="props.rowData.status === '1'" class="pending">{{ props.rowData.status === '1' ? 'Accepted' : ''}}</span>
+                    <span v-if="props.rowData.status === '2'" class="completed">{{ props.rowData.status === '2' ? 'Completed' : ''}}</span>
+                    <span v-if="props.rowData.status === '3'" class="rejected">{{ props.rowData.status === '3' ? 'Rejcted' : ''}}</span>
+                </div>
+
+                <!-- <div slot="email" slot-scope="props">
+                    <span>{{ props.rowData.users.email ? props.rowData.users.email : "" }}</span>
+                </div> -->
+                 <div slot="description" slot-scope="props">
+                    <span>{{ props.rowData.description ? props.rowData.description : "" }}</span>
+                </div>
+                <div slot="product_type" slot-scope="props" >
+                    <span >{{ props.rowData.product_type ? props.rowData.product_type : "" }}</span>
+                </div>
+                 <div slot="created" slot-scope="props">
+                    <span><span>{{ $moment(props.rowData.created_at).format('lll') }}</span></span>
+                </div>
+                <div slot="amount" slot-scope="props">
+                    <span>{{ props.rowData.amount ? props.rowData.amount : "" }}</span>
+                </div>
+        </vuetable>
+        </div>
+        <div  v-else>
+              <Loader />
+        </div>
        </div>
   </div>
 </template>
@@ -113,10 +67,25 @@ export default {
             title: "Transaction History / Rtechbiz",
         };
     },
-        computed : {
+    data(){
+      return {
+         options: [
+                { title: 'SN', name: 'sn'}, 
+                // { title: 'Full Name',frozen:true, name: 'name',width: "", editor: false}, 
+                // { title: 'Email', name: 'email', width: ""}, 
+                { title: 'Order Description', name: 'description', width: ""}, 
+                { title: 'Order Type', name: 'product_type', width: ""}, 
+                { title: 'Amount', name: 'amount', width: ""}, 
+                { title: 'Status', name: 'status', width: ""},
+                { title: 'Date/Time', name: 'created', width: ""}, 
+                { title: 'Action', name: 'action' }, 
+            ]
+      }
+    },
+    computed : {
         ...mapGetters({
-            // loading : "loading",
-            // bankInfo : "bankInfo"
+            loading : "transaction/loading",
+            transactions : "transaction/transactions"
         }),
     },
     methods : {

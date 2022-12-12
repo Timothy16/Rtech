@@ -133,5 +133,12 @@ export const actions = {
     // commit('SET_GIFTCARD_RATE', data)
     commit('SET_LOADING', false)
   },
+  async forgotPassword ({commit}, queryParam) {
+    commit('SET_LOADING', true)
+    const { data } = await  this.$axios.$post(this.$config.baseURL + 'forget-password', queryParam)
+    // commit('SET_GIFTCARD_RATE', data)
+    commit('SET_LOADING', false)
+  },
+
  
 }
