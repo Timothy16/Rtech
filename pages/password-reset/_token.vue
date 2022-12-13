@@ -10,21 +10,21 @@
           
           </div>
           <form action="/" v-on:submit.prevent>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>Email</label>
                 <input type="email" disabled v-model="email" class="form-control" placeholder="Enter email address">
-                <!-- <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p> -->
+                <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p>
                 
-            </div>
+            </div> -->
             <div class="form-group">
                 <label>New Password</label>
                 <input type="password" v-model="password" class="form-control" placeholder="Enter new password">
-                <!-- <p  v-if="field_errors.password" class="text-danger"> {{ field_errors.password[0]}}</p> -->
+                <p  v-if="field_errors.password" class="text-danger"> {{ field_errors.password[0]}}</p>
             </div>
             <div class="mt-4">
                 <div class="row">
                   <div class="col-12">
-                      <button type="submit" class="btn btn-primary btn-block btn-lg"  v-on:click="resetPasswordUser()"> Change Password </button>
+                      <button :disabled="loading" type="submit" class="btn btn-primary btn-block btn-lg"  v-on:click="resetPasswordUser()"> {{loading ? 'Please wait...' : 'Change Password'}} </button>
                   </div>
                 </div>
             </div>
@@ -33,6 +33,7 @@
             <p class="light-gray">Already have an account? <nuxt-link to="/login">Sign In</nuxt-link></p>
           </div>
       </div>
+      <notifications position="top right" group="all" />
     </div>
 </client-only>
 </template>
@@ -51,32 +52,45 @@ export default {
   },
   data(){
     return{
-      email: null,
+      // token: null,
       password: null,
     }
   },
-  mounted(){
-    // let email = this.$route.query.email
-    // this.email = email
-  },
-  computed:{
+ computed:{
     ...mapGetters({
-        
+        'loading':    'loading',
     }),
   },
   methods:{
       ...mapMutations({
-       
-        }),
-        ...mapActions({
-       
-        }),
-    
-        async resetPasswordUser(){
-           
-        }
+        'SET_LOADING':    'SET_LOADING',
+      }),
 
-    }
+      ...mapActions({
+        'resetPassword' : 'resetPassword'
+      }),
+
+      async resetPasswordUser(){
+            let token = this.$route.query.token
+            // console.log('token', token)
+            try {
+                let parameter= {
+                    password: this.password,
+                    password_confirmation : this.password
+                }
+
+                await this.resetPassword({token, parameter})
+                this.password = ""
+                // let redirect =  '/login'
+                this.$router.push('/login')
+            
+            } catch (error) {
+            this.SET_LOADING(false)
+            
+            }
+            
+        }
+  }
    
 }
 </script>

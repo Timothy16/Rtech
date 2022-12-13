@@ -140,5 +140,14 @@ export const actions = {
     commit('SET_LOADING', false)
   },
 
+  async resetPassword ({commit}, {token, parameter}) {
+    commit('SET_LOADING', true)
+    const { data } = await  this.$axios.$post(this.$config.baseURL + 'password-reset', parameter, {headers : {
+      'token' : `${token}`
+    }})
+    // commit('SET_GIFTCARD_RATE', data)
+    commit('SET_LOADING', false)
+  },
+
  
 }
