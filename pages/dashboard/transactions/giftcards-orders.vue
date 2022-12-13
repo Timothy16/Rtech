@@ -37,7 +37,7 @@
                 :data="giftcards" class="p-3 table-responsive-lg table-lg">
                 
                 <div slot="action" slot-scope="props">
-                    <nuxt-link :to="'/dashboard/transactions/get-a-giftcard-order?giftcardOrderId='+ props.rowData.id" class="btn btn-secondary">
+                    <nuxt-link :to="'/dashboard/transactions/get-a-giftcard-order?giftcardOrderId='+ props.rowData.id" class="btn btn-secondary btn-sm">
                         View    
                     </nuxt-link>
                 </div>

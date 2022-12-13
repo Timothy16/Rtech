@@ -79,7 +79,7 @@
                                 <p  v-if="field_errors.password" class="text-danger"> {{ field_errors.password[0]}}</p>
                             </div>
                             
-                            <button type="submit" @click="registerUserData()" class="btn-login">{{registering ? 'Registering...' :'CREATE ACCOUNT'}}</button>
+                            <button type="submit" @click="registerUserData()" :disabled="registering" class="btn-login btn">{{registering ? 'Registering...' :'CREATE ACCOUNT'}}</button>
                         </div>
                     </form>
 

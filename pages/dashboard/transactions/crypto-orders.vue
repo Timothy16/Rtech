@@ -37,7 +37,7 @@
                 :data="cryptos" class="bg-white mt-5 p-3">
                 
                 <div slot="action" slot-scope="props">
-                    <nuxt-link :to="'/dashboard/transactions/get-a-crypto-order?cryptoOrderId='+ props.rowData.id" class="btn btn-secondary">
+                    <nuxt-link :to="'/dashboard/transactions/get-a-crypto-order?cryptoOrderId='+ props.rowData.id" class="btn btn-secondary btn-sm">
                         View    
                     </nuxt-link>
                 </div>

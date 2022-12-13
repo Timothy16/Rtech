@@ -47,8 +47,7 @@
                                 <p  v-if="field_errors.password" class="text-danger"> {{ field_errors.password[0]}}</p>
                                 
                             </div>
-                            
-                            <button type="submit" class="btn-login" @click="loginUser">{{logining ? 'Logining...' : 'LOG IN'}}</button>
+                            <button type="submit" :disabled="logining" :class="{'allowed' : logining}" class="btn-login btn" @click="loginUser">{{logining ? 'Logining...' : 'LOG IN'}}</button>
                         </div>
                     </form>
 
@@ -151,6 +150,9 @@ export default {
     /* width: 732px;
     height: 732px; */
     /* margin-top: 2rem; */
+}
+.allowed{
+   cursor: not-allowed;
 }
 a{
     text-decoration: none;

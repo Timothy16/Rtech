@@ -4,51 +4,51 @@
         <header-transaction />
         <div class="header-info">Transaction History</div>
         <div v-if="!loading">
-        <vuetable ref="vuetable"
-                :fields="options"
-                :api-mode="false"
-                :data="transactions" class="p-3 table-responsive-lg bg-white mt-3 table-lg">
-                
-                <div slot="action" slot-scope="props">
-                    <nuxt-link :to="'/transactions/get-giftcard-transaction?orderId='+ props.rowData.id" class="btn btn-secondary" v-if="props.rowData.product_type === 'Giftcard'">
-                        View    
-                    </nuxt-link>
-                    <nuxt-link :to="'/transactions/get-crypto-transaction?orderId='+ props.rowData.id" class="btn btn-secondary" v-if="props.rowData.product_type === 'Crypto'">
-                        View    
-                    </nuxt-link>
-                </div>
+            <vuetable ref="vuetable"
+                    :fields="options"
+                    :api-mode="false"
+                    :data="transactions" class="p-3 table-responsive-lg bg-white mt-3 table-lg">
+                    
+                    <div slot="action" slot-scope="props">
+                        <nuxt-link :to="'/transactions/get-giftcard-transaction?orderId='+ props.rowData.id" class="btn btn-secondary btn-sm" v-if="props.rowData.product_type === 'Giftcard'">
+                            View    
+                        </nuxt-link>
+                        <nuxt-link :to="'/transactions/get-crypto-transaction?orderId='+ props.rowData.id" class="btn btn-secondary btn-sm" v-if="props.rowData.product_type === 'Crypto'">
+                            View    
+                        </nuxt-link>
+                    </div>
 
-                <div slot="sn" slot-scope="props">
-                    <span>{{ props.rowIndex + 1}}</span>
-                </div>
+                    <div slot="sn" slot-scope="props">
+                        <span>{{ props.rowIndex + 1}}</span>
+                    </div>
 
-                <!-- <div slot="name" slot-scope="props">
-                    <span>{{ props.rowData.users ? props.rowData.users.name : "" }}</span>
-                </div> -->
+                    <!-- <div slot="name" slot-scope="props">
+                        <span>{{ props.rowData.users ? props.rowData.users.name : "" }}</span>
+                    </div> -->
 
-                <div slot="status" slot-scope="props">
-                    <span v-if="props.rowData.status === null" class="pending">{{ props.rowData.status === null ? 'Pending' : ''}}</span>
-                    <span v-if="props.rowData.status === '1'" class="pending">{{ props.rowData.status === '1' ? 'Accepted' : ''}}</span>
-                    <span v-if="props.rowData.status === '2'" class="completed">{{ props.rowData.status === '2' ? 'Completed' : ''}}</span>
-                    <span v-if="props.rowData.status === '3'" class="rejected">{{ props.rowData.status === '3' ? 'Rejcted' : ''}}</span>
-                </div>
+                    <div slot="status" slot-scope="props">
+                        <span v-if="props.rowData.status === null" class="pending">{{ props.rowData.status === null ? 'Pending' : ''}}</span>
+                        <span v-if="props.rowData.status === '1'" class="pending">{{ props.rowData.status === '1' ? 'Accepted' : ''}}</span>
+                        <span v-if="props.rowData.status === '2'" class="completed">{{ props.rowData.status === '2' ? 'Completed' : ''}}</span>
+                        <span v-if="props.rowData.status === '3'" class="rejected">{{ props.rowData.status === '3' ? 'Rejcted' : ''}}</span>
+                    </div>
 
-                <!-- <div slot="email" slot-scope="props">
-                    <span>{{ props.rowData.users.email ? props.rowData.users.email : "" }}</span>
-                </div> -->
-                 <div slot="description" slot-scope="props">
-                    <span>{{ props.rowData.description ? props.rowData.description : "" }}</span>
-                </div>
-                <div slot="product_type" slot-scope="props" >
-                    <span >{{ props.rowData.product_type ? props.rowData.product_type : "" }}</span>
-                </div>
-                 <div slot="created" slot-scope="props">
-                    <span><span>{{ $moment(props.rowData.created_at).format('lll') }}</span></span>
-                </div>
-                <div slot="amount" slot-scope="props">
-                    <span>{{ props.rowData.amount ? props.rowData.amount : "" }}</span>
-                </div>
-        </vuetable>
+                    <!-- <div slot="email" slot-scope="props">
+                        <span>{{ props.rowData.users.email ? props.rowData.users.email : "" }}</span>
+                    </div> -->
+                    <div slot="description" slot-scope="props">
+                        <span>{{ props.rowData.description ? props.rowData.description : "" }}</span>
+                    </div>
+                    <div slot="product_type" slot-scope="props" >
+                        <span >{{ props.rowData.product_type ? props.rowData.product_type : "" }}</span>
+                    </div>
+                    <div slot="created" slot-scope="props">
+                        <span><span>{{ $moment(props.rowData.created_at).format('lll') }}</span></span>
+                    </div>
+                    <div slot="amount" slot-scope="props">
+                        <span>{{ props.rowData.amount ? props.rowData.amount : "" }}</span>
+                    </div>
+            </vuetable>
         </div>
         <div  v-else>
               <Loader />
