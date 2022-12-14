@@ -6,13 +6,15 @@ export const state = () => ({
     saving : false,
     cryptos : [],
     crypto : null,
-    transactions : []
+    transactions : [],
+    transaction : null
 })
 
 export const getters = {
     giftcards:  state => state.giftcards,
     giftcard:  state => state.giftcard,
     transactions:  state => state.transactions,
+    transaction:  state => state.transaction,
     loading:  state => state.loading,
     saving:  state => state.saving,
     cryptos:  state => state.cryptos,
@@ -41,8 +43,9 @@ export const mutations = {
     SET_TRANSACTIONS (state, transactions) {
         state.transactions = transactions
     },
- 
- 
+    SET_SINGLE_TRANSACTIONS (state, transaction) {
+        state.transaction = transaction
+    },
 }
 
 export const actions = {
@@ -90,6 +93,13 @@ export const actions = {
         commit('SET_LOADING', true)
         const { data } = await  this.$axios.$get(this.$config.baseURL + `user/transactions`, parameter)
         commit('SET_TRANSACTIONS', data)
+        commit('SET_LOADING', false)
+    },
+    async getSingleTransaction ({commit}, parameter) {
+        
+        commit('SET_LOADING', true)
+        const { data } = await  this.$axios.$get(this.$config.baseURL + `user/transactions/${parameter}`)
+        commit('SET_SINGLE_TRANSACTIONS', data)
         commit('SET_LOADING', false)
     },
   
