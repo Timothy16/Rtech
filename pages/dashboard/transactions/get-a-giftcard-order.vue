@@ -64,7 +64,7 @@
             <div class="headers">Profile Picture:</div>
             <MazAvatar
                 :src="order.user ? order.user.picture :'/images/avarter.jpg'"
-                :size="120"
+                :size="50"
                 editable
                 class=""
                 bordered

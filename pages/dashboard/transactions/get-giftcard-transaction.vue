@@ -1,28 +1,43 @@
 <template>
   <div class="bg-white bg-pad">
     <div v-if="order && !loading">
-        <nuxt-link to="/dashboard/transactions/crypto-orders">
+        <a @click="$router.back()">
             <i class="fa fa-angle-left angle-edit"></i>
-        </nuxt-link>
-        <div class="mt-4">
-            <div class="personal-info text-center">Crypto Order #{{order.id}}
-                 <span class="pending" v-if="order.status === null">{{order.status === null ? 'Pending' : ""}} </span>
+        </a>
+         <div class="mt-4">
+            <div class="personal-info text-center">Giftcard Order #{{order.id}}  
+                <span v-if="order.status === '1'" class="pending">{{ order.status === '1' ? 'Accepted' : ''}}</span>
+                <span v-if="order.status === '2'" class="completed">{{ order.status === '2' ? 'Completed' : ''}}</span>
+                <span v-if="order.status === '3'" class="rejected">{{ order.status === '3' ? 'Rejcted' : ''}}</span>
             </div>
             <hr>
-            <div class="personal-info">Crypto Details </div>
+            <div class="personal-info">Giftcard Details </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="headers">Crypto Category Name</div>
-                    <div class="text-h">{{order.crypto_rate ? order.crypto_rate.crypto_name : ""}}</div>
+                <div class="col-lg-5">
+                    <div class="headers">Giftcard Name</div>
+                    <div class="text-h">{{order.order.giftcard_rate ? order.order.giftcard_rate.giftcard.giftcard_name : ""}}</div>
                 </div>
-                <div class="col-lg-2">
+
+                <div class="col-lg-5">
+                    <div class="headers">Giftcard Category Name</div>
+                    <div class="text-h">{{order.order.giftcard_rate ? order.order.giftcard_rate.giftcard_name : ""}}</div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="headers">Card Type</div>
+                    <div class="text-h">{{order.order ? order.order.card_type : ""}}</div>
+                </div>
+
+                <div class="col-lg-5">
                     <div class="headers">Amount</div>
-                    <div class="text-h">{{order ? order.amount : ""}}</div>
+                    <div class="text-h">{{order.order ? order.order.amount : ""}}</div>
                 </div>
-                 <div class="col-lg-6">
-                    <div class="headers">Crypto wallet </div>
-                    <div class="text-h" style="word-break : break-all">{{order.crypto_rate ? order.crypto_rate.crypto_wallet : ""}}</div>
-                </div>
+            </div>
+            <div class="">
+                <div class="headers">E-code</div>
+                <div class="text-h" style="word-break : break all">{{order.order ? order.order.ecode : "?"}}</div>
             </div>
 
             <div class="headers">Transaction Image(s)</div>
@@ -32,29 +47,29 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="headers">Full Name</div>
-                    <div class="text-h">{{order.user ? order.user.name : ""}}</div>
+                    <div class="text-h">{{order.users ? order.users.name : ""}}</div>
                 </div>
 
                 <div class="col-lg-5">
-                    <div class="headers">User Name </div>
-                    <div class="text-h">{{order.user ? order.user.username : ""}}</div>
+                    <div class="headers">user Name </div>
+                    <div class="text-h">{{order.users ? order.users.username : ""}}</div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-5">
                     <div class="headers">Email</div>
-                    <div class="text-h">{{order.user ? order.user.email : ""}}</div>
+                    <div class="text-h">{{order.users ? order.users.email : ""}}</div>
                 </div>
 
                 <div class="col-lg-5">
                     <div class="headers">Phone Number </div>
-                    <div class="text-h">{{order.user ? order.user.phone : ""}}</div>
+                    <div class="text-h">{{order.users ? order.users.phone : ""}}</div>
                 </div>
             </div>
 
             <div class="headers">Profile Picture</div>
             <MazAvatar
-                :src="order.user ? order.user.picture :'/images/avarter.jpg'"
+                :src="order.users ? order.users.picture :'/images/avarter.jpg'"
                 :size="50"
                 editable
                 class=""
@@ -66,27 +81,27 @@
             <div class="row mb-3">
                 <div class="col-lg-4">
                     <div class="headers">Account Name</div>
-                    <div class="text-h">{{order.user.bank ? order.user.bank.account_name : "?"}}</div>
+                    <div class="text-h">{{order.users.bank ? order.users.bank.account_name : "?"}}</div>
                 </div>
 
                 <div class="col-lg-4">
                     <div class="headers">Bank Name</div>
-                    <div class="text-h">{{order.user.bank ? order.user.bank.bank_name : "?"}}</div>
+                    <div class="text-h">{{order.users.bank ? order.users.bank.bank_name : "?"}}</div>
                 </div>
                 <div class="col-lg-4">
                     <div class="headers">Account Number</div>
-                    <div class="text-h">{{order.user.bank ? order.user.bank.account_number : "?"}}</div>
+                    <div class="text-h">{{order.users.bank ? order.users.bank.account_number : "?"}}</div>
                 </div>
             </div>
             <hr>
             <div class="headers ">Giftcard Rate Amount :</div>
-            <div class="text-h">N {{order.crypto_rate ? order.crypto_rate.crypto_amount : "" | currency}}</div>
+            <div class="text-h">{{order.order.giftcard_rate ? order.order.giftcard_rate.currency : ""}}{{order.order.giftcard_rate ? order.order.giftcard_rate.card_amount_rate : "" | currency}}</div>
 
-            <div class="headers">Amount(quantity you want to trade) :</div>
+            <div class="headers">Amount(quantity users want to trade) :</div>
             <div class="text-h">{{order ? order.amount : ""}}</div>
 
-            <div class="headers">Total(You get) :</div>
-            <div class="text-h">N {{total | currency}}</div>
+            <div class="headers">Total(user get) :</div>
+            <div class="text-h">{{order.order.giftcard_rate ? order.order.giftcard_rate.currency : ""}}{{total | currency}}</div>
 
              <div class="headers">Order response :</div>
             <div class="text-h">{{order ? order.response : "No response"}}</div>
@@ -111,11 +126,11 @@ export default {
     computed: {
         ...mapGetters({
             loading : "transaction/loading",
-            order : "transaction/crypto",
+            order : "transaction/transaction",
         }),
-        total(){
-             if(this.order){
-                let total = this.order.crypto_rate.crypto_amount * this.order.amount
+       total(){
+            if(this.order.order){
+                let total = this.order.order ? this.order.order.giftcard_rate.card_amount_rate * this.order.amount : ""
                 return total ? total : ""
             }
             return ""
@@ -133,15 +148,15 @@ export default {
     },
     methods : {
         ...mapActions({
-            getCryptoOrder: "transaction/getCryptoOrder",  
+            getSingleTransaction: "transaction/getSingleTransaction",  
         }),
         ...mapMutations({
             SET_LOADING: "transaction/SET_LOADING",
         }),
     },
     mounted(){
-        let order_id = this.$route.query.cryptoOrderId
-        this.getCryptoOrder(order_id)
+        let order_id = this.$route.query.orderId
+        this.getSingleTransaction(order_id)
     }
 }
 </script>
@@ -190,6 +205,8 @@ export default {
     color: #FFA346;
     margin-top: 2rem;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 .btn-delete{
     padding: 20px;
@@ -204,6 +221,8 @@ export default {
     color: #ff0000;
     margin-top: 2rem;
     cursor: pointer;
+    border: none;
+    outline: none;
 }
 .completed{
   color: #107C10;
@@ -225,5 +244,9 @@ export default {
   background: rgba(255, 0, 0, 0.2);
   border-radius: 40px;
   font-size: 14px;
+}
+a{
+    cursor: pointer;
+    color: #0C64E6 !important;
 }
 </style>
