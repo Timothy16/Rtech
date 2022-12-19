@@ -34,7 +34,7 @@
        <vuetable ref="vuetable"
                 :fields="options"
                 :api-mode="false"
-                :data="cryptos" class="bg-white mt-5 p-3">
+                :data="cryptos" class="bg-white mt-5 p-3 table-responsive-lg table-lg">
                 
                 <div slot="action" slot-scope="props">
                     <nuxt-link :to="'/dashboard/transactions/get-a-crypto-order?cryptoOrderId='+ props.rowData.id" class="btn btn-secondary btn-sm">
