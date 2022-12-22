@@ -15,9 +15,9 @@
             <div class="hero-text-section" data-aos="fade-up" data-aos-duration="3000">
                 <div class="img-arrow"><img src="/images/hero_arrow_1.png" alt="" width="300px" srcset=""></div>
                 <div class="inner-header">Got <br> CryptoCurrency <br> & GiftCards ?</div>
-                <p class="inner-text" data-aos="fade-up" data-aos-duration="3000">Trading your giftcards & bitcoin for cash has never been easy? 
-                        Rtech has got you covered!Trade securely with no worries or delay Receive alert of your trades in less than 2 mins.
-                </p>
+                 <p class="inner-text" data-aos="fade-up" data-aos-duration="3000">
+                        Trading your giftcards and crypto currencies for cash has never been easy? RTECH got you covered! Trade securely with no worries or delay. We alsohave the fastest, safest and the best payment channel, where you get your acc credited within a few minutes of successful transaction.
+                    </p>
                 <div class="d-flex justify-content-center">
                     <nuxt-link to="/rates">
                         <div class="btn-check-rates">Check Rates</div>

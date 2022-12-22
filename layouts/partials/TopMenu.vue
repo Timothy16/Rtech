@@ -22,13 +22,41 @@
               <nuxt-link to="/about-us" class="nav-link" >About Us</nuxt-link>
             </li>
           </ul>
-          <div v-if="authenticated" class="ml-auto">
+          <!-- <div v-if="authenticated" class="ml-auto">
               <nuxt-link to="/dashboard/profile">
                 <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
                 <img v-else src="/images/avarter.jpg" class="img-head" alt="">
                 <span class="username">{{username}}</span>
               </nuxt-link>
-          </div>
+          </div> -->
+           <div v-if="authenticated" class="dropdown ml-auto">
+                <a class="dropdown-toggle t-g-menu ml-2 text-dark" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                 
+                    <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
+                    <img v-else src="/images/avarter.jpg" class="img-head" alt="">
+                    <span class="username">{{username}}</span>
+                 
+                </a>
+
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <li>
+                    <nuxt-link
+                            style="font-size : 14px"
+                            class="dropdown-item"
+                            to="/dashboard/profile"> 
+                            <i class="fas fa-fw fa-user-circle"></i> &nbsp; My
+                            Account</nuxt-link
+                            >
+                    </li>
+                    <li>
+                        <span class="dropdown-item" style="font-size : 14px; cursor : pointer"
+                          v-on:click="logout()"
+                          ><i class="fas fa-fw fa-sign-out-alt"></i> &nbsp;
+                          Logout</span>
+                    </li>
+                    
+                </ul>
+            </div>
           <form v-else class="d-flex ml-auto" role="search">
            <div class="btn-login-nav" @click="goToLogin">Log in</div>
            <div class="btn-signing-nav" @click="goToSignUp">Create Account</div>
@@ -59,7 +87,10 @@ export default {
     },
      goToSignUp(){
       this.$router.push("/signin")
-    }
+    },
+    logout() {
+      this.$auth.logout();
+    },
   },
   mounted(){
     // console.log("auth", this.authenticated)

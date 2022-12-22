@@ -51,7 +51,7 @@
                             <li>
                                 <img src="/images/twitter.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; 
                                 <img src="/images/instagram.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; 
-                                <img src="/images/whatsapp.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp;
+                                <!-- <img src="/images/whatsapp.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; -->
                             </li>
                         </ul>
                     </div>

@@ -59,12 +59,19 @@
                                                 <span>Terms</span> <span class="text-right"><i class="fa fa-angle-right"></i></span> 
                                             </nuxt-link>
                                         </li>
-                                         <li v-if="authenticated" class="pt-3">
+                                        <li v-if="authenticated" class="pt-3 d-flex justify-content-between">
                                             <nuxt-link to="/dashboard/profile"  @click="closeTab" class="">
                                                 <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
                                                 <img v-else src="/images/avarter.jpg" class="img-head" alt="">
                                                 <span class="username">{{username}}</span>
                                             </nuxt-link>
+                                            <span class="text-right"><i class="fa fa-angle-right"></i></span>
+                                        </li>
+                                        <li v-if="authenticated" class="pt-3">
+                                            <span @click="logout" class="d-flex justify-content-between">
+                                               <span class="username">Log out</span>
+                                               <span class="text-right"><i class="fa fa-angle-right"></i></span> 
+                                            </span>
                                         </li>
                                         <li v-if="!authenticated">
                                             <nuxt-link to="/login"  @click="closeTab" class="d-flex justify-content-between">
@@ -103,7 +110,7 @@ export default {
                     styleObject: {
                         width: "0px",
                     },
-            }
+                }
     },
     computed : {
         
@@ -140,6 +147,9 @@ export default {
             this.displayTab = false
               this.styleObject.width = "0px";
             //   console.log("close-vue-tab",  this.displayTab)
+        },
+        logout() {
+            this.$auth.logout();
         },
     },
 };

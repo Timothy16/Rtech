@@ -9,7 +9,7 @@
                         <div class="card-header-1">“One of the best bitcoin buyers out there, in my opinion. 
                             the swift credit policy is quite appealing, plus their response time is supperb. 
                             I will always recommend Rtech”</div>
-                        <div class="card-text-1">DammyGray</div>
+                        <div class="card-text-1">- Rotimi Muyiwa </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-lg-4 col-md-12">
@@ -17,14 +17,14 @@
                         <div class="card-header-1">“Thank you, Rtech!
                             your rate is one of the best ive ever seen, your services are fantastic,
                             tyou guys are full of surprises and its a pleasure doing business with you”</div>
-                        <div class="card-text-1">BtcLords.</div>
+                        <div class="card-text-1">- Fasoranti Isaac</div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-lg-4 col-md-12">
                     <div class="col-style last-card">
                         <div class="card-header-1">“Just as promised, i received a acredit alert. its just so stunning, thank you for the prompt payment. 
                             Rtech provides the easiest way to sell giftcards in nigeria”</div>
-                        <div class="card-text-1">LahLah</div>
+                        <div class="card-text-1">- Ogundepo Steven</div>
                     </div>                
                 </div>
             </div>
@@ -73,9 +73,9 @@ export default {
 .card-text-1{
     font-style: normal;
     font-weight: 600;
-    font-size: 27.8617px;
+    font-size: 20px;
     line-height: 42px;
-    letter-spacing: -1.89005px;
+    /* letter-spacing: -1.89005px; */
     color: #FFFFFF;
     margin-top: 4rem;
 }

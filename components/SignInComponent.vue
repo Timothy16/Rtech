@@ -7,8 +7,8 @@
                 <div class="card-image-s">
                     <div class="img-arrow"><img src="/images/angle_one.png" alt="" width="300px" srcset=""></div>
                     <div class="inner-header">Got <br> CryptoCurrency <br> & GiftCards ?</div>
-                    <p class="inner-text">Trading your giftcards & bitcoin for cash has never been easy? 
-                        Rtech has got you covered!Trade securely with no worries or delay Receive alert of your trades in less than 2 mins.
+                     <p class="inner-text">
+                        Trading your giftcards and crypto currencies for cash has never been easy? RTECH got you covered! Trade securely with no worries or delay. We alsohave the fastest, safest and the best payment channel, where you get your acc credited within a few minutes of successful transaction.
                     </p>
                      <div class="img-arrow-1">
                         <img src="/images/angle_two.png" width="300px" alt="" srcset="">

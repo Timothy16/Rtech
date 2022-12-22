@@ -29,6 +29,9 @@ export default {
         async: true,
         crossorigin: "anonymous"
       },
+      { src: '//code.tidio.co/ochbers1l2sbbpvnqtlppe3njxeqsfmf.js',
+        async: true,
+      },
     ]
   },
 

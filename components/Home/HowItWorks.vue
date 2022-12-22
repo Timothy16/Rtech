@@ -14,11 +14,11 @@
                     </div>
                     <div class="sec-down" data-aos="fade-down" data-aos-delay="600">
                         <div class="header-how-it">Begin Trade</div>
-                        <div class="text-how-it">Start a trade by simply clicking on Sell Gift Card on the home page, select the gift card you want and upload it.</div>
+                        <div class="text-how-it">Start a trade by simply clicking on either SELL GIFTCARD or SELL CRYPTO button, depending on what you want to trade a particular point in time, then you proceed to select the type of gift card or type of crypto you wishes to sell and the amount.</div>
                     </div>
                     <div class="sec-down" data-aos="fade-down" data-aos-delay="700">
                         <div class="header-how-it">Wait for Confirmation</div>
-                        <div class="text-how-it">Wait for your transaction to be processed, this usually takes less than 5 minutes. Once your card has been redeemed, your wallet will be credited immediately.</div>
+                        <div class="text-how-it">Kindly wait while your transaction is being processed. For crypto trading, it depends solely on how fast your coin confirms. Basically, for BTC, we require a minimum of 1/3 confirmation before we proceed with payment. For giftcard trading, the usage time of cards varies. Thus, for those with shopping cards such as Amex, Vanilla, Sephora, etc.., it might take a longer period of time to process compared to those with instant loading cards such as Steam Wallet giftcard. Google play, Apple giftcard and so on. However, for both instant and long-time consumption cards, we can guarantee a very secured and safe trade and payment will be made immediately after the trade has been successfully completed.</div>
                     </div>
                     <div class="sec-down" data-aos="fade-down" data-aos-delay="800">
                         <div class="header-how-it">Withdraw Funds</div>
@@ -39,7 +39,7 @@ export default {
 
 <style scoped>
 .card-section{
-    padding: 6rem;
+    padding: 1rem 6rem 6rem 6rem;
 }
 .header-service{
     font-style: normal;
