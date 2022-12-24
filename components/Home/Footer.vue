@@ -46,11 +46,15 @@
                     <div class="col-sm-6 col-lg-3 col-md-6">
                         <div class="footer-header-link">Socials</div>
                         <ul class="footer-links">
-                            <li><img src="/images/sms-tracking-white.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; info@rtechbiz.com</li>
-                            <li><img src="/images/call.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; +2347061032844</li>
+                            <li><img src="/images/sms-tracking-white.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp;
+                                <a href="mailto:rtechbiznigeria@gmail.com" target="_blank">rtechbiznigeria@gmail.com</a> 
+                            </li>
+                            <li><img src="/images/call.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp;
+                                <a href="tel:+2347061032844" target="_blank">+2347061032844</a>
+                            </li>
                             <li>
-                                <img src="/images/twitter.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; 
-                                <img src="/images/instagram.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; 
+                                <a href="https://www.instagram.com/rtech_business_services/" target="_blank"><img src="/images/instagram.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; </a>
+                                <a href="https://mobile.facebook.com/rtech_business_services?_rdc=1&_rdr&refsrc=deprecated" target="_blank"><img src="/images/facebook.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; </a>
                                 <!-- <img src="/images/whatsapp.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; -->
                             </li>
                         </ul>
@@ -106,7 +110,6 @@ export default {
     background: #000000;
     padding: 3rem 0;
 }
-
 .news-letter{
     background: #0C64E6;
     border-radius: 30px;
@@ -194,7 +197,7 @@ ul li{
 }
 a{
     color: #FFFFFF;
-    /* text-decoration: none; */
+    text-decoration: none;
     font-size: 14px;
 }
 @media screen and (max-width : 578px){

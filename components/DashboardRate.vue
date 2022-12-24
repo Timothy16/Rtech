@@ -13,7 +13,7 @@
                         <form action="">
                             <select @change="selectCard(cardName)" v-model="cardName" class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
                                 <option value="" selected disabled>Select giftcard category</option>
-                                <option :value="giftcard" v-for="(giftcard, index) in giftcards" :key="index">{{giftcard.name}}</option>
+                                <option :value="giftcard" v-for="(giftcard, index) in giftcards" :key="index">{{giftcard.giftcard_name}}</option>
                                 
                             </select>
 
@@ -33,7 +33,7 @@
                         <form action="">
                             <select @change="selectCoin(coinName)" v-model="coinName" class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
                                 <option value="" selected disabled>Select Cryptocurrency</option>
-                                <option :value="crypto" v-for="(crypto, index) in cryptos" :key="index">{{crypto.name}}</option>
+                                <option :value="crypto" v-for="(crypto, index) in cryptos" :key="index">{{crypto.crypto_name}}</option>
                             </select>
 
                             <input v-model="amountCoin" class="form-control form-control-lg mt-5" type="number" placeholder="Amount" aria-label=".form-control-lg example">
@@ -82,13 +82,13 @@ export default {
         }),
         giftcardTotal(){
             if(this.cardInfo){
-                return this.cardInfo.amount * this.amountCard
+                return this.cardInfo.card_amount_rate * this.amountCard
             }
             return ""
         },
         cryptoTotal(){
             if(this.coinInfo){
-                return this.coinInfo.amount * this.amountCoin
+                return this.coinInfo.crypto_amount * this.amountCoin
             }
             return ""
         }

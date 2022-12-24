@@ -106,7 +106,7 @@ a{
 .border-edit{
     width: 258px;
     height: 234px;
-    border: 0.5px solid rgba(0, 0, 0, 0.5);
+    border: 0.2px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: .4rem;
 }

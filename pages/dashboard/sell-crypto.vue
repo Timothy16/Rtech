@@ -1,6 +1,6 @@
 <template>
-    <div class="container-fluid mb-5">
-       <div class="form-card bg-white shadow">
+    <div class="container-fluid bg-white mb-5">
+       <div class="form-card  ">
             <div class="header-info">Trade Crypto</div>
             <form action="" @submit.prevent>
                 <select @change="selectCryto(cryptoInfo)" v-model="cryptoInfo" class="form-select form-control form-select-lg mb-4" aria-label=".form-select-lg example">
@@ -271,7 +271,7 @@ input[type="file"] {
     padding: 1.5rem;
     width: 80%;
     /* margin: auto; */
-    border-radius: 30px;
+    /* border-radius: 30px; */
 }
 .btn-sellgiftcards{
     background: #0C64E6;

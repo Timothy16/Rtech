@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid mb-5 bg-white pt-3 pb-5">
-       <div class="form-card shadow">
+       <div class="form-card ">
         <div class="header-info">Trade <strong>{{giftcardName}}</strong> </div>
             <form action="" class="" @submit.prevent>                
                 <div class="row">

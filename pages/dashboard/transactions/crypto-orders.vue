@@ -1,7 +1,7 @@
 <template>
 <client-only>
     <div class="container-fluid  mb-5">
-       <div class="form-card shadow bg-white">
+       <div class="form-card  bg-white">
         <header-transaction />
         <div class="header-info">Crypto Orders</div>
          <div class="search-box pt-3">
@@ -32,9 +32,9 @@
       
       <div v-if="!loading">
        <vuetable ref="vuetable"
-                :fields="options"
-                :api-mode="false"
-                :data="cryptos" class="bg-white mt-5 p-3 table-responsive-lg table-lg">
+            :fields="options"
+            :api-mode="false"
+            :data="cryptos" class="bg-white mt-5 p-3 table-responsive-lg table-lg">
                 
                 <div slot="action" slot-scope="props">
                     <nuxt-link :to="'/dashboard/transactions/get-a-crypto-order?cryptoOrderId='+ props.rowData.id" class="btn btn-secondary btn-sm">
@@ -166,7 +166,7 @@ export default {
     padding: 1.5rem;
     /* width: 90%; */
     /* margin: auto; */
-    border-radius: 30px;
+    /* border-radius: 30px; */
 }
 .completed{
   color: #107C10;

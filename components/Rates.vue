@@ -14,7 +14,7 @@
                         <form action="">
                             <select @change="selectCard(cardName)" v-model="cardName" class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
                                 <option value="" selected disabled>Select giftcard category</option>
-                                <option :value="giftcard" v-for="(giftcard, index) in giftcards" :key="index">{{giftcard.name}}</option>
+                                <option :value="giftcard" v-for="(giftcard, index) in giftcards" :key="index">{{giftcard.giftcard_name}}</option>
                             </select>
 
                             <select class="form-select form-control mt-5 form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -34,7 +34,7 @@
                         <form action="">
                             <select @change="selectCoin(coinName)" v-model="coinName" class="form-select form-control form-select-lg mb-3" aria-label=".form-select-lg example">
                                 <option value="" selected disabled>Select Cryptocurrency</option>
-                                <option :value="crypto" v-for="(crypto, index) in cryptos" :key="index">{{crypto.name}}</option>
+                                <option :value="crypto" v-for="(crypto, index) in cryptos" :key="index">{{crypto.crypto_name}}</option>
                             </select>
 
                             <input v-model="amountCoin" class="form-control form-control-lg mt-5" type="text" placeholder="Amount" aria-label=".form-control-lg example">
@@ -47,7 +47,7 @@
             </div>
             <div class="col-sm-12 col-md-6 col-lg-4" v-if="isGift">
                 <div class="calculation-head">
-                    <div class="rate-fee" v-if="cardInfo">Rate: NGN {{cardInfo.amount | currency}}</div>
+                    <div class="rate-fee" v-if="cardInfo">Rate: {{cardInfo.currency}} {{cardInfo.card_amount_rate | currency}}</div>
                     <div class="pay-out mt-5">
                         <div class="total">Total Payout</div>
                         <div class="amount">NGN {{giftcardTotal | currency}}</div>
@@ -57,7 +57,7 @@
             </div>
              <div class="col-sm-12 col-md-6 col-lg-4" v-if="isCrypto">
                 <div class="calculation-head">
-                    <div class="rate-fee" v-if="coinInfo">Rate: NGN {{coinInfo.amount | currency}}</div>
+                    <div class="rate-fee" v-if="coinInfo">Rate: NGN {{coinInfo.crypto_amount | currency}}</div>
                     <div class="pay-out mt-5">
                         <div class="total">Total Payout</div>
                         <div class="amount">NGN {{cryptoTotal | currency}}</div>
@@ -92,13 +92,13 @@ export default {
         }),
         giftcardTotal(){
             if(this.cardInfo){
-                return this.cardInfo.amount * this.amountCard
+                return this.cardInfo.card_amount_rate * this.amountCard
             }
             return ""
         },
         cryptoTotal(){
             if(this.coinInfo){
-                return this.coinInfo.amount * this.amountCoin
+                return this.coinInfo.crypto_amount * this.amountCoin
             }
             return ""
         }

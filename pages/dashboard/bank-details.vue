@@ -1,6 +1,6 @@
 <template>
     <div class="container-fluid mb-5">
-       <div class="form-card shadow">
+       <div class="form-card bg-white">
         <div class="header-info">Bank Details</div>
         <div class="row">
             <div class="col-sm-12 col-lg-6 col-md-12 mb-2">
@@ -146,7 +146,7 @@ export default {
     padding: 1.5rem;
     /* width: 90%; */
     /* margin: auto; */
-     border-radius: 30px;
+     /* border-radius: 30px; */
 }
 .btn-sellgiftcards{
     background: #0C64E6;

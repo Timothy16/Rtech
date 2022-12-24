@@ -1,7 +1,7 @@
 <template>
 <client-only>
-    <div class="container-fluid mb-5">
-       <div class="form-card shadow bg-white" v-if="!loading">
+    <div class="container-fluid bg-white mb-5">
+       <div class="form-card " v-if="!loading">
         <div class="header-info">Complaints</div>
          <vuetable ref="vuetable"
             :fields="options"

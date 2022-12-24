@@ -1,6 +1,6 @@
 <template>
-    <div class="container-fluid mb-5">
-       <div class="form-card shadow">
+    <div class="container-fluid bg-white mb-5">
+       <div class="form-card ">
         <div class="header-info mt-1">Update Password</div>
             <form action="" class="" @submit.prevent>                            
                 <div class="row">

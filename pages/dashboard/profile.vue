@@ -1,7 +1,7 @@
 <template>
  <client-only>
-    <div class="container-fluid">
-       <div class="form-card shadow mb-5 bg-white">
+    <div class="container-fluid bg-white">
+       <div class="form-card mb-5 ">
         <MazAvatar
             :src="Upicture ? Upicture :'/images/avarter.jpg'"
             :size="120"
@@ -286,7 +286,7 @@ label{
     padding: 1.5rem;
     width: 80%;
     /* margin: auto; */
-     border-radius: 30px;
+     /* border-radius: 30px; */
 }
 .btn-sellgiftcards{
     background: #0C64E6;

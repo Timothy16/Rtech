@@ -1,6 +1,6 @@
 <template>
-    <div class="container-fluid  mb-5">
-       <div class="form-card bg-white shadow">
+    <div class="container-fluid bg-white mb-5">
+       <div class="form-card ">
             <nuxt-link to="/dashboard/report/my-reports">
                 <div class="float-right btn-sm btn-outline-secondary btn">View Complaits</div>
             </nuxt-link>
@@ -181,7 +181,7 @@ input[type="file"] {
     padding: 1.5rem;
     width: 80%;
     /* margin: auto; */
-    border-radius: 30px;
+    /* border-radius: 30px; */
 }
 .btn-sellgiftcards{
     background: #0C64E6;

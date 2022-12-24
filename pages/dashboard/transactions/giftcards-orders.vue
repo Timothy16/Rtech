@@ -1,7 +1,7 @@
 <template>
 <client-only>
     <div class="container-fluid  mb-5">
-       <div class="form-card shadow bg-white">
+       <div class="form-card bg-white">
         <header-transaction />
         <div class="header-info">Giftcard Orders</div>
          <div class="search-box pt-3">
@@ -178,7 +178,7 @@ export default {
     padding: 1.5rem;
     /* width: 90%; */
     /* margin: auto; */
-    border-radius: 30px;
+    /* border-radius: 30px; */
 }
 .completed{
   color: #107C10;
