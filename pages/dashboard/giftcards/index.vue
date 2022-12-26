@@ -25,7 +25,7 @@
                 <div class="col-lg-3 col-md-3 mb-3" v-for="(giftcard, index) in filterAll" :key="index">
                     <div class="border-edit shadow">
                         <nuxt-link :to="'/dashboard/giftcards/checkout?giftcardId=' + giftcard.id + '&giftcardName=' +  giftcard.giftcard_name">
-                            <img src="/images/amazon.png" class="img-fluid" alt="">
+                            <img :src="giftcard ? giftcard.giftcard_picture : '/images/v1.png'" class="img-fluid w-100" alt="">
                             <!-- <img :src="giftcard.giftcard_picture" class="img-fluid" alt=""> -->
                             <div class="text-h">
                                 {{giftcard.giftcard_name}}
