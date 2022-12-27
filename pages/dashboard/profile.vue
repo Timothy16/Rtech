@@ -166,7 +166,7 @@ export default {
                 formData.append('phone', this.phone ? this.phone : this.Uphone)      
             
                 await this.updateProfileData(formData)
-            
+                await this.getProfileInfo() 
             }
             catch(error){
                 this.SET_SAVING(false)
