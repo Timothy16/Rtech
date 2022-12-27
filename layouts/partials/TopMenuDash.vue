@@ -12,8 +12,14 @@
       </div> -->
       <div class="">
         <nuxt-link to="/dashboard/profile">
-          <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
-          <img v-else src="/images/avarter.jpg" class="img-head" alt="">
+          <!-- <img v-if="profileImg" :src="profileImg" class="img-head" alt="">
+          <img v-else src="/images/avarter.jpg" class="img-head" alt=""> -->
+           <MazAvatar
+            :src="profileImg ? profileImg :'/images/avarter.jpg'"
+            :size="40"
+            class=""
+            bordered
+        />
         </nuxt-link>
       </div>
     </nav>
@@ -22,21 +28,31 @@
 </template>
 
 <script>
+import {mapMutations, mapGetters, mapActions} from 'vuex'
 export default {
   computed : {
+     ...mapGetters({
+            profile : "profileInfo",
+        }),
     username(){
       return this.user ? this.user.name : ""
     },
     profileImg(){
-      return this.user ? this.user.picture : ''
+      return this.profile ? this.profile.picture : ''
     }
     
   },
   methods : {
+     ...mapActions({
+          getProfileInfo: "getProfileInfo",
+        }),
     openTab(){
        this.$root.$emit("command")
     }      
-  }
+  },
+   mounted(){
+        this.getProfileInfo()
+    }
 }
 </script>
 

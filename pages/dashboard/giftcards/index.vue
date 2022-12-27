@@ -21,11 +21,11 @@
             </form>
         </div>
         <div class="mt-4">
-            <div class="row" v-if="giftcards.length > 1 && !loading">
+            <div class="row" v-if="giftcards.length > 0 && !loading">
                 <div class="col-lg-3 col-md-3 mb-3" v-for="(giftcard, index) in filterAll" :key="index">
                     <div class="border-edit shadow">
                         <nuxt-link :to="'/dashboard/giftcards/checkout?giftcardId=' + giftcard.id + '&giftcardName=' +  giftcard.giftcard_name">
-                            <img :src="giftcard ? giftcard.giftcard_picture : '/images/v1.png'" class="img-fluid w-100" alt="">
+                            <img :src="giftcard ? giftcard.giftcard_picture : '/images/v1.png'" class="img-fluid-1 w-100" alt="">
                             <!-- <img :src="giftcard.giftcard_picture" class="img-fluid" alt=""> -->
                             <div class="text-h">
                                 {{giftcard.giftcard_name}}
@@ -87,6 +87,10 @@ export default {
 </script>
 
 <style scoped>
+.img-fluid-1{
+    width: 100%;
+    height: 200px;
+}
 a{
     text-decoration: none;
 }
@@ -105,7 +109,7 @@ a{
 }
 .border-edit{
     width: 258px;
-    height: 234px;
+    height: auto;
     border: 0.2px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     padding: .4rem;
@@ -138,7 +142,7 @@ a{
     font-size: 20px;
     line-height: 23px;
     color: #000000;
-    margin-top: 3rem;
+    margin-top: 1rem;
     text-align: center;
 }
 @media screen and (max-width : 578px){

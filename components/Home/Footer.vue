@@ -24,7 +24,7 @@
                 <div class="row">
                     <div class="col-sm-6 col-lg-3 col-md-6">
                         <img src="/images/logo_one-1.png" alt="" srcset="">
-                        <div class="footer-text">Rtech Business Services has created a one-of-a-kind platform for exchanging BitCoins and gift cards</div>
+                        <div class="footer-text">Rtech Business Services has created a one-of-a-kind platform for exchanging Cryptocurrencies and Giftcards</div>
                     </div>
                     <div class="col-sm-6 col-lg-3 col-md-6">
                         <div class="footer-header-link">Resource</div>

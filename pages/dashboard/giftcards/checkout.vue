@@ -134,6 +134,7 @@ export default {
                 this.imageUpload = []
                 this.rateInfo = ""
                 this.eCode = ""
+                this.$router.push('/dashboard/transactions/giftcards-orders')
             }
             catch(error){
                 this.SET_SAVING(false)

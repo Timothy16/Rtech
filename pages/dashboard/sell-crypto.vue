@@ -159,6 +159,7 @@ export default {
             this.preview_list = []
             this.imageUpload = []
             this.cryptoInfo = ""
+            this.$router.push('/dashboard/transactions/crypto-orders')
         }
         catch(error){
             this.SET_SAVING(false)

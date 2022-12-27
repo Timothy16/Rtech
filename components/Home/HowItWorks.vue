@@ -89,7 +89,7 @@ export default {
     margin-top: .8rem;
 }
 .sec-down{
-    margin-top: 5em;
+    margin-top: 2.5em;
 }
 .header-how-it{
     font-style: normal;

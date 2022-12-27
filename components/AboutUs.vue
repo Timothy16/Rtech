@@ -11,8 +11,7 @@
                   and simple to use. We considered a variety of conditions in order 
                   to exactly address our customers’ current market needs and make 
                   their trading experience easier. As a result, when it comes to 
-                  trading your BitCoin and gift cards for swift cash, we’ve 
-                  designed a website unlike any other.
+                  trading your cryptocurrencies and giftcards for swift cash.
             </div>
             <div class="icon-info mt-5">
                 <p><img src="/images/sms-tracking-white.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp;rtechbiznigeria@gmail.com</p>

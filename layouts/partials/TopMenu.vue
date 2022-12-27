@@ -135,6 +135,7 @@ a{
   cursor: pointer;
   transition: 0.3s;
 }
+
 .btn-login-nav:hover{
   border: 1px solid #F9DF4C;
   color: #000;
