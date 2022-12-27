@@ -15,7 +15,7 @@
                   designed a website unlike any other.
             </div>
             <div class="icon-info mt-5">
-                <p><img src="/images/sms-tracking-white.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp;info@rtechbiz.com</p>
+                <p><img src="/images/sms-tracking-white.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp;rtechbiznigeria@gmail.com</p>
                 <p><img src="/images/call.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; +2347061032844</p>
                 <p><img src="/images/clock.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; Monday to Saturday - 9:00 am to 7:00 pm</p>
                 <p><img src="/images/clock.png" width="20px" height="20px" alt="" srcset=""> &nbsp;&nbsp; Sunday - 10:00 am to 5:00 pm</p>
