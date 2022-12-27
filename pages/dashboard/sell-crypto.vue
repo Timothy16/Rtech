@@ -15,20 +15,32 @@
                 <div class="text-center value mt-5"><strong>Cash Value</strong></div>
                 <div class="text-center cash-v mb-5">N {{amountTotal | currency }}</div>  
 
-                <div class="form-group" v-if="selectedInfo">
-                    <label for="" class="ml-2">Copy wallet address</label>
-                    <div class="wal-address">
-                       <span class="">{{selectedInfo.crypto_wallet}}</span> 
-                       <span class="text-danger" :key="selectedInfo.crypto_wallet" v-clipboard="getFullUrlLink"
-                        v-clipboard:success="clipboardSuccessHandler"
-                        v-clipboard:error="clipboardErrorHandler"><i class="fas fa-copy"></i>
-                        </span>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                        <div class="form-group" v-if="selectedInfo">
+                            <label for="" class="ml-2"><strong>Copy wallet address</strong></label>
+                            <div class="wal-address">
+                                <span class="">{{selectedInfo.crypto_wallet}}</span> 
+                                <span style="cursor : pointer" class="text-danger" :key="selectedInfo.crypto_wallet" v-clipboard="getFullUrlLink"
+                                    v-clipboard:success="clipboardSuccessHandler"
+                                    v-clipboard:error="clipboardErrorHandler"><i class="fas fa-copy"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-               
+                    <div class="col-sm-12 col-md-12 col-lg-6" v-if="selectedInfo">
+                        <div class="form-group" v-if="selectedInfo.crypto_picture">
+                            <label for="" class="ml-2"><strong>Barcode</strong></label>
+                            <MazGallery
+                                :images="[selectedInfo.crypto_picture]"
+                            />
+                        </div>
+                         
+                    </div>
+                </div>           
 
                 <div class="form-group mt-3">
-                    <label for="" class="ml-2">Upload Image(Upload the screenshot confirming your transaction)</label>
+                    <label for="" class="ml-2"><strong>Upload Image(Upload the screenshot confirming your transaction)</strong> </label>
                     <div class="trigger-layer">
                         <span><i class='fa fa-file-upload ml-5'></i> <br> Upload Image!</span>
                         <input type="file" accept="image/*" multiple @change="onFileChange($event)">
@@ -269,7 +281,7 @@ input[type="file"] {
 }
 .form-card{
     padding: 1.5rem;
-    width: 80%;
+    width: 100%;
     /* margin: auto; */
     /* border-radius: 30px; */
 }
@@ -284,6 +296,7 @@ input[type="file"] {
 @media screen and (max-width : 578px){
     .form-card{
         width: 100%;
+        padding: .1rem;
     }
     .form-control{
         height: 70px;

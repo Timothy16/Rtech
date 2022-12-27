@@ -8,13 +8,13 @@
             <form action="" @submit.prevent>                            
 
                 <div class="form-group">
-                    <label for="">Write a complait</label>
+                    <label for=""> <strong>Write a complait</strong> </label>
                     <textarea v-model="complaint" name="" class="form-control" id=""></textarea>
                     <p  v-if="field_errors.complaint" class="text-danger"> {{ field_errors.complaint[0]}}</p>
                 </div>
 
                 <div class="form-group mt-3">
-                    <label for="" class="ml-2">Upload Image(optional)</label>
+                    <label for="" class="ml-2"><strong>Upload Image(optional)</strong> </label>
                     <div class="trigger-layer">
                         <span><i class='fa fa-file-upload ml-5'></i> <br> Upload Image!</span>
                         <input type="file"  accept="image/*"  @change="onFileChange($event)">
@@ -179,7 +179,7 @@ input[type="file"] {
 }
 .form-card{
     padding: 1.5rem;
-    width: 80%;
+    width: 100%;
     /* margin: auto; */
     /* border-radius: 30px; */
 }
@@ -194,6 +194,7 @@ input[type="file"] {
 @media screen and (max-width : 578px){
     .form-card{
         width: 100%;
+        padding: .1rem;
     }
     .form-control{
         height: 60px;

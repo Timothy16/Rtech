@@ -144,6 +144,7 @@ a{
 @media screen and (max-width : 578px){
    .border-edit{
         width: 100%;
+        height: auto;
     }
     .search-box{
         width: 100%;

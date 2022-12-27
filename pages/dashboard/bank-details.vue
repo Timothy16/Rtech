@@ -186,6 +186,7 @@ export default {
     .form-card{
         width: 100%;
         margin-bottom: 1rem;
+        padding: .5rem;
     }
     .form-control{
         height: 60px;

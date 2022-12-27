@@ -37,7 +37,7 @@ export default {
 
 <style scoped>
 .card-section{
-    padding: 2rem 6rem 4rem 7rem;
+    padding: 1rem 6rem 4rem 7rem;
 }
 .header-service{
     font-style: normal;
@@ -72,7 +72,7 @@ export default {
     right: 0;
 }
 .section-service{
-    padding: 10rem 7rem 2rem 7rem;
+    padding: 2rem 7rem 2rem 7rem;
 }
 .col-style{
     display: flex;

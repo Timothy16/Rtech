@@ -140,7 +140,7 @@ label{
 }
 .form-card{
     padding: 1.5rem;
-    width: 80%;
+    width: 100%;
     /* margin: auto; */
      border-radius: 30px;
 }
@@ -155,6 +155,7 @@ label{
 @media screen and (max-width : 578px){
     .form-card{
         width: 100%;
+        padding: .1rem;
     }
     .form-control{
         height: 60px;
