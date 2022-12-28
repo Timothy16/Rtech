@@ -8,7 +8,7 @@
             <form action="" @submit.prevent>                            
 
                 <div class="form-group">
-                    <label for=""> <strong>Write a complait</strong> </label>
+                    <label for=""> <strong>Write a complaint</strong> </label>
                     <textarea v-model="complaint" name="" class="form-control" id=""></textarea>
                     <p  v-if="field_errors.complaint" class="text-danger"> {{ field_errors.complaint[0]}}</p>
                 </div>
