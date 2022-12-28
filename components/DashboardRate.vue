@@ -2,7 +2,7 @@
         <div class="">
                 <div class="form-bg">
                     <div class="header-d-flex">
-                        <div class="header-text">Check Rate</div>
+                        <div class="header-text"><strong>Check Rate</strong> </div>
                         <div class="d-flex justify-content-center mt-3">
                             <div class="btn btn-giftcard" :class="{'btn-giftcard-1' : isGift}" @click="tradeGiftCard">Giftcards</div>
                             <div class="btn btn-cypto ml-3" :class="{'btn-cypto-1' : isCrypto}" @click="tradeCrypto">Cryptocurrency</div>
@@ -17,12 +17,12 @@
                                 
                             </select>
 
-                            <select class="form-select form-control mt-5 form-select-lg mb-3" aria-label=".form-select-lg example">
+                            <!-- <select class="form-select form-control mt-5 form-select-lg mb-3" aria-label=".form-select-lg example">
                                 <option selected disabled>Card Type</option>
                                 <option value="Physical">Physical</option>
                                 <option value="Virtual">Virtual</option>
-                            </select>
-                            
+                            </select> -->
+                             <input  v-model="cardType" :class="{'p-not' : cardInfo}" :disabled="cardInfo" class="form-control form-control-lg mt-5 mb-3" type="text" placeholder="Card Type" aria-label=".form-control-lg example">
 
                             <input v-model="amountCard" class="form-control form-control-lg mt-5" type="number" placeholder="Amount" aria-label=".form-control-lg example">
 
@@ -91,6 +91,12 @@ export default {
                 return this.coinInfo.crypto_amount * this.amountCoin
             }
             return ""
+        },
+        cardType(){
+            if(this.cardInfo){
+                return this.cardInfo.card_type
+            }
+            return ""
         }
     },
     methods : {
@@ -123,6 +129,9 @@ export default {
 </script>
 
 <style scoped>
+.p-not{
+    cursor: not-allowed;
+}
 .container-width{
     padding: 1rem 6rem;
     margin-top: 7rem;

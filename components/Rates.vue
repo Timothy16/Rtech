@@ -17,11 +17,11 @@
                                 <option :value="giftcard" v-for="(giftcard, index) in giftcards" :key="index">{{giftcard.giftcard_name}}</option>
                             </select>
 
-                            <select class="form-select form-control mt-5 form-select-lg mb-3" aria-label=".form-select-lg example">
-                                <option selected disabled>Card Type</option>
-                                <option value="Physical">Physical</option>
-                                <option value="Virtual">Virtual</option>
-                            </select>
+                            <!-- <select class="form-select form-control mt-5 form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option selected disabled v-if="cardInfo">{{cardInfo.card_type}}</option>                               
+                            </select> -->
+
+                            <input  v-model="cardType" :class="{'p-not' : cardInfo}" :disabled="cardInfo" class="form-control form-control-lg mt-5 mb-3" type="text" placeholder="Card Type" aria-label=".form-control-lg example">
 
                             <input v-model="amountCard" class="form-control form-control-lg mt-5" type="text" placeholder="Amount" aria-label=".form-control-lg example">
 
@@ -101,6 +101,12 @@ export default {
                 return this.coinInfo.crypto_amount * this.amountCoin
             }
             return ""
+        },
+        cardType(){
+            if(this.cardInfo){
+                return this.cardInfo.card_type
+            }
+            return ""
         }
     },
     methods : {
@@ -131,6 +137,9 @@ export default {
 </script>
 
 <style scoped>
+.p-not{
+    cursor: not-allowed;
+}
 .container-width{
     padding: 4rem 6rem;
     margin-top: 7rem;
