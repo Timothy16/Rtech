@@ -1,9 +1,14 @@
 <template>
   <div class="bg-white bg-pad">
     <div v-if="order && !loading">
-        <a @click="$router.back()">
-            <i class="fa fa-angle-left angle-edit"></i>
-        </a>
+        <div class="d-flex justify-content-between">
+            <a @click="$router.back()">
+                <i class="fa fa-angle-left angle-edit"></i>
+            </a>
+            <a @click="reloadPage()">
+                <img src="/images/refresh.png" data-placement="bottom" title="refresh" alt="" width="20px" height="20px">
+            </a>
+        </div>
          <div class="mt-4">
             <div class="personal-info text-center">Giftcard Order #{{order.id}}  
                 <span v-if="order.status === '1'" class="pending">{{ order.status === '1' ? 'Accepted' : ''}}</span>
@@ -153,6 +158,9 @@ export default {
         ...mapMutations({
             SET_LOADING: "transaction/SET_LOADING",
         }),
+        reloadPage() {
+            window.location.reload();
+        }
     },
     mounted(){
         let order_id = this.$route.query.orderId
