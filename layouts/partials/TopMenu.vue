@@ -1,6 +1,6 @@
 <template>
 <client-only>
-  <div class="fixed-top" ref="navbar">
+  <div class="fixed-top shadow bg-white" ref="navbar">
     <nav class="navbar navbar-expand-lg bg-white container-width container-fluid">
       <div class="container-fluid ">
         <nuxt-link class="navbar-brand" to="/" style="border-bottom : none"><img src="/images/logo_one.png" alt="" srcset=""></nuxt-link>

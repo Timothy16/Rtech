@@ -3,54 +3,47 @@
   <div class="big-bg container-fluid">
     <div class="">
         <div class="row">
-             <div class="col-sm-12 col-md-12 col-lg-6 on-mobile p-0">
-                <div class="card-image-s">
-                    <div class="img-arrow"><img src="/images/angle_one.png" alt="" width="300px" srcset=""></div>
-                    <div class="inner-header">Got <br> CryptoCurrency <br> & GiftCards ?</div>
-                    <p class="inner-text">
-                        Trading your giftcards and crypto currencies for cash has never been easy? RTECH got you covered! Trade securely with no worries or delay. We alsohave the fastest, safest and the best payment channel, where you get your acc credited within a few minutes of successful transaction.
-                    </p>
-                     <div class="img-arrow-1"><img src="/images/angle_two.png" width="300px" alt="" srcset=""></div>
-                </div>
-                
-            </div>
             <div class="col-sm-12 col-md-12 col-lg-6 ">
                 <div class="inner-space">
                     <div class="text-center">   
                         <nuxt-link to="/">
-                            <img src="/images/logo_one.png" alt="" class="img-logo" srcset="">
+                            <img src="/images/logo_admin.png" alt="" class="img-logo" srcset="">
                         </nuxt-link>
-                        <div class="header-title">Login to your account</div>
-                        <p>Securely login to Rtech</p>
                     </div>
-                    
-                    <form action="" @submit.prevent>
-                        <div class="form-edit">
-                            <div class="mb-4">
-                                <label class="form-label">Email </label>
-                                <div class="d-flex form-control-1">
-                                    <div class="icon-pad">
-                                        <img src="/images/sms.png" alt="" srcset="">
-                                    </div>
-                                    <input v-model="email" type="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter email adddress">
-                                </div>
-                                <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p>
-                                
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Password </label>
-                                <div class="d-flex form-control-1">
-                                    <div class="icon-pad">
-                                        <img src="/images/key.png" alt="" srcset="">
-                                    </div>
-                                    <input v-model="password" type="password" class="form-control form-control-plaintext w-100 mr-3" placeholder="Password">
-                                </div>
-                                <p  v-if="field_errors.password" class="text-danger"> {{ field_errors.password[0]}}</p>
-                                
-                            </div>
-                            <button type="submit" :disabled="logining" :class="{'allowed' : logining}" class="btn-login btn" @click="loginUser">{{logining ? 'Logining...' : 'LOG IN'}}</button>
+
+                    <div class="bg-mobile shadow">                    
+                        <div class="text-center">   
+                            <div class="header-title">Login to your account</div>
+                            <p>Securely login to Rtech</p>
                         </div>
-                    </form>
+                        <form action="" @submit.prevent>
+                            <div class="form-edit">
+                                <div class="mb-4">
+                                    <label class="form-label">Email </label>
+                                    <div class="d-flex form-control-1">
+                                        <div class="icon-pad">
+                                            <img src="/images/sms.png" alt="" srcset="">
+                                        </div>
+                                        <input v-model="email" type="email" class="form-control form-control-plaintext w-100 mr-3" placeholder="Enter email adddress">
+                                    </div>
+                                    <p  v-if="field_errors.email" class="text-danger"> {{ field_errors.email[0]}}</p>
+                                    
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label">Password </label>
+                                    <div class="d-flex form-control-1">
+                                        <div class="icon-pad">
+                                            <img src="/images/key.png" alt="" srcset="">
+                                        </div>
+                                        <input v-model="password" type="password" class="form-control form-control-plaintext w-100 mr-3" placeholder="Password">
+                                    </div>
+                                    <p  v-if="field_errors.password" class="text-danger"> {{ field_errors.password[0]}}</p>
+                                    
+                                </div>
+                                <button type="submit" :disabled="logining" :class="{'allowed' : logining}" class="btn-login btn" @click="loginUser">{{logining ? 'Logining...' : 'LOG IN'}}</button>
+                            </div>
+                        </form>
+                    </div>
 
                     <p class="text-center new-account">Don’t have an account? <nuxt-link to="/signin"><span class="new-acc">Register</span></nuxt-link> </p>
                     <p class="text-center new-account mt-3">
@@ -152,11 +145,23 @@ export default {
     height: 732px; */
     /* margin-top: 2rem; */
 }
+.form-label{
+    font-size: .75rem;
+}
+.bg-mobile{
+    background: #FFFFFF;
+    padding: 1rem 1rem;
+    border-top-right-radius: 1.25rem;
+    border-top-left-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+    margin-top: 2rem;
+}
 .allowed{
    cursor: not-allowed;
 }
 a{
     text-decoration: none;
+    color: #FFFFFF;
 }
 .card-image-s{
     background: url("/images/login_bg.png");
@@ -166,16 +171,16 @@ a{
     /* background: #000000; */
 }
 .big-bg{
-    background: #fff;
+    background-color: #0C64E6;
     height: 100vh;
 }
 .header-title{
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 1.25rem;
     line-height: 28px;
     color: #0C64E6;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
 }
 .inner-space {
     margin-top: 3rem;
@@ -199,7 +204,7 @@ label{
     width: 650px; */
     height: auto;
     border: none;
-    font-size: 1.2rem;
+    font-size: .75rem;
     padding: .3rem;
     color: #000000;
 }
@@ -215,7 +220,7 @@ label{
 .form-control-1{
     box-sizing: border-box;
     width: 650px;
-    height: 70px;
+    /* height: 70px; */
     background: #ECF3F9;
     border: 1px solid rgba(189, 189, 189, 0.5);
     box-shadow: 0px 0px 13px 5px rgba(255, 255, 255, 0.15);
@@ -223,36 +228,40 @@ label{
     flex: none;
     order: 1;
     flex-grow: 0;
-    font-size: 1.2rem;
-    padding: .3rem;
+    font-size: .75rem;
+    /* padding: .3rem; */
 }
 ::placeholder{
     color: rgba(12, 100, 230, 0.5);
-     padding-left: 1rem;
+    padding-left: 1rem;
+    font-size: .75rem;
 }
 .btn-login{
-    padding: 20px 40px;
+    padding: 15px 40px;
     width: 650px;
-    height: 68px;
+    /* height: 50px; */
     background: #F9DF4C;
-    border-radius: 10px;
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
     border: none;
-    margin-top: .4rem;
-    font-weight: 800;
-    font-size: 20px;
+    /* margin-top: .4rem; */
+    font-weight: 700;
+    font-size: .875rem;
     line-height: 28px;
     color: #000000;
 }
 .new-account{
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: .75rem;
     line-height: 23px;
-    margin-top: 5rem;
-    color: #0C64E6;
+    margin-top: 1rem;
+    color: #FFFFFF;
 }
 .new-acc{
     font-weight: 700;
+    color: #FFFFFF;
 }
 .inner-header{
     font-style: normal;
@@ -287,6 +296,10 @@ label{
     .form-edit{
         padding: 0;
         margin-top: 2rem;
+    }
+    .big-bg{
+        background-color: #0C64E6;
+        height: 100vh;
     }
     .form-control-1{
         box-sizing: border-box;
