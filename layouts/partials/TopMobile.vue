@@ -27,7 +27,7 @@
                      <div class="">
                             <div class="">
                                 <div class="col-sm-12 text-right closebtn" @click="closeTab">
-                                    <i class="fa fa-times mt-2"></i> <span class="ml-2"></span> 
+                                    <i class="fa fa-times mt-2" ></i> <span class=""></span> 
                                 </div>
                                 <div class="col-sm-12 links">
                                     <ul>
@@ -186,7 +186,7 @@ export default {
     /* padding: 0 3rem; */
 }
 .closebtn {
-    font-size: 2rem !important;
+    font-size: 1rem !important;
     font-weight: 400;
     color: #fff;
 }
