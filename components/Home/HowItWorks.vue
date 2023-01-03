@@ -10,19 +10,19 @@
                 <div class="text-call-section card-img-c">
                     <div class="sec-down-1" data-aos="fade-down" data-aos-delay="500">
                         <div class="header-how-it">Create Account</div>
-                        <div class="text-how-it">Create an account with your valid details and add your bank account / mobile money.</div>
+                        <p class="text-how-it">Create an account with your valid details and add your bank account / mobile money.</p>
                     </div>
                     <div class="sec-down" data-aos="fade-down" data-aos-delay="600">
                         <div class="header-how-it">Begin Trade</div>
-                        <div class="text-how-it">Start a trade by simply clicking on either SELL GIFTCARD or SELL CRYPTO button, depending on what you want to trade a particular point in time, then you proceed to select the type of gift card or type of crypto you wishes to sell and the amount.</div>
+                        <p class="text-how-it">Start a trade by simply clicking on either SELL GIFTCARD or SELL CRYPTO button, depending on what you want to trade a particular point in time, then you proceed to select the type of gift card or type of crypto you wishes to sell and the amount.</p>
                     </div>
                     <div class="sec-down" data-aos="fade-down" data-aos-delay="700">
                         <div class="header-how-it">Wait for Confirmation</div>
-                        <div class="text-how-it">Kindly wait while your transaction is being processed. For crypto trading, it depends solely on how fast your coin confirms. Basically, for BTC, we require a minimum of 1/3 confirmation before we proceed with payment. For giftcard trading, the usage time of cards varies. Thus, for those with shopping cards such as Amex, Vanilla, Sephora, etc.., it might take a longer period of time to process compared to those with instant loading cards such as Steam Wallet giftcard. Google play, Apple giftcard and so on. However, for both instant and long-time consumption cards, we can guarantee a very secured and safe trade and payment will be made immediately after the trade has been successfully completed.</div>
+                        <p class="text-how-it">Kindly wait while your transaction is being processed. For crypto trading, it depends solely on how fast your coin confirms. Basically, for BTC, we require a minimum of 1/3 confirmation before we proceed with payment. For giftcard trading, the usage time of cards varies. Thus, for those with shopping cards such as Amex, Vanilla, Sephora, etc.., it might take a longer period of time to process compared to those with instant loading cards such as Steam Wallet giftcard. Google play, Apple giftcard and so on. However, for both instant and long-time consumption cards, we can guarantee a very secured and safe trade and payment will be made immediately after the trade has been successfully completed.</p>
                     </div>
                     <div class="sec-down" data-aos="fade-down" data-aos-delay="800">
                         <div class="header-how-it">Withdraw Funds</div>
-                        <div class="text-how-it">You can withdraw your funds at anytime you want no hassle. Pretty easy right? Now sign up and begin trading like a boss 😎</div>
+                        <p class="text-how-it">You can withdraw your funds at anytime you want no hassle. Pretty easy right? Now sign up and begin trading like a boss 😎</p>
                     </div>
                 </div>
             </div>
@@ -78,9 +78,9 @@ export default {
 }
 .text-how-it{
     font-style: normal;
-    font-weight: 600;
+    /* font-weight: 600; */
     font-size: 16px;
-    line-height: 19px;
+    /* line-height: 19px; */
     color: #000000;
     flex: none;
     order: 1;
@@ -94,7 +94,7 @@ export default {
 .header-how-it{
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 28px;
     color: #0C64E6;
     flex: none;
@@ -136,10 +136,10 @@ export default {
         flex-grow: 0;
     }
     .text-how-it{
-        font-style: normal;
-        font-weight: 600;
+        /* font-style: normal; */
+        /* font-weight: 600; */
         font-size: 14px;
-        line-height: 19px;
+        line-height: 20px;
         color: #000000;
         flex: none;
         order: 1;

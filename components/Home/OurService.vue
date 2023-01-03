@@ -7,21 +7,21 @@
                 <div class="col-style" data-aos="fade-up-right" data-aos-delay="500">
                     <div><img src="/images/security_user.png" class="img-fluid" alt=""></div>
                     <div class="card-header-1">Safe & secured transactions guaranteed</div>
-                    <div class="card-text-1">Trusted by thousands nationwide for its secured platform, we are confident to say that your assets are in the right hands.</div>
+                    <p class="card-text-1">Trusted by thousands nationwide for its secured platform, we are confident to say that your assets are in the right hands.</p>
                 </div>
             </div> 
             <div class="col-sm-12 col-lg-4 col-md-12">
                 <div class="col-style middle-card" data-aos="fade-down-right" data-aos-delay="600">
                     <div><img src="/images/trade.png" class="img-fluid" alt=""></div>
                     <div class="card-header-1">Trade, Relax and get paid instantly.</div>
-                    <div class="card-text-1">Every customer is treated like a King. We boast of 1200 + reviews from our loyal customers.</div>
+                    <p class="card-text-1">Every customer is treated like a King. We boast of 1200 + reviews from our loyal customers.</p>
                 </div>
             </div>
             <div class="col-sm-12 col-lg-4 col-md-12" data-aos="fade-up-right" data-aos-delay="700">
                 <div class="col-style last-card">
                     <div><img src="/images/bitcoin_convert.png" class="img-fluid" alt=""></div>
                     <div class="card-header-1">World Class Customer Experience</div>
-                    <div class="card-text-1">Every one of our services is built with you in mind. Beating our chest we can say, we give you the best trading experience</div>
+                    <p class="card-text-1">Every one of our services is built with you in mind. Beating our chest we can say, we give you the best trading experience</p>
                 </div>                
             </div>
         </div>
@@ -91,7 +91,7 @@ export default {
 .card-header-1{
     font-style: normal;
     font-weight: 600;
-    font-size: 24px;
+    font-size: 20px;
     line-height: 28px;
     text-align: center;
     color: #0C64E6;
@@ -102,7 +102,7 @@ export default {
 .card-text-1{
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 19px;
     text-align: center;
     color: rgba(0, 0, 0, 0.7);

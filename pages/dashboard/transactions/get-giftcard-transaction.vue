@@ -110,7 +110,9 @@
 
              <div class="headers">Order response :</div>
             <div class="text-h">{{order ? order.response : "No response"}}</div>
-
+            
+            <div class="headers">Order transaction Image</div>
+            <MazGallery :images="[ order.order_image]" v-if="order.order_image"/>
         </div>
     </div>
     <div v-else>

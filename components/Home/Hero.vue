@@ -56,7 +56,7 @@ export default {
 .inner-header{
     font-style: normal;
     font-weight: 700;
-    font-size: 67px;
+    font-size: 65px;
     line-height: 80px;
     color: #000;
     padding-top: 4rem;
@@ -67,7 +67,7 @@ a{
 .inner-text{
     font-style: normal;
     /* font-weight: 400; */
-    font-size: 24px;
+    font-size: 16.5px;
     /* line-height: 30px; */
     /* width: 90%; */
     color: #000;
@@ -153,7 +153,7 @@ a{
 }
 .inner-text{
     font-style: normal;
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 25px;
     margin-top: 1.8rem;
 }
@@ -171,7 +171,7 @@ a{
         margin-top: 5.6rem;
     }
     .inner-header{
-        font-size: 57px;
+        font-size: 45px;
         line-height: 50px;
         padding-top: .1rem;
     }

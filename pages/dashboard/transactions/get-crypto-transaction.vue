@@ -95,10 +95,11 @@
             <div class="headers">Total(user get) :</div>
             <div class="text-h">N {{total | currency}}</div>
 
-             <div class="headers">Order response :</div>
+            <div class="headers">Order response :</div>
             <div class="text-h">{{order ? order.response : "No response"}}</div>
 
-           
+            <div class="headers">Order transaction Image</div>
+            <MazGallery :images="[ order.order_image]" v-if="order.order_image"/>
         </div>
     </div>
     <div v-else>
@@ -147,7 +148,7 @@ export default {
             SET_LOADING: "transaction/SET_LOADING",
         }),
         reloadPage() {
-        window.location.reload();
+            window.location.reload();
         }
     },
     mounted(){

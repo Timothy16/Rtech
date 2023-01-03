@@ -63,7 +63,7 @@ export default {
     color: #000000;
 }
 .section-service{
-    padding: 3rem 7rem 3rem 7rem;
+    padding: 3rem 8rem 3rem 8rem;
 }
 .section-flex{
     display: flex;
