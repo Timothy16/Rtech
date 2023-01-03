@@ -179,7 +179,7 @@ a{
 }
 .big-bg{
     background-color: #0C64E6;
-    height: auto;
+    /* height: 100vh; */
 }
 .header-title{
     font-style: normal;
@@ -315,10 +315,10 @@ label{
     }
     .big-bg{
         background-color: #0C64E6;
-        height: auto !important;
+        height: auto ;
     }
 }
-@media screen and (max-width : 768px){
+@media screen and (min-width : 768px) and (max-width : 1024px){
      .on-mobile{
         display: none;
     }
@@ -332,7 +332,7 @@ label{
     }
     .big-bg{
         background-color: #0C64E6;
-        height: 100vh !important;
+        height: auto ;
     }
     .form-control-1{
         box-sizing: border-box;
